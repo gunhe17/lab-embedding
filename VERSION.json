@@ -1,0 +1,15 @@
+{
+  "version": "v2.4",
+  "timestamp": "2026-04-02",
+  "structure": "2-Step (Layer 1 → Layer 2)",
+  "read_tools": 45,
+  "layer1_groups": 30,
+  "layer1_single": 19,
+  "layer2_groups": 11,
+  "layer1_variations": 621,
+  "layer2_variations": 860,
+  "layer1_accuracy": "100% (84 test)",
+  "layer2_accuracy": "95.2% (125 test)",
+  "combined_accuracy": "95.2%",
+  "changes": "2-Step kNN matcher 완성 — Layer 1 그룹 분류 + Layer 2 tool 분류"
+}

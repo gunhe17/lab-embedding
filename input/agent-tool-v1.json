@@ -1,0 +1,4279 @@
+[
+    {
+        "name": "activity_log.query",
+        "risk": "read",
+        "permission": null,
+        "description": "활동 로그를 검색합니다. 카테고리, 액션, 엔티티 유형, 수행자, 날짜 범위로 필터링할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "description": "카테고리 필터 (선택)"
+                },
+                "action": {
+                    "type": "string",
+                    "description": "액션 필터 (선택)"
+                },
+                "entity_type": {
+                    "type": "string",
+                    "description": "엔티티 유형 필터 (선택)"
+                },
+                "entity_id": {
+                    "type": "string",
+                    "description": "엔티티 ID 필터 (선택)"
+                },
+                "actor_id": {
+                    "type": "string",
+                    "description": "수행자 ID 필터 (선택)"
+                },
+                "date_from": {
+                    "type": "string",
+                    "description": "조회 시작일시 (ISO 8601, 선택)"
+                },
+                "date_to": {
+                    "type": "string",
+                    "description": "조회 종료일시 (ISO 8601, 선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string"
+                }
+            }
+        },
+        "facade": "ActivityLogFacade",
+        "module": "activity_log"
+    },
+    {
+        "name": "assessment.query",
+        "risk": "read",
+        "permission": null,
+        "description": "심리검사 도구를 검색합니다. 유형, 상태, 이름으로 필터링할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "assessment_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "code": {
+                    "type": "string",
+                    "description": "검사 코드 (선택)"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "유형: projective, intelligence, objective, developmental (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태: private, public (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "검사 이름 검색 (선택, 한글/영문)"
+                },
+                "supports_online": {
+                    "type": "boolean",
+                    "description": "온라인 지원 여부 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향 (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "AssessmentFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_case.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 케이스를 검색합니다. 상태, 검사자, 케이스 코드, 태그, 날짜 범위로 필터링할 수 있습니다. include에 counselor_name, client_names를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "case_code": {
+                    "type": "string",
+                    "description": "케이스 코드 검색 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태: pending, processing, completed, cancelled (선택)"
+                },
+                "counselor_id": {
+                    "type": "string",
+                    "description": "담당 검사자 ID (선택)"
+                },
+                "tag": {
+                    "type": "string",
+                    "description": "태그 필터 (선택, 해당 태그를 포함하는 케이스)"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "접수일 시작 (YYYY-MM-DD, 선택)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "접수일 종료 (YYYY-MM-DD, 선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): counselor_name, client_names"
+                }
+            }
+        },
+        "facade": "AssessmentCaseFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_case.validate_update",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 케이스 수정이 가능한지 사전 검증합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "검사 케이스 ID"
+                },
+                "counselor_id": {
+                    "type": "string",
+                    "description": "담당 검사자 ID (선택)"
+                },
+                "assessment_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "검사 ID 목록 (선택)"
+                },
+                "set_id": {
+                    "type": "string",
+                    "description": "검사 세트 ID (선택)"
+                },
+                "client_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "내담자 ID 목록 (선택)"
+                },
+                "assistant_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "보조 검사자 ID 목록 (선택)"
+                },
+                "institution_id": {
+                    "type": "string",
+                    "description": "기관 ID (선택)"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "태그 목록 (선택)"
+                },
+                "is_final_report_required": {
+                    "type": "boolean",
+                    "description": "종합보고서 필요 여부 (선택)"
+                },
+                "schedule": {
+                    "type": "object",
+                    "description": "일정 수정 정보 dict (선택, has_schedule/scheduled_start/scheduled_end/room_id/note)"
+                }
+            },
+            "required": [
+                "case_id"
+            ]
+        },
+        "facade": "AssessmentCaseFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_participant.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 케이스의 참여자(내담자/보조검사자)를 조회합니다. case_id는 필수입니다. participant_type으로 유형 필터링 가능. include에 participant_name을 지정하면 참여자 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID (필수)"
+                },
+                "participant_type": {
+                    "type": "string",
+                    "description": "참여자 유형 필터: client, assistant (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): participant_name"
+                }
+            },
+            "required": [
+                "case_id"
+            ]
+        },
+        "facade": "AssessmentCaseParticipantFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_session.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 세션을 검색합니다. 케이스, 상태, 일정으로 필터링할 수 있습니다. include에 case_code, schedule을 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태: scheduled, attended, noshow, cancelled (선택)"
+                },
+                "schedule_id": {
+                    "type": "string",
+                    "description": "일정 ID (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): case_code, schedule"
+                }
+            }
+        },
+        "facade": "AssessmentSessionFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_set.create",
+        "risk": "write",
+        "permission": "write:assessment",
+        "description": "검사 세트를 생성합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "세트 이름 (필수, 최대 255자)"
+                },
+                "assessment_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "검사 ID 목록 (필수, 최소 1개)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "세트 설명 (선택)"
+                },
+                "center_member_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "담당자 ID 목록 (선택)"
+                }
+            },
+            "required": [
+                "name",
+                "assessment_ids"
+            ]
+        },
+        "facade": "AssessmentSetFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_set.delete",
+        "risk": "delete",
+        "permission": "write:assessment",
+        "description": "검사 세트를 삭제합니다. 삭제된 세트는 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "set_id": {
+                    "type": "string",
+                    "description": "삭제할 검사 세트 ID"
+                }
+            },
+            "required": [
+                "set_id"
+            ]
+        },
+        "facade": "AssessmentSetFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_set.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 세트를 조회합니다. 이름이나 설명으로 검색할 수 있습니다. 필터 없이 호출하면 전체 검사 세트 목록을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "set_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "세트 이름/설명 검색 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "AssessmentSetFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_set.update",
+        "risk": "write",
+        "permission": "write:assessment",
+        "description": "검사 세트를 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "set_id": {
+                    "type": "string",
+                    "description": "수정할 검사 세트 ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "세트 이름 (선택, 최대 255자)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "세트 설명 (선택)"
+                },
+                "assessment_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "검사 ID 목록 (선택)"
+                },
+                "center_member_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "담당자 ID 목록 (선택)"
+                }
+            },
+            "required": [
+                "set_id"
+            ]
+        },
+        "facade": "AssessmentSetFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "assessment_task.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 수행(Task)을 조회합니다. 케이스, 검사, 상태, 실시 방식 등으로 필터링할 수 있습니다. include에 assessment_name, case_code를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "task_id": {
+                    "type": "string",
+                    "description": "Task ID로 1건 조회 (선택)"
+                },
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID 필터 (선택)"
+                },
+                "assessment_id": {
+                    "type": "string",
+                    "description": "검사 ID 필터 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: pending, in_progress, submitted, completed, refused, cancelled (선택)"
+                },
+                "execution_method": {
+                    "type": "string",
+                    "description": "실시 방식 필터: onsite, online (선택)"
+                },
+                "session_id": {
+                    "type": "string",
+                    "description": "세션 ID 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): assessment_name, case_code"
+                }
+            }
+        },
+        "facade": "AssessmentTaskFacade",
+        "module": "assessment"
+    },
+    {
+        "name": "center.query",
+        "risk": "read",
+        "permission": null,
+        "description": "센터 정보를 조회합니다. 현재 센터의 기본 정보(이름, 코드, 전화번호, 주소 등)를 반환합니다. is_active로 활성 여부를 필터링할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성 여부 필터 (선택)"
+                }
+            }
+        },
+        "facade": "CenterFacade",
+        "module": "center"
+    },
+    {
+        "name": "center.update",
+        "risk": "write",
+        "permission": "write:center",
+        "description": "센터 정보를 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "센터 이름 (선택)"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "전화번호 (선택, 예: 02-1234-5678)"
+                },
+                "address": {
+                    "type": "object",
+                    "description": "주소 정보 (선택, dict: zip_code, address, detail)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "센터 설명 (선택)"
+                },
+                "logo_url": {
+                    "type": "string",
+                    "description": "로고 URL (선택)"
+                },
+                "image_urls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "센터 이미지 URL 목록 (선택)"
+                },
+                "business_registration_number": {
+                    "type": "string",
+                    "description": "사업자등록번호 (선택, 000-00-00000)"
+                },
+                "representative_name": {
+                    "type": "string",
+                    "description": "대표자명 (선택)"
+                }
+            }
+        },
+        "facade": "CenterFacade",
+        "module": "center"
+    },
+    {
+        "name": "center_application.query",
+        "risk": "read",
+        "permission": null,
+        "description": "센터 등록 신청을 검색합니다. 상태(PENDING/APPROVED/REJECTED), 신청자 ID로 필터링할 수 있습니다. include에 applicant_name을 지정하면 신청자 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "application_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: PENDING, APPROVED, REJECTED (선택)"
+                },
+                "created_by": {
+                    "type": "string",
+                    "description": "신청자 Person ID 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): applicant_name"
+                }
+            }
+        },
+        "facade": "CenterApplicationFacade",
+        "module": "center"
+    },
+    {
+        "name": "client.create",
+        "risk": "write",
+        "permission": "write:client",
+        "description": "새 내담자/보호자를 등록합니다. 이름은 필수입니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "이름"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "역할: client, guardian, both (기본 client)"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "전화번호 (예: 010-1234-5678) (선택)"
+                },
+                "birth_date": {
+                    "type": "string",
+                    "description": "생년월일 (YYYY-MM-DD) (선택)"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "성별: male, female (선택)"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "이메일 (선택)"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "주소 (선택)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "facade": "ProfileFacade",
+        "module": "client"
+    },
+    {
+        "name": "client.delete",
+        "risk": "delete",
+        "permission": "write:client",
+        "description": "내담자/보호자를 삭제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "type": "string",
+                    "description": "삭제할 내담자 ID"
+                }
+            },
+            "required": [
+                "client_id"
+            ]
+        },
+        "facade": "ProfileFacade",
+        "module": "client"
+    },
+    {
+        "name": "client.query",
+        "risk": "read",
+        "permission": null,
+        "description": "내담자/보호자를 검색합니다. 이름, 전화번호, 역할, 상태로 필터링할 수 있습니다. include에 guardian_names, counseling_count를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "code": {
+                    "type": "string",
+                    "description": "내담자 코드 검색 (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "이름 검색 (선택, 부분 일치)"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "전화번호 검색 (선택)"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "역할 필터: client, guardian, both (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: active, inactive, archived (선택)"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "성별 필터: male, female (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "이름/전화번호/메모 통합 검색 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): guardian_names, counseling_count"
+                }
+            }
+        },
+        "facade": "ProfileFacade",
+        "module": "client"
+    },
+    {
+        "name": "client.update",
+        "risk": "write",
+        "permission": "write:client",
+        "description": "내담자/보호자 정보를 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "type": "string",
+                    "description": "수정할 내담자/보호자 ID"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "역할: client, guardian, both (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "이름 (선택)"
+                },
+                "birth_date": {
+                    "type": "string",
+                    "description": "생년월일 (YYYY-MM-DD) (선택)"
+                },
+                "gender": {
+                    "type": "string",
+                    "description": "성별: male, female (선택)"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "전화번호 (예: 010-1234-5678) (선택)"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "이메일 (선택)"
+                },
+                "address": {
+                    "type": "string",
+                    "description": "주소 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태: active, inactive, archived (선택)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                }
+            },
+            "required": [
+                "client_id"
+            ]
+        },
+        "facade": "ProfileFacade",
+        "module": "client"
+    },
+    {
+        "name": "client_relation.query",
+        "risk": "read",
+        "permission": null,
+        "description": "내담자의 관계(보호자/자녀)를 검색합니다. client_id는 필수입니다. relation_type으로 필터링할 수 있습니다. include에 related_client_name을 지정하면 관계 대상 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "type": "string",
+                    "description": "내담자 ID (필수)"
+                },
+                "relation_type": {
+                    "type": "string",
+                    "description": "관계 유형 필터: guardian, child (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): related_client_name"
+                }
+            },
+            "required": [
+                "client_id"
+            ]
+        },
+        "facade": "ClientFacade",
+        "module": "client"
+    },
+    {
+        "name": "client_resource.query",
+        "risk": "read",
+        "permission": null,
+        "description": "내담자에 연결된 리소스(폼 인스턴스, 문서 등)를 검색합니다. client_id는 필수입니다. resource_type으로 필터링할 수 있습니다. include에 resource_name을 지정하면 리소스 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "type": "string",
+                    "description": "내담자 ID (필수)"
+                },
+                "resource_type": {
+                    "type": "string",
+                    "description": "리소스 유형 필터: form_instance, pre_admission, consent, assessment, other (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): resource_name"
+                }
+            },
+            "required": [
+                "client_id"
+            ]
+        },
+        "facade": "ResourceFacade",
+        "module": "client"
+    },
+    {
+        "name": "counseling.add_participant",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "상담 케이스에 참여자(내담자 또는 상담사)를 추가합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID"
+                },
+                "participant_id": {
+                    "type": "string",
+                    "description": "참여자 ID — 내담자(client.search)나 상담사(member.list)로 조회 후 선택, 사용자에게 확인"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "역할: client, counselor"
+                }
+            },
+            "required": [
+                "case_id",
+                "participant_id",
+                "role"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.cancel_session",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "상담 세션을 취소합니다. 취소 사유를 입력할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "취소할 세션 ID"
+                },
+                "cancel_reason": {
+                    "type": "string",
+                    "description": "취소 사유 (선택)"
+                }
+            },
+            "required": [
+                "session_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.create_case",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "새 상담 케이스를 생성합니다. 상담사 ID, 프로그램 ID는 필수입니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "counselor_id": {
+                    "type": "string",
+                    "description": "담당 상담사 ID — member.list로 조회 후 선택, 사용자에게 확인"
+                },
+                "program_id": {
+                    "type": "string",
+                    "description": "상담 프로그램 ID — program.list로 조회 후 선택, 사용자에게 확인"
+                },
+                "chief_complaint": {
+                    "type": "string",
+                    "description": "주호소 (선택, 최대 1000자)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택, 최대 2000자)"
+                },
+                "total_sessions": {
+                    "type": "integer",
+                    "description": "총 회기 수 (선택, 1~999)"
+                }
+            },
+            "required": [
+                "counselor_id",
+                "program_id"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.create_note",
+        "risk": "write",
+        "permission": "write:counseling_note",
+        "description": "상담 노트를 작성합니다. 기분, 주제, 개입 기법, 진전, 과제, 다음 목표 등의 구조화된 필드를 지원합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "세션 ID"
+                },
+                "client_id": {
+                    "type": "string",
+                    "description": "내담자 ID — client.search로 검색 후 선택, 사용자에게 확인"
+                },
+                "author_id": {
+                    "type": "string",
+                    "description": "작성자 ID — member.list로 조회 후 선택, 사용자에게 확인"
+                },
+                "content": {
+                    "type": "object"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "요약 (선택, 최대 1000자)"
+                },
+                "mood": {
+                    "type": "string",
+                    "description": "내담자 기분/정서 (선택)"
+                },
+                "main_topic": {
+                    "type": "string",
+                    "description": "주요 주제 (선택)"
+                },
+                "intervention": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "사용한 개입 기법 목록 (선택)"
+                },
+                "progress": {
+                    "type": "string",
+                    "description": "진전 사항 (선택)"
+                },
+                "homework": {
+                    "type": "string",
+                    "description": "과제 (선택)"
+                },
+                "next_goal": {
+                    "type": "string",
+                    "description": "다음 회기 목표 (선택)"
+                },
+                "raw_notes": {
+                    "type": "string",
+                    "description": "자유 형식 노트 (선택)"
+                }
+            },
+            "required": [
+                "session_id",
+                "client_id",
+                "author_id"
+            ]
+        },
+        "facade": "CounselingNoteFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.create_session",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "새 상담 세션(회기)을 생성합니다. 케이스 ID와 일정 ID가 필수입니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "counseling_case_id": {
+                    "type": "string",
+                    "description": "상담 케이스 ID — counseling.list_cases로 조회 후 선택, 사용자에게 확인"
+                },
+                "schedule_id": {
+                    "type": "string",
+                    "description": "일정 ID — schedule.list로 조회 후 선택, 사용자에게 확인"
+                }
+            },
+            "required": [
+                "counseling_case_id",
+                "schedule_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.delete_case",
+        "risk": "delete",
+        "permission": "write:counseling",
+        "description": "상담 케이스를 삭제합니다. 삭제된 케이스는 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "삭제할 케이스 ID"
+                }
+            },
+            "required": [
+                "case_id"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.delete_note",
+        "risk": "delete",
+        "permission": "write:counseling_note",
+        "description": "상담 노트를 삭제합니다. 삭제된 노트는 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "note_id": {
+                    "type": "string",
+                    "description": "삭제할 노트 ID"
+                }
+            },
+            "required": [
+                "note_id"
+            ]
+        },
+        "facade": "CounselingNoteFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.delete_session",
+        "risk": "delete",
+        "permission": "write:counseling",
+        "description": "상담 세션을 삭제합니다. 삭제된 세션은 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "삭제할 세션 ID"
+                }
+            },
+            "required": [
+                "session_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.get",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 케이스 1건을 상세 조회합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "조회할 케이스 ID"
+                }
+            },
+            "required": [
+                "case_id"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.leave_participant",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "상담 케이스에서 참여자를 제거합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID"
+                },
+                "participant_id": {
+                    "type": "string",
+                    "description": "제거할 참여자 ID"
+                }
+            },
+            "required": [
+                "case_id",
+                "participant_id"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.list",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 케이스 목록을 조회합니다. 상태, 상담사, 프로그램, 날짜 범위로 필터링할 수 있습니다. '진행 중인 상담' → status에 active, '종결된 케이스' → status에 completed. 필터 없이 호출하면 전체 상담 케이스 목록을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "counselor_id": {
+                    "type": "string",
+                    "description": "상담사 ID (선택) — member.query로 조회 후 선택"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터 (선택): active, completed, cancelled"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "program_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "case_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "접수일 시작 필터 (선택, YYYY-MM-DD)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "접수일 종료 필터 (선택, YYYY-MM-DD)"
+                },
+                "sort": {
+                    "type": "string",
+                    "description": "정렬 방향 (기본 desc): asc(오래된 순), desc(최신 순)"
+                }
+            }
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.list_participants",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 케이스의 참여자(내담자, 상담사) 목록을 조회합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID"
+                },
+                "active_only": {
+                    "type": "boolean",
+                    "description": "활성 참여자만 조회 (기본 True)"
+                }
+            },
+            "required": [
+                "case_id",
+                "active_only"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.list_session_participants",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 세션의 참여자 출석 현황을 조회합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "세션 ID"
+                }
+            },
+            "required": [
+                "session_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.revert_cancel_session",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "취소된 상담 세션을 다시 예정 상태로 되돌립니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "되돌릴 세션 ID"
+                }
+            },
+            "required": [
+                "session_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.update_attendance",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "세션 참여자의 출석 상태를 기록합니다. 출석, 결석, 지각 등을 관리합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "세션 ID"
+                },
+                "participant_type": {
+                    "type": "string",
+                    "description": "참여자 유형: client, counselor"
+                },
+                "participant_id": {
+                    "type": "string",
+                    "description": "참여자 ID"
+                },
+                "attendance_status": {
+                    "type": "string",
+                    "description": "출석 상태 (선택): scheduled, attended, absent, late, excused"
+                },
+                "is_consumed": {
+                    "type": "boolean",
+                    "description": "회기 소진 여부 (선택)"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "출석 메모 (선택, 최대 500자)"
+                }
+            },
+            "required": [
+                "session_id",
+                "participant_type",
+                "participant_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.update_case",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "상담 케이스를 수정합니다. 상태, 상담사, 주호소, 메모, 총 회기 수를 변경할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "수정할 케이스 ID"
+                },
+                "new_counselor_id": {
+                    "type": "string",
+                    "description": "새 담당 상담사 ID (선택) — member.query로 조회 후 선택, 사용자에게 확인"
+                },
+                "chief_complaint": {
+                    "type": "string",
+                    "description": "주호소 (선택)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                },
+                "total_sessions": {
+                    "type": "integer",
+                    "description": "총 회기 수 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 (선택): active, completed, cancelled"
+                }
+            },
+            "required": [
+                "case_id"
+            ]
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.update_note",
+        "risk": "write",
+        "permission": "write:counseling_note",
+        "description": "상담 노트의 기분, 주제, 개입 기법, 진전, 과제 등 내용을 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "note_id": {
+                    "type": "string",
+                    "description": "수정할 노트 ID"
+                },
+                "viewer_member_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "object"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "요약 (선택, 최대 1000자)"
+                },
+                "mood": {
+                    "type": "string",
+                    "description": "내담자 기분/정서 (선택)"
+                },
+                "main_topic": {
+                    "type": "string",
+                    "description": "주요 주제 (선택)"
+                },
+                "intervention": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "사용한 개입 기법 목록 (선택)"
+                },
+                "progress": {
+                    "type": "string",
+                    "description": "진전 사항 (선택)"
+                },
+                "homework": {
+                    "type": "string",
+                    "description": "과제 (선택)"
+                },
+                "next_goal": {
+                    "type": "string",
+                    "description": "다음 회기 목표 (선택)"
+                },
+                "raw_notes": {
+                    "type": "string",
+                    "description": "자유 형식 노트 (선택)"
+                }
+            },
+            "required": [
+                "note_id"
+            ]
+        },
+        "facade": "CounselingNoteFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling.update_session",
+        "risk": "write",
+        "permission": "write:counseling",
+        "description": "상담 세션의 상태(예정/완료/취소)를 변경합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "세션 ID"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 (선택): scheduled, completed, no_show, cancelled"
+                }
+            },
+            "required": [
+                "session_id"
+            ]
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling_case.query",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 케이스를 검색합니다. 상태, 상담사, 프로그램, 날짜 범위, 키워드로 필터링할 수 있습니다. '진행 중인 상담' → status=active, '종결된 케이스' → status=completed. include에 counselor_name, program_name, client_names, session_count를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "case_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "case_code": {
+                    "type": "string",
+                    "description": "케이스 코드 검색 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: active, completed, cancelled (선택)"
+                },
+                "counselor_id": {
+                    "type": "string",
+                    "description": "담당 상담사 ID (선택)"
+                },
+                "program_id": {
+                    "type": "string",
+                    "description": "프로그램 ID (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "주호소/메모 키워드 검색 (선택)"
+                },
+                "client_id": {
+                    "type": "string",
+                    "description": "참여 내담자 ID (선택)"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "접수일 시작 (YYYY-MM-DD, 선택)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "접수일 종료 (YYYY-MM-DD, 선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): counselor_name, program_name, client_names, session_count"
+                }
+            }
+        },
+        "facade": "CounselingCaseFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling_note.query",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 노트를 검색합니다. 회기별, 내담자별로 검색할 수 있습니다. '노트 내용 보여줘' → 기본 필드에 content 포함. include에 client_name, author_name, case_code를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "note_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "counseling_session_id": {
+                    "type": "string",
+                    "description": "세션(회기) ID로 필터 (선택)"
+                },
+                "client_id": {
+                    "type": "string",
+                    "description": "내담자 ID로 필터 (선택)"
+                },
+                "author_id": {
+                    "type": "string",
+                    "description": "작성자 ID 필터 (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "노트 요약 키워드 검색 (선택). 예: '자해', '학교 적응'"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): client_name, author_name, case_code"
+                }
+            }
+        },
+        "facade": "CounselingNoteFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "counseling_session.query",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 회기를 검색합니다. 케이스별, 상태별로 검색할 수 있습니다. '예정된 회기' → status=scheduled, '완료된 회기' → status=completed. include에 case_code, counselor_name, room_name, schedule_start, schedule_end를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "session_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "counseling_case_id": {
+                    "type": "string",
+                    "description": "상담 케이스 ID (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "회기 상태 필터: scheduled, completed, no_show, cancelled (선택)"
+                },
+                "schedule_id": {
+                    "type": "string",
+                    "description": "일정 ID (선택)"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "조회 시작일 (YYYY-MM-DD, 선택)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "조회 종료일 (YYYY-MM-DD, 선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): case_code, counselor_name, room_name, schedule_start, schedule_end"
+                }
+            }
+        },
+        "facade": "CounselingSessionFacade",
+        "module": "counseling"
+    },
+    {
+        "name": "document.query",
+        "risk": "read",
+        "permission": null,
+        "description": "문서를 조회합니다. 이름, 파일 유형으로 검색할 수 있습니다. '어떤 문서가 있어?' → 전체 목록, 'PDF 파일 찾아줘' → file_type에 'pdf' 포함. include에 uploader_name을 지정하면 업로더 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "document_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "문서 이름 검색 (ILIKE, 선택)"
+                },
+                "file_type": {
+                    "type": "string",
+                    "description": "파일 유형 검색 (예: 'pdf', 'image') (선택)"
+                },
+                "uploader_id": {
+                    "type": "string",
+                    "description": "업로더 ID 필터 (선택)"
+                },
+                "include_deleted": {
+                    "type": "boolean",
+                    "description": "삭제된 문서 포함 여부 (기본: false)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): uploader_name"
+                }
+            }
+        },
+        "facade": "DocumentFacade",
+        "module": "document"
+    },
+    {
+        "name": "field_note.add_entry",
+        "risk": "write",
+        "permission": "write:field_note",
+        "description": "필드노트에 메모 또는 태그를 추가합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "field_note_id": {
+                    "type": "string",
+                    "description": "필드노트 ID"
+                },
+                "entry_type": {
+                    "type": "string",
+                    "description": "엔트리 유형 (memo, tag)"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "메모 내용 또는 태그 텍스트"
+                },
+                "timestamp_seconds": {
+                    "type": "number",
+                    "description": "녹음 시작 기준 타임스탬프(초)"
+                },
+                "tag_category": {
+                    "type": "string",
+                    "description": "태그 카테고리 (선택)"
+                }
+            },
+            "required": [
+                "field_note_id",
+                "entry_type",
+                "content",
+                "timestamp_seconds"
+            ]
+        },
+        "facade": "FieldNoteFacade",
+        "module": "field_note"
+    },
+    {
+        "name": "field_note.create",
+        "risk": "write",
+        "permission": "write:field_note",
+        "description": "필드노트를 생성합니다. schedule_id 없이 바로 녹음을 시작할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "author_id": {
+                    "type": "string",
+                    "description": "작성자(상담사) ID"
+                },
+                "schedule_id": {
+                    "type": "string",
+                    "description": "상담 일정 ID (선택 - 후속 연결 가능)"
+                }
+            },
+            "required": [
+                "author_id"
+            ]
+        },
+        "facade": "FieldNoteFacade",
+        "module": "field_note"
+    },
+    {
+        "name": "field_note.finish_recording",
+        "risk": "write",
+        "permission": "write:field_note",
+        "description": "필드노트의 녹음을 종료하고 총 녹음 시간을 기록합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "field_note_id": {
+                    "type": "string",
+                    "description": "필드노트 ID"
+                },
+                "total_duration": {
+                    "type": "number",
+                    "description": "총 녹음 시간(초)"
+                }
+            },
+            "required": [
+                "field_note_id",
+                "total_duration"
+            ]
+        },
+        "facade": "FieldNoteFacade",
+        "module": "field_note"
+    },
+    {
+        "name": "field_note.link_schedule",
+        "risk": "write",
+        "permission": "write:field_note",
+        "description": "필드노트에 회기(schedule)를 연결합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "field_note_id": {
+                    "type": "string",
+                    "description": "필드노트 ID"
+                },
+                "schedule_id": {
+                    "type": "string",
+                    "description": "연결할 일정 ID"
+                }
+            },
+            "required": [
+                "field_note_id",
+                "schedule_id"
+            ]
+        },
+        "facade": "FieldNoteFacade",
+        "module": "field_note"
+    },
+    {
+        "name": "field_note.query",
+        "risk": "read",
+        "permission": null,
+        "description": "필드노트를 검색합니다. 일정 ID, 작성자 ID, 상태로 필터링할 수 있습니다. '이 일정의 필드노트' → schedule_id에 일정 ID. include에 author_name, schedule_start, schedule_end를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "field_note_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "schedule_id": {
+                    "type": "string",
+                    "description": "일정 ID로 검색 (선택)"
+                },
+                "author_id": {
+                    "type": "string",
+                    "description": "작성자 ID 필터 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: recording, paused, completed (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): author_name, schedule_start, schedule_end"
+                }
+            }
+        },
+        "facade": "FieldNoteFacade",
+        "module": "field_note"
+    },
+    {
+        "name": "field_note.upload_audio",
+        "risk": "write",
+        "permission": "write:field_note",
+        "description": "필드노트에 오디오 청크 메타데이터를 저장합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "field_note_id": {
+                    "type": "string",
+                    "description": "필드노트 ID"
+                },
+                "storage_path": {
+                    "type": "string",
+                    "description": "오디오 파일 저장 경로"
+                },
+                "duration": {
+                    "type": "number",
+                    "description": "오디오 길이(초)"
+                }
+            },
+            "required": [
+                "field_note_id",
+                "storage_path",
+                "duration"
+            ]
+        },
+        "facade": "FieldNoteFacade",
+        "module": "field_note"
+    },
+    {
+        "name": "form.clone_template",
+        "risk": "write",
+        "permission": "write:form_template",
+        "description": "기존 양식 템플릿을 복사하여 새 템플릿을 생성합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "source_template_id": {
+                    "type": "string",
+                    "description": "복사할 원본 템플릿 ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "새 템플릿 이름"
+                },
+                "schema": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "source_template_id",
+                "name"
+            ]
+        },
+        "facade": "FormTemplateFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.create_instance",
+        "risk": "write",
+        "permission": "write:form_instance",
+        "description": "양식 템플릿을 기반으로 새 인스턴스를 생성합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_id": {
+                    "type": "string",
+                    "description": "양식 템플릿 ID"
+                }
+            },
+            "required": [
+                "template_id"
+            ]
+        },
+        "facade": "FormInstanceFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.create_template",
+        "risk": "write",
+        "permission": "write:form",
+        "description": "새 양식 템플릿을 생성합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "템플릿 이름"
+                },
+                "schema": {
+                    "type": "object",
+                    "description": "필드/레이아웃 정의 (JSON)"
+                }
+            },
+            "required": [
+                "name",
+                "schema"
+            ]
+        },
+        "facade": "FormTemplateFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.deactivate_template",
+        "risk": "write",
+        "permission": "write:form_template",
+        "description": "양식 템플릿을 비활성화합니다. 비활성화된 템플릿은 새 인스턴스 생성에 사용할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_id": {
+                    "type": "string",
+                    "description": "비활성화할 양식 템플릿 ID"
+                }
+            },
+            "required": [
+                "template_id"
+            ]
+        },
+        "facade": "FormTemplateFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.delete_instance",
+        "risk": "delete",
+        "permission": "write:form_instance",
+        "description": "양식 인스턴스를 삭제합니다. 삭제된 인스턴스는 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "instance_id": {
+                    "type": "string",
+                    "description": "삭제할 양식 인스턴스 ID"
+                }
+            },
+            "required": [
+                "instance_id"
+            ]
+        },
+        "facade": "FormInstanceFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.revert_instance",
+        "risk": "write",
+        "permission": "write:form_instance",
+        "description": "제출된 양식 인스턴스를 draft 상태로 되돌립니다. 재작성이 필요할 때 사용합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "instance_id": {
+                    "type": "string",
+                    "description": "draft로 되돌릴 양식 인스턴스 ID"
+                }
+            },
+            "required": [
+                "instance_id"
+            ]
+        },
+        "facade": "FormInstanceFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.save_answers",
+        "risk": "write",
+        "permission": "write:form_instance",
+        "description": "양식 인스턴스에 사용자가 작성한 답변을 저장합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "instance_id": {
+                    "type": "string",
+                    "description": "양식 인스턴스 ID"
+                },
+                "answers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "답변 데이터 목록 [{field_id, value}, ...]"
+                }
+            },
+            "required": [
+                "instance_id",
+                "answers"
+            ]
+        },
+        "facade": "FormInstanceFacade",
+        "module": "form"
+    },
+    {
+        "name": "form.submit_instance",
+        "risk": "write",
+        "permission": "write:form_instance",
+        "description": "양식 인스턴스를 제출합니다. 제출 후에는 수정이 제한됩니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "instance_id": {
+                    "type": "string",
+                    "description": "제출할 인스턴스 ID"
+                }
+            },
+            "required": [
+                "instance_id"
+            ]
+        },
+        "facade": "FormInstanceFacade",
+        "module": "form"
+    },
+    {
+        "name": "form_instance.query",
+        "risk": "read",
+        "permission": null,
+        "description": "양식 인스턴스(작성된 양식)를 검색합니다. 상태, 템플릿으로 필터링할 수 있습니다. '작성 중인 양식' → status=draft, '제출된 양식' → status=submitted. include에 template_name을 지정하면 템플릿 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "instance_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "template_id": {
+                    "type": "string",
+                    "description": "템플릿 ID 필터 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: draft, submitted (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): template_name"
+                }
+            }
+        },
+        "facade": "FormInstanceFacade",
+        "module": "form"
+    },
+    {
+        "name": "form_template.query",
+        "risk": "read",
+        "permission": null,
+        "description": "양식 템플릿을 검색합니다. 시스템 기본 템플릿 포함 여부를 선택할 수 있습니다. '어떤 양식 있어?' → 기본 호출, '센터 전용 양식만' → is_active=true.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "템플릿 이름 검색 (ILIKE, 선택)"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성화 여부 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string"
+                }
+            }
+        },
+        "facade": "FormTemplateFacade",
+        "module": "form"
+    },
+    {
+        "name": "institution.query",
+        "risk": "read",
+        "permission": null,
+        "description": "기관을 검색합니다. 이름(부분 일치)으로 필터링하거나, ID로 1건 조회할 수 있습니다. 필터 없이 호출하면 전체 기관 목록을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "institution_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "기관 이름 검색 (선택, 부분 일치)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "InstitutionFacade",
+        "module": "institution"
+    },
+    {
+        "name": "member.delete",
+        "risk": "delete",
+        "permission": "write:member",
+        "description": "직원을 삭제합니다. 삭제된 직원은 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "삭제할 직원 ID"
+                }
+            },
+            "required": [
+                "member_id"
+            ]
+        },
+        "facade": "MemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "member.query",
+        "risk": "read",
+        "permission": null,
+        "description": "센터 직원(상담사, 관리자)을 검색합니다. 상태, 역할, 고용 형태로 필터링할 수 있습니다. include에 person_name, person_phone, role_name, program_names를 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: active, inactive (선택)"
+                },
+                "role_id": {
+                    "type": "string",
+                    "description": "역할 ID (선택)"
+                },
+                "employment_type": {
+                    "type": "string",
+                    "description": "고용 형태: FULLTIME, CONTRACT, FREELANCER (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "이름 검색 (선택, Person 이름 기반)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "string",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "string",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): person_name, person_phone, role_name, program_names"
+                }
+            }
+        },
+        "facade": "MemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "member.update",
+        "risk": "write",
+        "permission": "write:member",
+        "description": "직원 정보를 수정합니다. 역할, 고용 형태, 입사일, 메모 등을 변경할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "수정할 직원 ID"
+                },
+                "role_id": {
+                    "type": "string",
+                    "description": "새 역할 ID (선택)"
+                },
+                "employment_type": {
+                    "type": "string",
+                    "description": "고용 형태: FULLTIME, CONTRACT, FREELANCER (선택)"
+                },
+                "hire_date": {
+                    "type": "string",
+                    "description": "입사일 (선택)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                },
+                "profile_image_url": {
+                    "type": "string",
+                    "description": "프로필 이미지 URL (선택)"
+                },
+                "careers": {
+                    "type": "string",
+                    "description": "경력 목록 (선택)"
+                },
+                "educations": {
+                    "type": "string",
+                    "description": "학력 목록 (선택)"
+                },
+                "certifications": {
+                    "type": "string",
+                    "description": "자격증 목록 (선택)"
+                }
+            },
+            "required": [
+                "member_id"
+            ]
+        },
+        "facade": "MemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "member.update_status",
+        "risk": "write",
+        "permission": "write:member",
+        "description": "직원의 활성/비활성 상태를 변경합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원 ID"
+                },
+                "new_status": {
+                    "type": "string",
+                    "description": "새 상태: active, inactive"
+                }
+            },
+            "required": [
+                "member_id",
+                "new_status"
+            ]
+        },
+        "facade": "MemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_invitation.accept",
+        "risk": "write",
+        "permission": null,
+        "description": "멤버 초대를 수락하고 센터에 구성원으로 등록합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "invitation_id": {
+                    "type": "string",
+                    "description": "수락할 초대 ID"
+                },
+                "person_id": {
+                    "type": "string",
+                    "description": "수락하는 사용자의 Person ID"
+                }
+            },
+            "required": [
+                "invitation_id",
+                "person_id"
+            ]
+        },
+        "facade": "MemberInvitationFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_invitation.cancel",
+        "risk": "write",
+        "permission": null,
+        "description": "멤버 초대를 취소합니다. 아직 수락되지 않은 초대만 취소할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "invitation_id": {
+                    "type": "string",
+                    "description": "취소할 초대 ID"
+                }
+            },
+            "required": [
+                "invitation_id"
+            ]
+        },
+        "facade": "MemberInvitationFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_invitation.create",
+        "risk": "write",
+        "permission": null,
+        "description": "직원/상담사를 센터에 초대합니다. 이름, 이메일, 역할 코드는 필수입니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "invited_by": {
+                    "type": "string",
+                    "description": "초대자 Person ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "초대 대상자 이름"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "초대 대상자 이메일"
+                },
+                "role_code": {
+                    "type": "string",
+                    "description": "역할 코드: STAFF, COUNSELOR 등 (ADMIN 불가)"
+                },
+                "employment_type": {
+                    "type": "string",
+                    "description": "고용 유형 (선택, 기본 FULLTIME)"
+                }
+            },
+            "required": [
+                "invited_by",
+                "name",
+                "email",
+                "role_code"
+            ]
+        },
+        "facade": "MemberInvitationFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_invitation.query",
+        "risk": "read",
+        "permission": null,
+        "description": "멤버 초대 목록을 검색합니다. 상태, 역할 ID, 이름/이메일 키워드로 필터링할 수 있습니다. include에 role_name, invited_by_name을 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "invitation_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "초대 상태 필터: pending, accepted, expired (선택)"
+                },
+                "role_id": {
+                    "type": "string",
+                    "description": "역할 ID 필터 (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "이름/이메일 통합 검색 (선택)"
+                },
+                "date_from": {
+                    "type": "string",
+                    "description": "조회 시작일 (ISO 8601, 선택)"
+                },
+                "date_to": {
+                    "type": "string",
+                    "description": "조회 종료일 (ISO 8601, 선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): role_name, invited_by_name"
+                }
+            }
+        },
+        "facade": "MemberInvitationFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_non_working_time.create",
+        "risk": "write",
+        "permission": null,
+        "description": "직원의 비근무시간(휴가, 외출 등)을 등록합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "사유: ANNUAL_LEAVE, HALF_DAY_AM, HALF_DAY_PM, SICK_LEAVE, PERSONAL, TRAINING, BUSINESS_TRIP, OTHER"
+                },
+                "year": {
+                    "type": "integer",
+                    "description": "연도 (선택, 2020~2100)"
+                },
+                "month": {
+                    "type": "integer",
+                    "description": "월 (선택, 1~12)"
+                },
+                "day": {
+                    "type": "integer",
+                    "description": "일 (선택, 1~31)"
+                },
+                "month_week": {
+                    "type": "integer",
+                    "description": "월 내 주차 (선택, 1~5)"
+                },
+                "weekday": {
+                    "type": "string",
+                    "description": "요일 (선택): MON, TUE, WED, THU, FRI, SAT, SUN"
+                },
+                "start_time": {
+                    "type": "string",
+                    "description": "시작 시각 (선택, HH:MM, null이면 종일)"
+                },
+                "end_time": {
+                    "type": "string",
+                    "description": "종료 시각 (선택, HH:MM, null이면 종일)"
+                },
+                "effective_from": {
+                    "type": "string",
+                    "description": "적용 시작일 (선택, ISO 8601)"
+                },
+                "effective_to": {
+                    "type": "string",
+                    "description": "적용 종료일 (선택, ISO 8601)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "설명 (선택, 최대 200자)"
+                }
+            },
+            "required": [
+                "member_id",
+                "reason"
+            ]
+        },
+        "facade": "MemberNonWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_non_working_time.delete",
+        "risk": "delete",
+        "permission": null,
+        "description": "직원의 비근무시간을 삭제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID"
+                },
+                "non_working_time_id": {
+                    "type": "string",
+                    "description": "삭제할 비근무시간 ID"
+                }
+            },
+            "required": [
+                "member_id",
+                "non_working_time_id"
+            ]
+        },
+        "facade": "MemberNonWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_non_working_time.query",
+        "risk": "read",
+        "permission": null,
+        "description": "직원의 비근무시간(휴가, 외출 등)을 조회합니다. member_id는 필수입니다. 연도, 월, 사유로 필터링할 수 있습니다. '휴가 언제야?' → year/month 설정, '비근무 사유 알려줘' → reason 필터. include에 member_name을 지정하면 담당자 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID (필수)"
+                },
+                "year": {
+                    "type": "integer",
+                    "description": "연도 필터 (선택)"
+                },
+                "month": {
+                    "type": "integer",
+                    "description": "월 필터: 1-12 (선택)"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "사유 필터: ANNUAL_LEAVE, HALF_DAY_AM, HALF_DAY_PM, SICK_LEAVE, PERSONAL, TRAINING, BUSINESS_TRIP, OTHER (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 필드 (기본: created_at). 예: reason, year, created_at"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc 또는 desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): member_name"
+                }
+            },
+            "required": [
+                "member_id"
+            ]
+        },
+        "facade": "MemberNonWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_non_working_time.update",
+        "risk": "write",
+        "permission": null,
+        "description": "직원의 비근무시간 정보를 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID"
+                },
+                "non_working_time_id": {
+                    "type": "string",
+                    "description": "수정할 비근무시간 ID"
+                },
+                "start_time": {
+                    "type": "string",
+                    "description": "시작 시각 (선택, HH:MM)"
+                },
+                "end_time": {
+                    "type": "string",
+                    "description": "종료 시각 (선택, HH:MM)"
+                },
+                "effective_to": {
+                    "type": "string",
+                    "description": "적용 종료일 (선택, ISO 8601)"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "사유 (선택): ANNUAL_LEAVE, HALF_DAY_AM, HALF_DAY_PM, SICK_LEAVE, PERSONAL, TRAINING, BUSINESS_TRIP, OTHER"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "설명 (선택, 최대 200자)"
+                }
+            },
+            "required": [
+                "member_id",
+                "non_working_time_id"
+            ]
+        },
+        "facade": "MemberNonWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_working_time.available_slots",
+        "risk": "read",
+        "permission": null,
+        "description": "특정 날짜에 직원이 근무 가능한 시간 슬롯 목록을 조회합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID"
+                },
+                "target_date": {
+                    "type": "string",
+                    "description": "조회할 날짜 (YYYY-MM-DD)"
+                }
+            },
+            "required": [
+                "member_id",
+                "target_date"
+            ]
+        },
+        "facade": "MemberWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_working_time.bulk_update",
+        "risk": "write",
+        "permission": null,
+        "description": "직원의 요일별 근무시간을 일괄 수정합니다. 7일치 근무시간 데이터가 필요합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "7일치 근무시간 목록 (각 항목: weekday, start_time, end_time, break_start_time, break_end_time)"
+                },
+                "confirm": {
+                    "type": "boolean",
+                    "description": "확인 여부 (미래 일정 영향 확인용)"
+                }
+            },
+            "required": [
+                "member_id",
+                "items",
+                "confirm"
+            ]
+        },
+        "facade": "MemberWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "member_working_time.query",
+        "risk": "read",
+        "permission": null,
+        "description": "상담사 근무시간을 조회합니다. 요일별 근무 시작/종료 시간, 휴식 시간을 확인할 수 있습니다. member_id는 필수입니다. include에 member_name을 지정하면 담당자 이름을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "member_id": {
+                    "type": "string",
+                    "description": "직원(상담사) ID (필수)"
+                },
+                "weekday": {
+                    "type": "string",
+                    "description": "요일 필터: MON, TUE, WED, THU, FRI, SAT, SUN (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 필드 (기본: created_at). 예: weekday, start_time, created_at"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc 또는 desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): member_name"
+                }
+            },
+            "required": [
+                "member_id"
+            ]
+        },
+        "facade": "MemberWorkingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "message_log.query",
+        "risk": "read",
+        "permission": null,
+        "description": "메시지 발송 로그를 검색합니다. 메시지 타입, 상태, 수신자, 날짜 범위로 필터링할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "message_type": {
+                    "type": "string",
+                    "description": "메시지 타입 필터: alarmtalk, sms, lms (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: pending, sent, failed, cancelled (선택)"
+                },
+                "recipient": {
+                    "type": "string",
+                    "description": "수신자 전화번호 필터 (선택)"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "시작 날짜 필터 ISO 형식 (선택, 예: 2026-01-01T00:00:00)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "종료 날짜 필터 ISO 형식 (선택, 예: 2026-12-31T23:59:59)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "MessagingFacade",
+        "module": "messaging"
+    },
+    {
+        "name": "message_template.create",
+        "risk": "write",
+        "permission": null,
+        "description": "새 메시지 양식을 생성합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_type": {
+                    "type": "string",
+                    "description": "양식 타입 (예: assessment_result_send)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "양식 이름"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "양식 본문 (변수 포함 가능, 예: {center_name})"
+                },
+                "is_default": {
+                    "type": "boolean",
+                    "description": "기본 양식 여부 (기본: false)"
+                }
+            },
+            "required": [
+                "template_type",
+                "name",
+                "content"
+            ]
+        },
+        "facade": "MessageTemplateFacade",
+        "module": "messaging.message_template"
+    },
+    {
+        "name": "message_template.delete",
+        "risk": "delete",
+        "permission": null,
+        "description": "메시지 양식을 삭제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_id": {
+                    "type": "string",
+                    "description": "삭제할 양식 ID"
+                }
+            },
+            "required": [
+                "template_id"
+            ]
+        },
+        "facade": "MessageTemplateFacade",
+        "module": "messaging.message_template"
+    },
+    {
+        "name": "message_template.query",
+        "risk": "read",
+        "permission": null,
+        "description": "문자 양식을 검��합니다. 양식 타입, 이름(부분 일치), 기본 양식 여부로 필터링할 수 있습니다. ID로 1건 조회도 가능합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "template_type": {
+                    "type": "string",
+                    "description": "양식 타입 필터 (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "양식 이름 검색 (선택, 부분 일치)"
+                },
+                "is_default": {
+                    "type": "boolean",
+                    "description": "기본 양식 ��부 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "MessageTemplateFacade",
+        "module": "messaging.message_template"
+    },
+    {
+        "name": "message_template.update",
+        "risk": "write",
+        "permission": null,
+        "description": "메시지 양식의 이름이나 내용을 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "template_id": {
+                    "type": "string",
+                    "description": "수정할 양식 ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "양식 이름 (선택)"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "양식 본문 (선택)"
+                }
+            },
+            "required": [
+                "template_id"
+            ]
+        },
+        "facade": "MessageTemplateFacade",
+        "module": "messaging.message_template"
+    },
+    {
+        "name": "non_operating_time.create",
+        "risk": "write",
+        "permission": null,
+        "description": "센터의 비영업시간(휴무일, 특별 휴무 등)을 등록합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "year": {
+                    "type": "integer",
+                    "description": "연도 (선택, 매년 반복이면 None)"
+                },
+                "month": {
+                    "type": "integer",
+                    "description": "월 (선택)"
+                },
+                "day": {
+                    "type": "integer",
+                    "description": "일 (선택)"
+                },
+                "month_week": {
+                    "type": "integer",
+                    "description": "월의 몇째 주 (선택)"
+                },
+                "weekday": {
+                    "type": "string",
+                    "description": "요일 (선택, MON~SUN)"
+                },
+                "start_time": {
+                    "type": "string",
+                    "description": "시작 시간 (선택, 시간대 지정 시)"
+                },
+                "end_time": {
+                    "type": "string",
+                    "description": "종료 시간 (선택, 시간대 지정 시)"
+                },
+                "effective_from": {
+                    "type": "string",
+                    "description": "유효 시작일 (선택)"
+                },
+                "effective_to": {
+                    "type": "string",
+                    "description": "유효 종료일 (선택)"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "비영업 사유 (필수)"
+                },
+                "confirm": {
+                    "type": "boolean",
+                    "description": "확인 여부"
+                }
+            },
+            "required": [
+                "year",
+                "month",
+                "day",
+                "month_week",
+                "weekday",
+                "start_time",
+                "end_time",
+                "effective_from",
+                "effective_to",
+                "reason",
+                "confirm"
+            ]
+        },
+        "facade": "NonOperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "non_operating_time.delete",
+        "risk": "delete",
+        "permission": null,
+        "description": "센터의 비영업시간을 삭제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "non_operating_time_id": {
+                    "type": "string",
+                    "description": "삭제할 비영업시간 ID"
+                }
+            },
+            "required": [
+                "non_operating_time_id"
+            ]
+        },
+        "facade": "NonOperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "non_operating_time.query",
+        "risk": "read",
+        "permission": null,
+        "description": "센터의 비영업시간(휴무일, 특별 휴무 등)을 조회합니다. 연도, 월, 사유, 생성자로 필터링할 수 있습니다. '이번 달 휴무일' → year/month 설정, '공휴일 확인' → created_by='SYSTEM'. 필터 없이 호출하면 전체 휴무일 목록을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "year": {
+                    "type": "integer",
+                    "description": "연도 필터 (선택)"
+                },
+                "month": {
+                    "type": "integer",
+                    "description": "월 필터: 1-12 (선택)"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "사유 검색 (선택, 부분 일치)"
+                },
+                "created_by": {
+                    "type": "string",
+                    "description": "생성자 필터: SYSTEM 또는 CENTER (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 필드 (기본: created_at). 예: reason, year, created_at"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc 또는 desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "NonOperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "non_operating_time.register_holidays",
+        "risk": "write",
+        "permission": null,
+        "description": "공휴일을 일괄 등록합니다. 연도와 공휴일 목록이 필요합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "year": {
+                    "type": "integer",
+                    "description": "연도"
+                },
+                "holidays": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "공휴일 목록 [{year, month, day, reason}, ...]"
+                }
+            },
+            "required": [
+                "year",
+                "holidays"
+            ]
+        },
+        "facade": "NonOperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "non_operating_time.update",
+        "risk": "write",
+        "permission": null,
+        "description": "센터의 비영업시간 정보를 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "non_operating_time_id": {
+                    "type": "string",
+                    "description": "수정할 비영업시간 ID"
+                },
+                "start_time": {
+                    "type": "string",
+                    "description": "시작 시간 (선택)"
+                },
+                "end_time": {
+                    "type": "string",
+                    "description": "종료 시간 (선택)"
+                },
+                "effective_to": {
+                    "type": "string",
+                    "description": "유효 종료일 (선택)"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "비영업 사유 (선택)"
+                },
+                "confirm": {
+                    "type": "boolean",
+                    "description": "확인 여부 (기본 False)"
+                }
+            },
+            "required": [
+                "non_operating_time_id"
+            ]
+        },
+        "facade": "NonOperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "notification.mark_all_read",
+        "risk": "write",
+        "permission": null,
+        "description": "모든 알림을 읽음 처리합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "recipient_id": {
+                    "type": "string",
+                    "description": "수신자 ID"
+                }
+            },
+            "required": [
+                "recipient_id"
+            ]
+        },
+        "facade": "NotificationFacade",
+        "module": "notification"
+    },
+    {
+        "name": "notification.mark_read",
+        "risk": "write",
+        "permission": null,
+        "description": "알림 1건을 읽음 처리합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "notification_id": {
+                    "type": "string",
+                    "description": "알림 ID"
+                },
+                "recipient_id": {
+                    "type": "string",
+                    "description": "수신자 ID"
+                }
+            },
+            "required": [
+                "notification_id",
+                "recipient_id"
+            ]
+        },
+        "facade": "NotificationFacade",
+        "module": "notification"
+    },
+    {
+        "name": "notification.query",
+        "risk": "read",
+        "permission": null,
+        "description": "알림을 조회합니다. 카테고리, 읽음 여부로 필터링할 수 있습니다. '읽지 않은 알림 보여줘' → is_read=false, '검사 관련 알림' → category='assessment'.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "notification_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "알림 카테고리: assessment, counseling, system (선택)"
+                },
+                "event_type": {
+                    "type": "string",
+                    "description": "이벤트 유형 필터 (선택)"
+                },
+                "is_read": {
+                    "type": "boolean",
+                    "description": "읽음 여부 필터 (선택)"
+                },
+                "priority": {
+                    "type": "string",
+                    "description": "우선순위 필터: important, normal (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string"
+                }
+            }
+        },
+        "facade": "NotificationFacade",
+        "module": "notification"
+    },
+    {
+        "name": "operating_time.available_slots",
+        "risk": "read",
+        "permission": null,
+        "description": "특정 날짜에 센터가 영업 가능한 시간 슬롯 목록을 조회합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "target_date": {
+                    "type": "string",
+                    "description": "조회할 날짜 (YYYY-MM-DD)"
+                }
+            },
+            "required": [
+                "target_date"
+            ]
+        },
+        "facade": "OperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "operating_time.bulk_update",
+        "risk": "write",
+        "permission": null,
+        "description": "센터의 요일별 영업시간을 일괄 수정합니다. 7일치 데이터가 필요합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "영업시간 데이터 목록 (7일치, 각 요일별 open_time/close_time/break 포함)"
+                },
+                "confirm": {
+                    "type": "boolean",
+                    "description": "확인 여부"
+                }
+            },
+            "required": [
+                "items",
+                "confirm"
+            ]
+        },
+        "facade": "OperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "operating_time.check_slot",
+        "risk": "read",
+        "permission": null,
+        "description": "특정 날짜와 시간 슬롯에 센터가 영업 가능한지 확인합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "target_date": {
+                    "type": "string",
+                    "description": "조회할 날짜 (YYYY-MM-DD)"
+                },
+                "slot": {
+                    "type": "string",
+                    "description": "확인할 시간 슬롯 (예: 09:00)"
+                }
+            },
+            "required": [
+                "target_date",
+                "slot"
+            ]
+        },
+        "facade": "OperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "operating_time.query",
+        "risk": "read",
+        "permission": null,
+        "description": "센터의 요일별 운영시간을 조회합니다. 점심시간(휴게시간) 포함. 요일로 필터링할 수 있습니다. '토요일 운영해?' → weekday='SAT', '평일 영업시간' → weekday 생략 (전체 반환). 필터 없이 호출하면 전체 요일별 운영시간을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "weekday": {
+                    "type": "string",
+                    "description": "요일 필터: MON, TUE, WED, THU, FRI, SAT, SUN (선택, 생략 시 전체)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 필드 (기본: created_at). 예: weekday, open_time, created_at"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc 또는 desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "OperatingTimeFacade",
+        "module": "center"
+    },
+    {
+        "name": "payment.complete",
+        "risk": "write",
+        "permission": null,
+        "description": "청구를 완료 처리합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "payment_id": {
+                    "type": "string",
+                    "description": "완료할 청구 ID (필수)"
+                },
+                "amount": {
+                    "type": "integer",
+                    "description": "최종 결제 금액 (원, 필수)"
+                },
+                "account_id": {
+                    "type": "string",
+                    "description": "완료 처리자 계정 ID (필수)"
+                },
+                "completer_name": {
+                    "type": "string",
+                    "description": "완료 처리자 이름 (필수)"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                }
+            },
+            "required": [
+                "payment_id",
+                "amount",
+                "account_id",
+                "completer_name"
+            ]
+        },
+        "facade": "PaymentFacade",
+        "module": "billing"
+    },
+    {
+        "name": "payment.create",
+        "risk": "write",
+        "permission": null,
+        "description": "청구 기록을 생성합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "client_id": {
+                    "type": "string",
+                    "description": "내담자 ID (필수)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "내역 (필수, 최대 200자)"
+                },
+                "account_id": {
+                    "type": "string",
+                    "description": "작성자 계정 ID (필수)"
+                },
+                "amount": {
+                    "type": "integer",
+                    "description": "결제 금액 (원, 기본 0)"
+                },
+                "client_name": {
+                    "type": "string",
+                    "description": "내담자 이름 (선택)"
+                },
+                "client_code": {
+                    "type": "string",
+                    "description": "내담자 코드 (선택)"
+                },
+                "related_type": {
+                    "type": "string",
+                    "description": "참조 유형: counseling_session, assessment_session (선택)"
+                },
+                "related_id": {
+                    "type": "string",
+                    "description": "참조 세션 ID (선택)"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                }
+            },
+            "required": [
+                "client_id",
+                "description",
+                "account_id"
+            ]
+        },
+        "facade": "PaymentFacade",
+        "module": "billing"
+    },
+    {
+        "name": "payment.delete",
+        "risk": "delete",
+        "permission": null,
+        "description": "청구 기록을 삭제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "payment_id": {
+                    "type": "string",
+                    "description": "삭제할 청구 ID"
+                }
+            },
+            "required": [
+                "payment_id"
+            ]
+        },
+        "facade": "PaymentFacade",
+        "module": "billing"
+    },
+    {
+        "name": "payment.query",
+        "risk": "read",
+        "permission": null,
+        "description": "청구 기록을 검색합니다. 상태, 내담자, 날짜 범위로 필터링할 수 있습니다. '미수금 조회' → status=pending, '완료된 결제' → status=completed. include에 client_code를 지정하면 내담자 코드를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "payment_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "client_id": {
+                    "type": "string",
+                    "description": "내담자 ID 필터 (선택)"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "상태 필터: pending, completed (선택)"
+                },
+                "related_type": {
+                    "type": "string",
+                    "description": "참조 유형 필터: counseling_session, assessment_session (선택)"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "조회 시작일 (YYYY-MM-DD, 선택)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "조회 종료일 (YYYY-MM-DD, 선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): client_code"
+                }
+            }
+        },
+        "facade": "PaymentFacade",
+        "module": "billing"
+    },
+    {
+        "name": "payment.update",
+        "risk": "write",
+        "permission": null,
+        "description": "청구 기록을 수정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "payment_id": {
+                    "type": "string",
+                    "description": "수정할 청구 ID (필수)"
+                },
+                "amount": {
+                    "type": "integer",
+                    "description": "결제 금액 (원, 선택)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "내역 (선택, 최대 200자)"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                }
+            },
+            "required": [
+                "payment_id"
+            ]
+        },
+        "facade": "PaymentFacade",
+        "module": "billing"
+    },
+    {
+        "name": "program.create",
+        "risk": "write",
+        "permission": "write:program",
+        "description": "새 상담 프로그램을 생성합니다. 프로그램명, 유형(INDIVIDUAL/GROUP), 가격, 소요시간은 필수입니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "프로그램명 (예: 개인상담 50분) — 사용자에게 반드시 확인"
+                },
+                "program_type": {
+                    "type": "string",
+                    "description": "유형: INDIVIDUAL(개인), GROUP(그룹) — 사용자에게 반드시 확인"
+                },
+                "price": {
+                    "type": "integer",
+                    "description": "가격 (원, 0 이상) — 사용자에게 반드시 확인, 임의로 0 입력 금지"
+                },
+                "duration_minutes": {
+                    "type": "integer",
+                    "description": "소요 시간 (분, 1~480) — 사용자에게 반드시 확인, 임의로 추측 금지"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "프로그램 설명 (선택)"
+                }
+            },
+            "required": [
+                "name",
+                "program_type",
+                "price",
+                "duration_minutes"
+            ]
+        },
+        "facade": "ProgramFacade",
+        "module": "center"
+    },
+    {
+        "name": "program.delete",
+        "risk": "delete",
+        "permission": "write:program",
+        "description": "프로그램을 삭제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "program_id": {
+                    "type": "string",
+                    "description": "삭제할 프로그램 ID"
+                }
+            },
+            "required": [
+                "program_id"
+            ]
+        },
+        "facade": "ProgramFacade",
+        "module": "center"
+    },
+    {
+        "name": "program.query",
+        "risk": "read",
+        "permission": null,
+        "description": "상담 프로그램을 검색합니다. 프로그램 유형, 활성 상태, 이름으로 필터링할 수 있습니다. include에 member_names를 지정하면 담당자 이름 목록을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "program_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "프로그램명 검색 (선택, 부분 일치)"
+                },
+                "program_type": {
+                    "type": "string",
+                    "description": "유형 필터: INDIVIDUAL, GROUP (선택)"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성 여부 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): member_names"
+                }
+            }
+        },
+        "facade": "ProgramFacade",
+        "module": "center"
+    },
+    {
+        "name": "program.update",
+        "risk": "write",
+        "permission": "write:program",
+        "description": "프로그램 정보를 수정합니다. 이름, 유형, 가격, 소요 시간, 활성 여부를 변경할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "program_id": {
+                    "type": "string",
+                    "description": "수정할 프로그램 ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "프로그램 이름 (선택)"
+                },
+                "program_type": {
+                    "type": "string",
+                    "description": "유형: INDIVIDUAL, GROUP (선택)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "설명 (선택)"
+                },
+                "price": {
+                    "type": "integer",
+                    "description": "가격 (선택)"
+                },
+                "duration_minutes": {
+                    "type": "integer",
+                    "description": "소요 시간(분) (선택)"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성 여부 (선택)"
+                }
+            },
+            "required": [
+                "program_id"
+            ]
+        },
+        "facade": "ProgramFacade",
+        "module": "center"
+    },
+    {
+        "name": "program_member.assign",
+        "risk": "write",
+        "permission": null,
+        "description": "프로그램에 담당 직원/상담사를 일괄 배정합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "program_id": {
+                    "type": "string",
+                    "description": "프로그램 ID"
+                },
+                "member_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "배정할 직원(상담사) ID 목록"
+                }
+            },
+            "required": [
+                "program_id",
+                "member_ids"
+            ]
+        },
+        "facade": "ProgramMemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "program_member.query",
+        "risk": "read",
+        "permission": null,
+        "description": "프로그램에 배정된 담당 직원/상담사를 검색합니다. program_id는 필수입니다. include에 member_name, program_name을 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "program_id": {
+                    "type": "string",
+                    "description": "프로그램 ID (필수)"
+                },
+                "member_id": {
+                    "type": "string",
+                    "description": "직원 ID 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): member_name, program_name"
+                }
+            },
+            "required": [
+                "program_id"
+            ]
+        },
+        "facade": "ProgramMemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "program_member.unassign",
+        "risk": "delete",
+        "permission": null,
+        "description": "프로그램에서 담당 직원/상담사를 해제합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "program_id": {
+                    "type": "string",
+                    "description": "프로그램 ID"
+                },
+                "member_id": {
+                    "type": "string",
+                    "description": "해제할 직원(상담사) ID"
+                }
+            },
+            "required": [
+                "program_id",
+                "member_id"
+            ]
+        },
+        "facade": "ProgramMemberFacade",
+        "module": "center"
+    },
+    {
+        "name": "room.create",
+        "risk": "write",
+        "permission": "write:room",
+        "description": "새 상담실을 추가합니다. 이름은 필수이며, 설명과 활성 여부를 설정할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "상담실 이름"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "상담실 설명 (선택)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                },
+                "thumbnail_url": {
+                    "type": "string",
+                    "description": "썸네일 이미지 URL (선택)"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성 여부 (기본 True)"
+                },
+                "inactive_reason": {
+                    "type": "string",
+                    "description": "비활성 사유 (선택)"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "facade": "RoomFacade",
+        "module": "center"
+    },
+    {
+        "name": "room.delete",
+        "risk": "delete",
+        "permission": "write:room",
+        "description": "상담실을 삭제합니다. 삭제된 상담실은 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "room_id": {
+                    "type": "string",
+                    "description": "삭제할 상담실 ID"
+                }
+            },
+            "required": [
+                "room_id"
+            ]
+        },
+        "facade": "RoomFacade",
+        "module": "center"
+    },
+    {
+        "name": "room.query",
+        "risk": "read",
+        "permission": null,
+        "description": "상담실을 검색합니다. 이름, 활성 상태로 필터링하고, 임의 필드로 정렬할 수 있습니다. '사용 가능한 상담실' → is_active=true. 필터 없이 호출하면 전체 상담실 목록을 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "room_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "상담실 이름 검색 (선택, 부분 일치)"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성 여부 필터 (선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "이름/설명/메모 통합 검색 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 필드 (기본: created_at). 예: name, is_active, created_at"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc 또는 desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                }
+            }
+        },
+        "facade": "RoomFacade",
+        "module": "center"
+    },
+    {
+        "name": "room.update",
+        "risk": "write",
+        "permission": "write:room",
+        "description": "상담실 정보를 수정합니다. 이름, 설명, 활성 여부 등을 변경할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "room_id": {
+                    "type": "string",
+                    "description": "수정할 상담실 ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "상담실 이름 (선택)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "상담실 설명 (선택)"
+                },
+                "memo": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                },
+                "thumbnail_url": {
+                    "type": "string",
+                    "description": "썸네일 이미지 URL (선택)"
+                },
+                "is_active": {
+                    "type": "boolean",
+                    "description": "활성 여부 (선택)"
+                },
+                "inactive_reason": {
+                    "type": "string",
+                    "description": "비활성 사유 (선택)"
+                }
+            },
+            "required": [
+                "room_id"
+            ]
+        },
+        "facade": "RoomFacade",
+        "module": "center"
+    },
+    {
+        "name": "schedule.create",
+        "risk": "write",
+        "permission": "write:schedule",
+        "description": "새 일정을 생성합니다. 상담, 검사, 회의 등의 일정을 등록할 수 있습니다. 시작/종료 시간, 유형, 담당자는 필수입니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "schedule_type": {
+                    "type": "string",
+                    "description": "일정 유형: counseling, assessment, meeting, other"
+                },
+                "start": {
+                    "type": "string",
+                    "description": "시작 시간 (ISO 8601, 예: 2026-03-10T10:00:00+09:00) — 사용자에게 반드시 확인, 임의 추측 금지"
+                },
+                "end": {
+                    "type": "string",
+                    "description": "종료 시간 (ISO 8601, 예: 2026-03-10T11:00:00+09:00)"
+                },
+                "member_id": {
+                    "type": "string",
+                    "description": "담당자 ID — member.list로 조회 후 선택, 사용자에게 확인"
+                },
+                "room_id": {
+                    "type": "string",
+                    "description": "상담실 ID — room.list로 조회 후 선택 (선택)"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "일정 제목 (선택)"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "메모 (선택)"
+                }
+            },
+            "required": [
+                "schedule_type",
+                "start",
+                "end",
+                "member_id"
+            ]
+        },
+        "facade": "ScheduleFacade",
+        "module": "schedule"
+    },
+    {
+        "name": "schedule.delete",
+        "risk": "delete",
+        "permission": "write:schedule",
+        "description": "일정을 삭제합니다. 삭제된 일정은 복구할 수 없습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "schedule_id": {
+                    "type": "string",
+                    "description": "삭제할 일정 ID"
+                }
+            },
+            "required": [
+                "schedule_id"
+            ]
+        },
+        "facade": "ScheduleFacade",
+        "module": "schedule"
+    },
+    {
+        "name": "schedule.query",
+        "risk": "read",
+        "permission": null,
+        "description": "일정을 검색합니다. 날짜 범위, 일정 유형, 담당자, 상담실로 필터링할 수 있습니다. '오늘 일정' → start_date/end_date에 오늘 날짜. include에 member_name, room_name을 지정하면 추가 정보를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "schedule_id": {
+                    "type": "string",
+                    "description": "ID로 1건 조회 (선택)"
+                },
+                "schedule_type": {
+                    "type": "string",
+                    "description": "일정 유형: counseling, assessment, meeting, block (선택)"
+                },
+                "member_id": {
+                    "type": "string",
+                    "description": "담당자 ID (선택)"
+                },
+                "room_id": {
+                    "type": "string",
+                    "description": "상담실 ID (선택)"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "조회 시작일 (YYYY-MM-DD, 선택)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "조회 종료일 (YYYY-MM-DD, 선택)"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "제목/메모 검색 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: start)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: asc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): member_name, room_name"
+                }
+            }
+        },
+        "facade": "ScheduleFacade",
+        "module": "schedule"
+    },
+    {
+        "name": "schedule.update",
+        "risk": "write",
+        "permission": "write:schedule",
+        "description": "기존 일정을 수정합니다. 시간, 제목, 상담실, 메모를 변경할 수 있습니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "schedule_id": {
+                    "type": "string",
+                    "description": "수정할 일정 ID"
+                },
+                "member_id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "새 제목 (선택)"
+                },
+                "room_id": {
+                    "type": "string",
+                    "description": "새 상담실 ID — room.list로 조회 후 선택 (선택)"
+                },
+                "start": {
+                    "type": "string",
+                    "description": "새 시작 시간 (ISO 8601, 예: 2026-03-10T10:00:00+09:00) — 사용자에게 반드시 확인 (선택)"
+                },
+                "end": {
+                    "type": "string",
+                    "description": "새 종료 시간 (ISO 8601) (선택)"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "새 메모 (선택)"
+                }
+            },
+            "required": [
+                "schedule_id"
+            ]
+        },
+        "facade": "ScheduleFacade",
+        "module": "schedule"
+    },
+    {
+        "name": "schedule.validate_batch",
+        "risk": "read",
+        "permission": null,
+        "description": "반복 일정 생성 전 충돌 여부를 검증합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "start_date": {
+                    "type": "string",
+                    "description": "시작일 (YYYY-MM-DD)"
+                },
+                "start_time": {
+                    "type": "string",
+                    "description": "시작 시간 (HH:MM)"
+                },
+                "recurrence": {
+                    "type": "object",
+                    "description": "반복 패턴 (dict: pattern, interval, count/until, days_of_week 등)"
+                },
+                "room_id": {
+                    "type": "string",
+                    "description": "장소 ID"
+                },
+                "duration_minutes": {
+                    "type": "integer",
+                    "description": "소요 시간 (분, 10~480)"
+                }
+            },
+            "required": [
+                "start_date",
+                "start_time",
+                "recurrence",
+                "room_id",
+                "duration_minutes"
+            ]
+        },
+        "facade": "ScheduleFacade",
+        "module": "schedule"
+    },
+    {
+        "name": "send_link.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 바로링크 발송 내역을 조회합니다. 케이스 ID로 필터링하거나 바로링크 ID로 단건 조회할 수 있습니다. include에 case_code를 지정하면 케이스 코드를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "link_id": {
+                    "type": "string",
+                    "description": "바로링크 ID로 1건 조회 (선택)"
+                },
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): case_code"
+                }
+            }
+        },
+        "facade": "SendLinkFacade",
+        "module": "assessment.send_link"
+    },
+    {
+        "name": "send_result.query",
+        "risk": "read",
+        "permission": null,
+        "description": "검사 결과전송 내역을 조회합니다. 케이스 ID로 필터링하거나 결과전송 ID로 단건 조회할 수 있습니다. include에 case_code를 지정하면 케이스 코드를 반환합니다.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "result_id": {
+                    "type": "string",
+                    "description": "결과전송 ID로 1건 조회 (선택)"
+                },
+                "case_id": {
+                    "type": "string",
+                    "description": "케이스 ID 필터 (선택)"
+                },
+                "sort_by": {
+                    "type": "string",
+                    "description": "정렬 기준 (기본: created_at)"
+                },
+                "sort_order": {
+                    "type": "string",
+                    "description": "정렬 방향: asc/desc (기본: desc)"
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "시작 위치 (기본: 0)"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "조회 개수 (기본: 20, 최대: 200)"
+                },
+                "include": {
+                    "type": "string",
+                    "description": "추가 정보 (콤마 구분): case_code"
+                }
+            }
+        },
+        "facade": "SendResultFacade",
+        "module": "assessment.send_result"
+    }
+]

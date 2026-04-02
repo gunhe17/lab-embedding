@@ -1,0 +1,143 @@
+{
+  "version": "v2.2-layer1",
+  "groups": 30,
+  "strategies": {
+    "top-1": {
+      "correct": 51,
+      "total": 60,
+      "accuracy": 85.0
+    },
+    "majority k=3": {
+      "correct": 51,
+      "total": 60,
+      "accuracy": 85.0
+    },
+    "majority k=5": {
+      "correct": 58,
+      "total": 60,
+      "accuracy": 96.7
+    },
+    "weighted k=5": {
+      "correct": 59,
+      "total": 60,
+      "accuracy": 98.3
+    }
+  },
+  "best_strategy": "weighted k=5",
+  "best_accuracy": 98.3,
+  "errors": {
+    "top-1": [
+      {
+        "text": "참여자 명단 뽑아줘",
+        "expected": "상담참여자",
+        "got": "검사케이스"
+      },
+      {
+        "text": "올해 종결된 상담 건수 좀 알려줘",
+        "expected": "상담케이스",
+        "got": "상담회기"
+      },
+      {
+        "text": "세션 상태별로 조회할 수 있어?",
+        "expected": "상담회기",
+        "got": "검사실행"
+      },
+      {
+        "text": "양식 서식 현황 좀 볼게",
+        "expected": "양식템플릿",
+        "got": "양식인스턴스"
+      },
+      {
+        "text": "내일 일정 뭐 있어?",
+        "expected": "일정",
+        "got": "근무시간"
+      },
+      {
+        "text": "팀원 조횝해줘",
+        "expected": "직원",
+        "got": "프로그램배정"
+      },
+      {
+        "text": "상담사 누가 있지?",
+        "expected": "직원",
+        "got": "상담실"
+      },
+      {
+        "text": "이 치료 프로그램 담당 누구야",
+        "expected": "프로그램배정",
+        "got": "상담실"
+      },
+      {
+        "text": "오늘 활동 기록 확인해주세요",
+        "expected": "활동로그",
+        "got": "상담회기"
+      }
+    ],
+    "majority k=3": [
+      {
+        "text": "기관 조횝해줘",
+        "expected": "기관",
+        "got": "NONE"
+      },
+      {
+        "text": "클라이언트 C-005 정보 보여줘",
+        "expected": "내담자",
+        "got": "NONE"
+      },
+      {
+        "text": "파일 목록 보여줘",
+        "expected": "문서",
+        "got": "NONE"
+      },
+      {
+        "text": "자해 관련 노트 있는지 검색해봐",
+        "expected": "상담노트",
+        "got": "필드노트"
+      },
+      {
+        "text": "올해 종결된 상담 건수 좀 알려줘",
+        "expected": "상담케이스",
+        "got": "NONE"
+      },
+      {
+        "text": "양식 서식 현황 좀 볼게",
+        "expected": "양식템플릿",
+        "got": "양식인스턴스"
+      },
+      {
+        "text": "팀원 조횝해줘",
+        "expected": "직원",
+        "got": "NONE"
+      },
+      {
+        "text": "반차 쓴 사람 있나?",
+        "expected": "직원휴무",
+        "got": "NONE"
+      },
+      {
+        "text": "오늘 활동 기록 확인해주세요",
+        "expected": "활동로그",
+        "got": "NONE"
+      }
+    ],
+    "majority k=5": [
+      {
+        "text": "클라이언트 C-005 정보 보여줘",
+        "expected": "내담자",
+        "got": "NONE"
+      },
+      {
+        "text": "반차 쓴 사람 있나?",
+        "expected": "직원휴무",
+        "got": "프로그램배정"
+      }
+    ],
+    "weighted k=5": [
+      {
+        "text": "반차 쓴 사람 있나?",
+        "expected": "직원휴무",
+        "got": "프로그램배정"
+      }
+    ]
+  }
+}

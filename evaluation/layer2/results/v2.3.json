@@ -1,0 +1,315 @@
+{
+  "version": "v2.3-layer2",
+  "groups": 11,
+  "tools": 26,
+  "total_test": 116,
+  "per_group": {
+    "검사도구": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "8/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    },
+    "검사실행": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "8/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    },
+    "검사케이스": {
+      "tools": 3,
+      "test": 15,
+      "top-1": "11/15",
+      "majority k=5": "12/15",
+      "weighted k=5": "12/15"
+    },
+    "근무시간": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "7/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    },
+    "내담자": {
+      "tools": 3,
+      "test": 15,
+      "top-1": "11/15",
+      "majority k=5": "12/15",
+      "weighted k=5": "12/15"
+    },
+    "상담케이스": {
+      "tools": 3,
+      "test": 15,
+      "top-1": "13/15",
+      "majority k=5": "13/15",
+      "weighted k=5": "13/15"
+    },
+    "상담회기": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "7/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    },
+    "센터정보": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "8/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    },
+    "운영시간": {
+      "tools": 3,
+      "test": 15,
+      "top-1": "13/15",
+      "majority k=5": "14/15",
+      "weighted k=5": "14/15"
+    },
+    "일정": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "6/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    },
+    "직원": {
+      "tools": 2,
+      "test": 8,
+      "top-1": "8/8",
+      "majority k=5": "8/8",
+      "weighted k=5": "8/8"
+    }
+  },
+  "totals": {
+    "top-1": {
+      "correct": 100,
+      "total": 116,
+      "accuracy": 86.2
+    },
+    "majority k=5": {
+      "correct": 107,
+      "total": 116,
+      "accuracy": 92.2
+    },
+    "weighted k=5": {
+      "correct": 107,
+      "total": 116,
+      "accuracy": 92.2
+    }
+  },
+  "best_strategy": "majority k=5",
+  "errors": {
+    "top-1": [
+      {
+        "group": "검사케이스",
+        "text": "수정 검증 필요없고 검사 찾기",
+        "expected": "assessment_case.query",
+        "got": "assessment_case.validate_update"
+      },
+      {
+        "group": "검사케이스",
+        "text": "참여자 말고 검사 케이스 보여줘",
+        "expected": "assessment_case.query",
+        "got": "assessment_participant.query"
+      },
+      {
+        "group": "검사케이스",
+        "text": "수정 가능성 말고 케이스 찾고 싶어",
+        "expected": "assessment_case.query",
+        "got": "assessment_case.validate_update"
+      },
+      {
+        "group": "검사케이스",
+        "text": "케이스 수정 전 검증 필요해",
+        "expected": "assessment_case.validate_update",
+        "got": "assessment_case.query"
+      },
+      {
+        "group": "근무시간",
+        "text": "금요일은 몇 시에 퇴근해?",
+        "expected": "member_working_time.query",
+        "got": "member_working_time.available_slots"
+      },
+      {
+        "group": "내담자",
+        "text": "내담자 관련 자료 아님",
+        "expected": "client.query",
+        "got": "client_resource.query"
+      },
+      {
+        "group": "내담자",
+        "text": "client_id로 가디언 검색",
+        "expected": "client_relation.query",
+        "got": "client_resource.query"
+      },
+      {
+        "group": "내담자",
+        "text": "담당자 찾기",
+        "expected": "client_resource.query",
+        "got": "client.query"
+      },
+      {
+        "group": "내담자",
+        "text": "문의 가능한 보호자는?",
+        "expected": "client_resource.query",
+        "got": "client_relation.query"
+      },
+      {
+        "group": "상담케이스",
+        "text": "상담사 ID로 필터링해 줘",
+        "expected": "counseling_case.query",
+        "got": "counseling.list"
+      },
+      {
+        "group": "상담케이스",
+        "text": "그 상담 케이스 하나만 봐줘",
+        "expected": "counseling.get",
+        "got": "counseling.list"
+      },
+      {
+        "group": "상담회기",
+        "text": "오늘의 회기 일정은?",
+        "expected": "counseling_session.query",
+        "got": "counseling.list_session_participants"
+      },
+      {
+        "group": "운영시간",
+        "text": "오늘 점심 1시에 되나요?",
+        "expected": "operating_time.check_slot",
+        "got": "operating_time.query"
+      },
+      {
+        "group": "운영시간",
+        "text": "수요일 오후 4시 비었나요?",
+        "expected": "operating_time.check_slot",
+        "got": "operating_time.query"
+      },
+      {
+        "group": "일정",
+        "text": "일 정 정보 좀",
+        "expected": "schedule.query",
+        "got": "schedule.validate_batch"
+      },
+      {
+        "group": "일정",
+        "text": "스케줄 반복해서 잡아도 돼?",
+        "expected": "schedule.validate_batch",
+        "got": "schedule.query"
+      }
+    ],
+    "majority k=5": [
+      {
+        "group": "검사케이스",
+        "text": "수정 검증 필요없고 검사 찾기",
+        "expected": "assessment_case.query",
+        "got": "assessment_case.validate_update"
+      },
+      {
+        "group": "검사케이스",
+        "text": "참여자 말고 검사 케이스 보여줘",
+        "expected": "assessment_case.query",
+        "got": "assessment_participant.query"
+      },
+      {
+        "group": "검사케이스",
+        "text": "수정 가능성 말고 케이스 찾고 싶어",
+        "expected": "assessment_case.query",
+        "got": "assessment_case.validate_update"
+      },
+      {
+        "group": "내담자",
+        "text": "client_id로 가디언 검색",
+        "expected": "client_relation.query",
+        "got": "client_resource.query"
+      },
+      {
+        "group": "내담자",
+        "text": "담당자 찾기",
+        "expected": "client_resource.query",
+        "got": "client.query"
+      },
+      {
+        "group": "내담자",
+        "text": "문의 가능한 보호자는?",
+        "expected": "client_resource.query",
+        "got": "client_relation.query"
+      },
+      {
+        "group": "상담케이스",
+        "text": "그 상담 케이스 하나만 봐줘",
+        "expected": "counseling.get",
+        "got": "counseling.list"
+      },
+      {
+        "group": "상담케이스",
+        "text": "case_id 5678로 검색해줘",
+        "expected": "counseling.get",
+        "got": "counseling_case.query"
+      },
+      {
+        "group": "운영시간",
+        "text": "오늘 점심 1시에 되나요?",
+        "expected": "operating_time.check_slot",
+        "got": "operating_time.query"
+      }
+    ],
+    "weighted k=5": [
+      {
+        "group": "검사케이스",
+        "text": "수정 검증 필요없고 검사 찾기",
+        "expected": "assessment_case.query",
+        "got": "assessment_case.validate_update"
+      },
+      {
+        "group": "검사케이스",
+        "text": "참여자 말고 검사 케이스 보여줘",
+        "expected": "assessment_case.query",
+        "got": "assessment_participant.query"
+      },
+      {
+        "group": "검사케이스",
+        "text": "수정 가능성 말고 케이스 찾고 싶어",
+        "expected": "assessment_case.query",
+        "got": "assessment_case.validate_update"
+      },
+      {
+        "group": "내담자",
+        "text": "client_id로 가디언 검색",
+        "expected": "client_relation.query",
+        "got": "client_resource.query"
+      },
+      {
+        "group": "내담자",
+        "text": "담당자 찾기",
+        "expected": "client_resource.query",
+        "got": "client.query"
+      },
+      {
+        "group": "내담자",
+        "text": "문의 가능한 보호자는?",
+        "expected": "client_resource.query",
+        "got": "client_relation.query"
+      },
+      {
+        "group": "상담케이스",
+        "text": "그 상담 케이스 하나만 봐줘",
+        "expected": "counseling.get",
+        "got": "counseling.list"
+      },
+      {
+        "group": "상담케이스",
+        "text": "case_id 5678로 검색해줘",
+        "expected": "counseling.get",
+        "got": "counseling_case.query"
+      },
+      {
+        "group": "운영시간",
+        "text": "오늘 점심 1시에 되나요?",
+        "expected": "operating_time.check_slot",
+        "got": "operating_time.query"
+      }
+    ]
+  }
+}
