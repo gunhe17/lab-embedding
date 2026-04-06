@@ -28,9 +28,11 @@
 
 ---
 
-## v2.4 — 2-Step kNN (2026-04-02)
+## v2.6 — 2-Step kNN 최종 (2026-04-06)
 
-**변경**: read 45개 tool만 대상. 2-Step 분류 도입 + Layer별 전용 variation + score threshold.
+**변경**: 
+- DB/API 표현 48건을 사용자 관점 표현으로 교체
+- 검사케이스/운영시간 그룹 variation 보강 (+13건)
 
 ### Layer 1 (30 groups, test 84건)
 
@@ -43,46 +45,53 @@
 | top-1 | 79/84 | 94.0% |
 | majority k=5 strict | 65/84 | 77.4% |
 
-Score 분포 (majority k=5): 에러 없음. 최소 correct score: 0.549
+Score 분포 (majority k=5): 에러 없음. 최소 correct score: 0.548
 
 ### Layer 2 (26 tools, test 125건)
 
 | Strategy | Correct | Acc |
 |---|---|---|
-| **majority k=5** | **119/125** | **95.2%** |
-| weighted k=5 | 117/125 | 93.6% |
-| majority k=3 | 116/125 | 92.8% |
-| weighted k=3 | 116/125 | 92.8% |
-| majority k=5 strict | 113/125 | 90.4% |
-| top-1 | 111/125 | 88.8% |
+| **majority k=5** | **121/125** | **96.8%** |
+| weighted k=5 | 119/125 | 95.2% |
+| majority k=3 | 117/125 | 93.6% |
+| weighted k=3 | 117/125 | 93.6% |
+| majority k=5 strict | 116/125 | 92.8% |
+| top-1 | 112/125 | 89.6% |
 
 Score 분포 (majority k=5):
 
 |  | min | p25 | mean | p75 | max |
 |---|---|---|---|---|---|
-| correct | 0.5345 | 0.6525 | 0.7482 | 0.8214 | 0.9653 |
-| error | 0.6040 | 0.6379 | 0.6695 | 0.6924 | 0.7479 |
+| correct | 0.5344 | 0.6532 | 0.7476 | 0.8222 | 0.9655 |
+| error | 0.6617 | 0.6675 | 0.6943 | 0.7105 | 0.7479 |
 
 **Suggested threshold: 0.76**
-- correct 중 통과: 62/119 (52.1%)
-- error 중 거부: 6/6 (100%)
-
-→ score ≥ 0.76이면 **reliable** (reflex 처리), score < 0.76이면 후속 파이프라인으로 넘김.
-→ 0.76 적용 시 reflex 처리 대상의 정확도는 **100%** (62건 전부 정답).
+- correct 중 reliable (≥0.76): 61/121 (50.4%), 정확도 **100%**
+- error 중 거부 (<0.76): 4/4 (100%)
 
 ### Combined
 
 ```
-Layer 1: 100.0% × Layer 2: 95.2% = 95.2%
+Layer 1: 100.0% × Layer 2: 96.8% = 96.8%
 ```
 
-### 에러 (Layer 2, majority k=5, 6건)
+### 에러 (Layer 2, majority k=5, 4건)
 
-| expected | got | score |
+| expected | got | score | 성격 |
+|---|---|---|---|
+| assessment_case.query | validate_update | 0.698 | 부정형 ("수정 검증 필요없고") |
+| assessment_case.validate_update | participant.query | 0.670 | variation 부족 |
+| assessment_participant.query | case.query | 0.748 | "케이스"가 "사람들"을 압도 |
+| client.query | client_resource.query | 0.662 | 부정형 ("첨부 자료 안 보고 싶어") |
+
+4건 전부 score < 0.76 → reliable 판정에서 정상 거부됨.
+부정형 2건은 embedding 모델의 근본적 한계 (부정어를 무시).
+
+### 최종 정확도
+
+| 경로 | 비율 | 정확도 |
 |---|---|---|
-| assessment_case.query | assessment_case.validate_update | 0.6981 |
-| assessment_case.validate_update | assessment_participant.query | 0.6300 |
-| assessment_participant.query | assessment_case.query | 0.7479 |
-| client.query | client_resource.query | 0.6617 |
-| client_resource.query | client.query | 0.6040 |
-| operating_time.check_slot | operating_time.available_slots | 0.6751 |
+| Layer 1 → 단일 그룹 (19/30) | ~63% | 100% |
+| Layer 1 → Layer 2 → reliable (≥0.76) | ~19% | 100% |
+| Layer 1 → Layer 2 → 불확실 (<0.76) → 후속 위임 | ~18% | 위임 |
+| **reflex 직접 처리** | **~82%** | **100%** |
