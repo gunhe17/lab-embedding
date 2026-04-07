@@ -1,126 +1,41 @@
 text,tool,group
-검사 코드로 찾을 수 있어?,assessment.query,검사도구
-지능 검사 도구 검색,assessment.query,검사도구
-어떤 심리검사가 있나?,assessment.query,검사도구
-"객관식인가, 발달 검사인가?",assessment.query,검사도구
-검사 묶음을 찾아봐,assessment_set.query,검사도구
-세트로 필터링 해줘,assessment_set.query,검사도구
-배터리 목록,assessment_set.query,검사도구
-검사 패키지 확인,assessment_set.query,검사도구
-장소별 검사 세션 확인,assessment_session.query,검사실행
-내일 예정된 검사 세션 조회,assessment_session.query,검사실행
-검사 일정 브라우저에서 확인,assessment_session.query,검사실행
-검사 세션 일정 확인해줘,assessment_session.query,검사실행
-세션 아님. 검사 task임.,assessment_task.query,검사실행
-검사 과제 번호로 찾아야 하는데,assessment_task.query,검사실행
-개별 검사 task 상황 보고,assessment_task.query,검사실행
-진행 방법에 따라 검사 확인,assessment_task.query,검사실행
-수정 검증 필요없고 검사 찾기,assessment_case.query,검사케이스
-각 검사 케이스 상태는?,assessment_case.query,검사케이스
-검사자 지정해서 케이스 조회하자,assessment_case.query,검사케이스
-진행중인 검사 다 보여줘,assessment_case.query,검사케이스
-검사 코드로 관련 케이스 찾아줘,assessment_case.query,검사케이스
-검사 케이스 상태가 뭔데?,assessment_case.query,검사케이스
-이거 수정할 수 있어?,assessment_case.validate_update,검사케이스
-검사 id로 검증할 수 있어?,assessment_case.validate_update,검사케이스
-schedule에 변경 가능?,assessment_case.validate_update,검사케이스
-"검증 필요해, 변경 가능한지",assessment_case.validate_update,검사케이스
-검사 항목 변경 가능한지 체크,assessment_case.validate_update,검사케이스
-이 검사에 참여하는 사람 알아봐,assessment_participant.query,검사케이스
-케이스별 참가자 조회,assessment_participant.query,검사케이스
-참가자 리스트 좀,assessment_participant.query,검사케이스
-검사 케이스 내 사람들 봐,assessment_participant.query,검사케이스
-참여자 누군지 알고 싶어,assessment_participant.query,검사케이스
-상담사 789 요일별 근무 시간 물어봐,member_working_time.query,근무시간
-월요일 근무시간 어떻게 돼?,member_working_time.query,근무시간
-매일 몇 시에 일 시작해?,member_working_time.query,근무시간
-상담시간표 조정 필요해,member_working_time.query,근무시간
-오늘 저녁에 가용할 수 있는 직원,member_working_time.available_slots,근무시간
-이번 주 토요일 근무 가능한 시간 슬롯,member_working_time.available_slots,근무시간
-주말 오후에 비어 있는지 알려줘,member_working_time.available_slots,근무시간
-이번 주 월요일 오후에 비는 시간 있어?,member_working_time.available_slots,근무시간
-내담자 기본 정보 조회,client.query,내담자
-활동 중인 내담자 누구야?,client.query,내담자
-클라이언트 리스트 보여줘,client.query,내담자
-첨부 자료 안 보고 싶어,client.query,내담자
-내담자 목록 보여줘,client.query,내담자
-현재 내담자 검색,client.query,내담자
-보호자랑 자녀 관계 검색,client_relation.query,내담자
-내담자 보호자 리스트,client_relation.query,내담자
-보호자 연락처 찾기,client_relation.query,내담자
-부모나 자녀 정보 주라,client_relation.query,내담자
-아이랑 관계된 보호자 있어?,client_relation.query,내담자
-부모 관계 검색,client_relation.query,내담자
-consent 문서 확인 필요,client_resource.query,내담자
-내담자 관련 리소스 조회,client_resource.query,내담자
-내담자 문서 뭐 있냐?,client_resource.query,내담자
-리소스 유형으로 필터링,client_resource.query,내담자
-담당자 찾기,client_resource.query,내담자
-자료 파일 리스트 줘,client_resource.query,내담자
-걸러서 검색 부탁해,counseling_case.query,상담케이스
-클라이언트 ID로 상담 케이스 찾기,counseling_case.query,상담케이스
-내담자의 케이스 찾아줘,counseling_case.query,상담케이스
-시작일과 종료일 사이의 상담 케이스 검색,counseling_case.query,상담케이스
-상담 상태로 분류해서 검색,counseling_case.query,상담케이스
-필터 적용해서 케이스 찾기,counseling_case.query,상담케이스
-그 상담 케이스 하나만 봐줘,counseling.get,상담케이스
-이 케이스를 좀 깊게 살펴봐,counseling.get,상담케이스
-이 상담 케이스 상세 보여줘,counseling.get,상담케이스
-케이스 열어봐 줘,counseling.get,상담케이스
-상세 정보 알 수 있을까?,counseling.get,상담케이스
-그거 하나만 보여줘,counseling.get,상담케이스
-진행 중인 상담만 봐봐,counseling.list,상담케이스
-상담사 ID로 걸러서 케이스 보여줘,counseling.list,상담케이스
-프로그램 ID로 상담 리스트 뽑아봐줘,counseling.list,상담케이스
-상담 상태별로 누가 있는지 볼래,counseling.list,상담케이스
-상담사별로 상담 몇 건인지 봐,counseling.list,상담케이스
-최근 상담 리스트 가져와봐,counseling.list,상담케이스
-예정된 상담 회기 리스트,counseling_session.query,상담회기
-지난 회기 기록 조회,counseling_session.query,상담회기
-케이스별로 상담 세션 조회,counseling_session.query,상담회기
-종료일 기준으로 상담 회기 조회,counseling_session.query,상담회기
-출석 체크 어떻게 됐어?,counseling.list_session_participants,상담회기
-지난번 회기에 누가 나왔지?,counseling.list_session_participants,상담회기
-참석자 정보가 필요해,counseling.list_session_participants,상담회기
-이 회기 참석자 정보 필요해,counseling.list_session_participants,상담회기
-센터 이름이나 코드 알려줘.,center.query,센터정보
-센터의 위치가 궁금한데?,center.query,센터정보
-활성화된 센터 정보 알려줘.,center.query,센터정보
-센터 이름이 뭔지 궁금해.,center.query,센터정보
-입점 신청서 조회 좀 해줘,center_application.query,센터정보
-센터 입점 신청 상태가 궁금해,center_application.query,센터정보
-신청서 상태 PENDING인 것 좀 보여줘,center_application.query,센터정보
-센터 입점 신청을 누가 했는지 알아?,center_application.query,센터정보
-화요일은 점심시간 언제야?,operating_time.query,운영시간
-운영시간에 대한 정보 좀 줘,operating_time.query,운영시간
-점심시간 포함해서 평일 운영시간 알려줘,operating_time.query,운영시간
-평일엔 몇 시에 시작해?,operating_time.query,운영시간
-목요일에 문 여나요?,operating_time.query,운영시간
-오늘 예약할 수 있는 시간이 있는지 알아봐,operating_time.available_slots,운영시간
-다음 주에 가능한 시간대가 언제야?,operating_time.available_slots,운영시간
-오늘 예약 가능한 시간대 알아봐줄래?,operating_time.available_slots,운영시간
-주말에 예약 가능한 시간 좀 알려줘,operating_time.available_slots,운영시간
-주말에 비어있는 시간 찾아줄 수 있어?,operating_time.available_slots,운영시간
-금요일에 1시 시간 있어?,operating_time.check_slot,운영시간
-내일 점심 12시에 가능해?,operating_time.check_slot,운영시간
-1시에 예약 되나요?,operating_time.check_slot,운영시간
-오후 5시 가능한가요?,operating_time.check_slot,운영시간
-월요일 아침 7시 확인해줘,operating_time.check_slot,운영시간
-수요일 오후 4시 비었나요?,operating_time.check_slot,운영시간
-상담 ID 12345의 일정 조회해줘,schedule.query,일정
-상담 일정 리스트 알려줘,schedule.query,일정
-이 주의 스케줄이 뭐야?,schedule.query,일정
-미팅 정보 보여줘,schedule.query,일정
-같은 시간에 일정이 겹치나?,schedule.validate_batch,일정
-충돌 있어?,schedule.validate_batch,일정
-2시간 짜리 반복 일정 등록 시 충돌 없어?,schedule.validate_batch,일정
-중복 있는지?,schedule.validate_batch,일정
-이 날짜에 반복 일정이 문제 없을까?,schedule.validate_batch,일정
-상담사 이름 검색해줘,member.query,직원
-현재 일하는 관리자 리스트 보여줘,member.query,직원
-이름에 '김' 들어가는 직원 검색,member.query,직원
-관리자 누가 있지?,member.query,직원
-펜딩 상태 초대 검색,member_invitation.query,직원
-초대 목록 좀 볼래,member_invitation.query,직원
-역할에 맞는 초대자 검색,member_invitation.query,직원
-이메일로 초대 검색,member_invitation.query,직원
+검사 목록 전부 줘,assessment.query,검사도구
+검사 유형별 목록,assessment.query,검사도구
+지능검사 종류 보여줘,assessment.query,검사도구
+검사 패키지 리스트,assessment_set.query,검사도구
+검사 세트 확인할게요,assessment_set.query,검사도구
+검사 세트 종류가 몇 개야,assessment_set.query,검사도구
+박지은 직원 금요일 근무시간 조회,member_working_time.query,근무시간
+주말 근무 여부 확인해줄래,member_working_time.query,근무시간
+상담사 출퇴근 시간 볼 수 있어?,member_working_time.query,근무시간
+이하준 상담사 근무표 보여줘,member_working_time.query,근무시간
+직원 가용 슬롯 목록 조회,member_working_time.available_slots,근무시간
+이하준 상담사 이번주 가능한 시간대,member_working_time.available_slots,근무시간
+이번주 금요일 상담 가능 시간대 확인,member_working_time.available_slots,근무시간
+이하준 직원 오늘 남은 빈 시간,member_working_time.available_slots,근무시간
+이번주 새 상담 있나,counseling.query,상담
+주호소가 학교폭력인 상담 찾아줘,counseling.query,상담
+4월 상담 케이스 검색,counseling.query,상담
+케이스 담당 상담사 확인,counseling.list_participants,상담
+참여자 합류일 확인하고 싶어,counseling.list_participants,상담
+참여자 중 비활성인 사람 있나,counseling.list_participants,상담
+운영 안 하는 요일 알려줘,operating_time.query,운영시간
+센터 마감 시간 확인해줘,operating_time.query,운영시간
+센터 휴게시간 몇 시야,operating_time.query,운영시간
+센터 토요일 운영해?,operating_time.query,운영시간
+금요일 오전 센터 가용 슬롯,operating_time.available_slots,운영시간
+센터 가용 시간 슬롯 뽑아봐,operating_time.available_slots,운영시간
+내일 센터 예약 가능한 시간 알려줘,operating_time.available_slots,운영시간
+다음주 센터 예약 가능 타임 알려줘,operating_time.available_slots,운영시간
+화요일 오후 1시에 센터 영업중인지,operating_time.check_slot,운영시간
+수요일 오후 2시 영업 여부 확인,operating_time.check_slot,운영시간
+다음주 화요일 오후 3시 가능 여부,operating_time.check_slot,운영시간
+목요일 9시 반에 센터 오픈했나,operating_time.check_slot,운영시간
+이하준 선생님 재직중이야?,member.query,직원
+재직중인 직원만 조회해줘,member.query,직원
+김민수 선생님 역할 뭐로 돼있어,member.query,직원
+팀원 누구 있어,member.query,직원
+초대 현황 보여줘,member_invitation.query,직원
+스태프로 초대한 거 확인해줘,member_invitation.query,직원
+이번주 초대 보낸 거 확인해줘,member_invitation.query,직원
+아직 응답 안 한 초대 건 알려줘,member_invitation.query,직원

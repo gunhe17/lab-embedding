@@ -250,6 +250,51 @@ def main():
         elif c_scores and not e_scores:
             print(f"\n  에러 없음 — threshold 불필요 (최소 correct score: {min(c_scores)})")
 
+    # --- OOD (Out-of-Domain) 거부 테스트 ---
+    print(f"\n{'='*60}")
+    print(f" OOD (Out-of-Domain) Reject Test")
+    print(f" Layer 1 best score < reject_threshold이면 거부")
+    print(f"{'='*60}")
+
+    ood_samples = [
+        "안녕하세요", "고마워", "수고하셨습니다",
+        "오늘 날씨 어때?", "지금 몇 시야?", "주말에 뭐 해?",
+        "점심 뭐 먹지?", "커피 한 잔 어때?", "노래 추천해줘",
+        "주식 어때?", "환율 알려줘", "번역해줘", "계산기 켜줘",
+        "ㅋㅋㅋ", "ㅎㅎ", "...", "asdfasdf", "test",
+        "그거", "이거", "음", "아",
+        "메일 보내줘", "택시 불러줘", "알람 설정해줘",
+        "오늘 힘들어", "기분이 안 좋아", "잘 모르겠어",
+        "뭘 할 수 있어?", "도와줘", "사용법 알려줘",
+    ]
+
+    print(f"\nEmbedding {len(ood_samples)} OOD samples...")
+    ood_vecs = embed_texts(client, ood_samples)
+    ood_scores_arr = ood_vecs @ l1_vecs.T
+    ood_top1 = [float(np.max(ood_scores_arr[i])) for i in range(len(ood_samples))]
+
+    REJECT_THRESHOLD = 0.52
+    in_min = min(l1_results[l1_best]["correct_scores"])
+
+    rejected = [(t, s) for t, s in zip(ood_samples, ood_top1) if s < REJECT_THRESHOLD]
+    passed = [(t, s) for t, s in zip(ood_samples, ood_top1) if s >= REJECT_THRESHOLD]
+
+    print(f"\nReject threshold: {REJECT_THRESHOLD}")
+    print(f"In-domain 최저 score: {in_min:.4f}")
+    print(f"\nOOD 거부: {len(rejected)}/{len(ood_samples)} ({len(rejected)/len(ood_samples)*100:.1f}%)")
+    print(f"OOD 통과 (false positive): {len(passed)}/{len(ood_samples)}")
+
+    if passed:
+        print(f"\nFalse positive (영역 밖인데 통과):")
+        for t, s in sorted(passed, key=lambda x: -x[1]):
+            print(f"  {s:.4f}  \"{t}\"")
+
+    # In-domain 영향 확인
+    in_rejected = [s for s in l1_results[l1_best]["correct_scores"] if s < REJECT_THRESHOLD]
+    print(f"\nIn-domain false reject: {len(in_rejected)}/{l1_results[l1_best]['total']}")
+    if in_rejected:
+        print(f"  거부된 in-domain 최대 score: {max(in_rejected):.4f}")
+
 
 if __name__ == "__main__":
     main()

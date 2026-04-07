@@ -1,0 +1,446 @@
+[
+    {
+        "name": "activity_log.list",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "활동 로그를 조회합니다. 카테고리, 액션, 엔티티, 행위자, 날짜 범위, 이름/요약으로 필터링할 수 있습니다.",
+        "parameters": {
+            "category": "카테고리 필터 (선택)",
+            "action": "액션 필터 (선택)",
+            "entity_type": "엔티티 유형 필터 (선택)",
+            "entity_id": "엔티티 ID 필터 (선택)",
+            "actor_id": "수행자 ID 필터 (선택)",
+            "actor_name": "행위자 이름 부분 검색 (선택)",
+            "summary": "요약 텍스트 키워드 검색 (선택)",
+            "date_from": "조회 시작일 (YYYY-MM-DD 또는 ISO 8601, 선택)",
+            "date_to": "조회 종료일 (YYYY-MM-DD 또는 ISO 8601, 선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'category,action,summary,actor_name,created_at'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "assessment.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "센터에서 운영 중인 검사를 조회합니다. 검사명/설명, 유형, 코드, 활성/온라인 지원 여부로 필터링하고, 요청한 필드만 반환합니다. 검사 접수 시 assessment_ids 선택에 사용하세요. 각 항목의 id가 assessment.individual.intake / assessment.batch.intake의 assessment_ids에 사용됩니다. 필터 없이 호출하면 전체 검사 목록을 반환합니다.",
+        "parameters": {
+            "active_only": "활성 검사만 조회 여부 (기본 True)",
+            "assessment_type": "검사 유형 필터 (선택): projective, intelligence, objective, developmental",
+            "name": "검사명/설명 검색 (한글/영문, 부분 매칭 — kor_name/eng_name/description)",
+            "code": "검사 코드 정확 매칭 (선택, 예: K-CBCL, MMPI-2)",
+            "supports_online": "온라인 검사 지원 여부 필터 (선택, True/False)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'kor_name,type,duration'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "assessment_case.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "검사 케이스를 조회합니다. 상태, 검사자, 접수일/완료일 범위, 태그, 종합보고서 필요 여부로 필터링하고, 요청한 필드만 반환합니다. '진행 중인 검사' → status에 active, '종결된 검사' → status에 completed. 필터 없이 호출하면 전체 검사 케이스 목록을 반환합니다.",
+        "parameters": {
+            "id": "ID로 1건 조회 (선택)",
+            "status": "상태 필터 (선택): active, completed, cancelled",
+            "counselor_id": "검사자 ID (선택) — member.query로 조회 후 선택",
+            "search": "케이스 코드 검색 (선택, 부분 매칭)",
+            "date_from": "접수일 시작 (선택, YYYY-MM-DD)",
+            "date_to": "접수일 종료 (선택, YYYY-MM-DD)",
+            "tags": "태그 필터 (선택, 배열). 하나라도 일치하면 매칭(overlap)",
+            "report_required": "종합보고서 필요 여부 필터 (선택, True/False)",
+            "completed_from": "완료일 시작 (선택, YYYY-MM-DD)",
+            "completed_to": "완료일 종료 (선택, YYYY-MM-DD)",
+            "sort_order": "정렬 방향 (기본 desc): asc(오래된 순), desc(최신 순)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'case_code,status,counselor_id'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "assessment_session.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "검사 회기를 조회합니다. 케이스 ID, 회기 ID, 상태, 일정, 날짜 범위로 자유롭게 필터링하고 요청한 필드만 반환합니다. '어제 진행한 검사' → date_from/date_to에 어제 날짜, '완료된 회기' → status에 attended. 필터 없이 호출하면 센터의 최근 회기 목록을 반환합니다.",
+        "parameters": {
+            "id": "회기 ID로 1건 조회 (선택)",
+            "case_id": "케이스 ID 필터 (선택) — assessment_case.query로 조회 후 선택",
+            "status": "상태 필터 (선택): scheduled, attended, noshow, cancelled",
+            "schedule_id": "일정 ID 필터 (선택)",
+            "date_from": "회기 날짜 시작 (선택, YYYY-MM-DD). 특정 날짜의 검사 조회 시 사용",
+            "date_to": "회기 날짜 종료 (선택, YYYY-MM-DD)",
+            "fields": "반환할 필드 (콤마 구분). 예: 'id,case_id,status,schedule_id'"
+        }
+    },
+    {
+        "name": "assessment_set.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "검사 세트를 조회합니다. 이름/설명으로 검색하고 생성일 범위로 필터링합니다. 요청한 필드만 반환합니다. 필터 없이 호출하면 전체 검사 세트 목록을 반환합니다.",
+        "parameters": {
+            "search": "검사 세트 이름/설명 검색어 (선택, 부분 매칭)",
+            "created_from": "생성일 시작 (선택, YYYY-MM-DD 또는 ISO datetime)",
+            "created_to": "생성일 종료 (선택, YYYY-MM-DD 또는 ISO datetime)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,description,created_at'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "client.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "내담자/보호자를 검색하고, 요청한 필드만 반환합니다. 이름, 전화번호, 생년월일, 역할, 상태, 성별, 코드, 이메일, 주소로 필터링할 수 있습니다. '언제 등록했지?' → fields에 created_at 포함, '전화번호 알려줘' → fields에 phone 포함, '비활성 내담자' → status에 inactive. 필터 없이 호출하면 전체 내담자 목록을 반환합니다.",
+        "parameters": {
+            "id": "ID로 1건 조회 (선택)",
+            "name": "검색할 사람의 이름만 입력 (예: '김서연'). '내담자', '보호자' 같은 호칭은 제외",
+            "phone": "전화번호로 검색 (선택)",
+            "birth_date": "생년월일 (YYYY-MM-DD) (선택)",
+            "role": "역할 필터: client, guardian, both (선택)",
+            "memo": "메모 키워드 검색 (선택). 예: '학교 적응', 'ADHD'",
+            "status": "상태 필터 (선택): active, inactive, archived",
+            "gender": "성별 필터 (선택): male, female",
+            "code": "내담자 코드 정확 매칭 (선택)",
+            "email": "이메일 부분 매칭 (선택)",
+            "address": "주소 부분 매칭 (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,created_at,phone'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "counseling.list_participants",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담 케이스의 참여자(내담자, 상담사) 목록을 조회합니다. role 필터로 내담자/상담사를 구분할 수 있고, participant_name으로 이름 검색이 가능합니다. 요청한 필드만 반환합니다.",
+        "parameters": {
+            "case_id": "케이스 ID (필수) — counseling.query로 조회 후 선택",
+            "active_only": "활성 참여자만 조회 (기본 True)",
+            "role": "역할 필터 (선택): client, counselor",
+            "participant_name": "참여자 이름 부분 검색 (선택). client/member 모듈에서 이름 해소",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'participant_id,role,joined_at'. 생략 시 기본 필드 반환",
+            "counselor_id": ""
+        }
+    },
+    {
+        "name": "counseling.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담 케이스를 조회합니다. 상태, 상담사(id/이름), 프로그램, 케이스 번호, 총 회기 수, 날짜 범위로 필터링하고, 요청한 필드만 반환합니다. '진행 중인 상담' → status에 active, '종결된 케이스' → status에 completed, '김상담사 케이스' → counselor_name에 '김상담'. 필터 없이 호출하면 전체 상담 케이스 목록을 반환합니다.",
+        "parameters": {
+            "id": "ID로 1건 조회 (선택)",
+            "case_code": "케이스 번호 정확 매칭 (선택). 예: 'C00001'",
+            "status": "상태 필터 (선택): active, completed, cancelled",
+            "counselor_id": "상담사 ID (선택) — member.query로 조회 후 선택",
+            "counselor_name": "상담사 이름 (선택). MemberFacade를 통해 ID로 변환 후 조회",
+            "program_id": "프로그램 ID (선택) — program.list로 조회 후 선택",
+            "total_sessions_min": "총 회기 수 최소값 (선택). 예: 10 → 10회 이상",
+            "total_sessions_max": "총 회기 수 최대값 (선택). 예: 20 → 20회 이하",
+            "start_date": "접수일 시작 필터 (선택, YYYY-MM-DD)",
+            "end_date": "접수일 종료 필터 (선택, YYYY-MM-DD)",
+            "keyword": "주호소/메모 키워드 검색 (선택). 예: '학교 적응', 'ADHD'",
+            "sort": "정렬 방향 (기본 desc): asc(오래된 순), desc(최신 순)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'case_code,status,counselor_id'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "counseling_note.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담 노트를 조회합니다. 회기별, 내담자별, 작성자별, 작성일 범위로 검색할 수 있습니다. '노트 내용 보여줘' → fields에 content 포함, '요약만 알려줘' → fields에 summary 포함. 필터 없이 호출하면 전체 상담 노트 목록을 반환합니다.",
+        "parameters": {
+            "session_id": "세션(회기) ID로 필터 (선택)",
+            "client_id": "내담자 ID로 필터 (선택)",
+            "author_id": "작성자(Member) ID로 필터 (선택) — member.query로 조회 후 선택",
+            "date_from": "작성일 시작 필터 (선택, YYYY-MM-DD, created_at 기준)",
+            "date_to": "작성일 종료 필터 (선택, YYYY-MM-DD, created_at 기준)",
+            "keyword": "노트 요약 키워드 검색 (선택). 예: '자해', '학교 적응'",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'summary,content,author_id'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "counseling_session.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담 회기를 조회합니다. 케이스별, 상태별, 일정/회기 번호/날짜 범위로 검색할 수 있습니다. '완료된 회기' → status에 completed, '예정된 회기' → status에 scheduled, '이번 달 회기' → date_from/date_to 사용. 필터 없이 호출하면 전체 상담 회기 목록을 반환합니다.",
+        "parameters": {
+            "case_id": "상담 케이스 ID (선택) — counseling.query로 조회 후 선택",
+            "status": "회기 상태 필터: scheduled(예정), completed(완료), no_show(노쇼), cancelled(취소) (선택)",
+            "schedule_id": "일정 ID로 필터 (선택) — schedule.query로 조회 후 선택",
+            "date_from": "일정일 시작 필터 (선택, YYYY-MM-DD) — ScheduleFacade로 schedule_ids 해소",
+            "date_to": "일정일 종료 필터 (선택, YYYY-MM-DD) — ScheduleFacade로 schedule_ids 해소",
+            "session_number_min": "회기 번호 최소값 (선택). 예: 5 → 5회차 이상",
+            "session_number_max": "회기 번호 최대값 (선택). 예: 10 → 10회차 이하",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'counseling_case_id,status,created_at'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "document.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "문서를 조회합니다. 이름, 파일 유형, 업로더, 접근 레벨, 파일 크기 범위로 검색할 수 있습니다. '어떤 문서가 있어?' → 전체 목록, 'PDF 파일 찾아줘' → file_type에 'pdf' 포함, '공개 문서' → access_level='public'. 필터 없이 호출하면 전체 문서 목록을 반환합니다.",
+        "parameters": {
+            "name": "문서 이름 검색 (부분 일치) (선택)",
+            "description": "문서 설명 키워드 검색 (선택). 예: '동의서', '보고서'",
+            "file_type": "파일 유형 검색 (예: 'pdf', 'image') (선택)",
+            "uploader_id": "업로더 Member ID (UUID) (선택)",
+            "access_level": "접근 레벨: 'center' 또는 'public' (선택)",
+            "file_size_from": "최소 파일 크기 (bytes) (선택)",
+            "file_size_to": "최대 파일 크기 (bytes) (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,file_type,file_size'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "field_note.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "필드노트를 검색하고, 요청한 필드만 반환합니다. 일정 ID, 작성자, 상태, 처리/요약 상태로 필터링할 수 있습니다. '이 일정의 필드노트' → schedule_id 지정, '내 필드노트' → author_id 지정, '요약된 필드노트' → has_summary=true. 필터 없이 호출하면 전체 필드노트 목록을 반환합니다.",
+        "parameters": {
+            "schedule_id": "일정 ID로 검색 (선택)",
+            "author_id": "작성자(상담사) ID (선택)",
+            "status": "상태: recording, paused, completed (선택)",
+            "processing_status": "파이프라인 상태: idle, processing, completed, failed, skipped (선택)",
+            "summary_status": "요약 상태: none, generating, completed, failed (선택)",
+            "has_summary": "요약 존재 여부 (true/false) (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'id,status,total_duration'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "form_instance.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "양식 인스턴스(작성된 양식)를 검색하고, 요청한 필드만 반환합니다. 상태, 템플릿, 제출/생성 날짜 범위로 필터링할 수 있습니다. '작성 중인 양식' → status=draft, '제출된 양식' → status=submitted, '2026년 1월 이후 제출된 양식' → submitted_from='2026-01-01T00:00:00'. 필터 없이 호출하면 전체 양식 인스턴스 목록을 반환합니다.",
+        "parameters": {
+            "status": "상태 필터: draft, submitted (선택)",
+            "template_id": "템플릿 ID 필터 (선택)",
+            "submitted_from": "제출일 시작 (ISO 8601, 선택). 예: '2026-01-01T00:00:00'",
+            "submitted_to": "제출일 종료 (ISO 8601, 선택)",
+            "created_from": "생성일 시작 (ISO 8601, 선택)",
+            "created_to": "생성일 종료 (ISO 8601, 선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'id,status,created_at'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "form_template.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "양식 템플릿을 검색하고, 요청한 필드만 반환합니다. 이름, 활성 여부, 버전, 시스템 템플릿 포함 여부로 필터링할 수 있습니다. '어떤 양식 있어?' → 기본 호출, '센터 전용 양식만' → include_system=false, '활성 양식만' → is_active=true. 필터 없이 호출하면 전체 양식 목록을 반환합니다.",
+        "parameters": {
+            "include_system": "시스템 기본 템플릿 포함 여부 (기본 true)",
+            "name": "템플릿 이름 검색 (부분 일치) (선택)",
+            "is_active": "활성 여부 필터 (true/false) (선택)",
+            "version": "특정 버전 번호로 필터링 (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,status,created_at'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "member.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "직원/상담사를 검색하고, 요청한 필드만 반환합니다. 이름, 역할, 상태, 고용형태, 입사일로 검색할 수 있습니다. '상담사 연락처 알려줘' → fields에 phone 포함, '매니저 목록 보여줘' → role_code='MANAGER'. 필터 없이 호출하면 전체 구성원 목록을 반환합니다.",
+        "parameters": {
+            "id": "ID로 1건 조회 (선택)",
+            "name": "이름 검색, 부분 일치 (선택)",
+            "role_code": "역할 코드 필터: STAFF, ADMIN, COUNSELOR, MANAGER 등 (선택)",
+            "status": "상태 필터: active, inactive (선택)",
+            "memo": "메모 키워드 검색 (선택). 예: '인턴', '수련'",
+            "employment_type": "고용형태 필터: FULLTIME, CONTRACT, FREELANCER 등 (선택)",
+            "hire_date_from": "입사일 시작 (YYYY-MM-DD, 포함, 선택)",
+            "hire_date_to": "입사일 종료 (YYYY-MM-DD, 포함, 선택)",
+            "created_after": "생성일 이후 (YYYY-MM-DD 또는 ISO 8601, 선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,role_code,phone'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "member_invitation.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "멤버 초대 목록을 검색하고, 요청한 필드만 반환합니다. 상태, 역할 코드, 이름/이메일/초대자/만료일로 필터링할 수 있습니다. '대기 중인 초대 알려줘' → status에 pending, '상담사 초대 현황' → role_code에 COUNSELOR. 필터 없이 호출하면 전체 초대 목록을 반환합니다.",
+        "parameters": {
+            "status": "초대 상태 필터: pending, accepted, expired (선택)",
+            "role_code": "역할 코드 필터: STAFF, COUNSELOR 등 (선택)",
+            "name": "이름 검색, 부분 일치 (선택)",
+            "email": "이메일 검색, 부분 일치 (선택)",
+            "invited_by": "초대자 Person ID 필터 (선택)",
+            "expires_after": "만료일 시작 (YYYY-MM-DD 또는 ISO 8601, 포함, 선택)",
+            "expires_before": "만료일 종료 (YYYY-MM-DD 또는 ISO 8601, 포함, 선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,email,status,role_code'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "member_non_working_time.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "직원의 비근무시간(휴가, 외출 등)을 검색하고, 요청한 필드만 반환합니다. 연도, 월, 일, 요일, 사유, 적용기간, 설명으로 필터링할 수 있습니다. '휴가 언제야?' → fields에 reason,year,month,day 포함, '비근무 사유 알려줘' → fields에 reason,description 포함. 필터 없이 호출하면 전체 구성원의 휴무 정보를 반환합니다.",
+        "parameters": {
+            "member_id": "직원(상담사) ID (필수)",
+            "year": "연도 필터 (선택)",
+            "month": "월 필터 (1-12, 선택)",
+            "day": "일 필터 (1-31, 선택)",
+            "weekday": "요일 필터: MON, TUE, WED, THU, FRI, SAT, SUN (선택)",
+            "reason": "사유 필터: ANNUAL_LEAVE, HALF_DAY_AM, HALF_DAY_PM, SICK_LEAVE, PERSONAL, TRAINING, BUSINESS_TRIP, OTHER (선택)",
+            "effective_from": "적용 시작일 (YYYY-MM-DD 또는 ISO 8601, 이상, 선택)",
+            "effective_to": "적용 종료일 (YYYY-MM-DD 또는 ISO 8601, 이하, 선택)",
+            "description": "설명 키워드 검색 (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'reason,year,month,day'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "member_working_time.available_slots",
+        "category": "query",
+        "risk": "read",
+        "display": "none",
+        "description": "특정 날짜에 직원이 근무 가능한 시간 슬롯 목록을 조회합니다.",
+        "parameters": {
+            "member_id": "직원(상담사) ID",
+            "target_date": "조회할 날짜 (YYYY-MM-DD)"
+        }
+    },
+    {
+        "name": "member_working_time.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담사 근무시간을 조회합니다. 요일별 근무 시작/종료 시간, 휴식 시간을 확인할 수 있습니다. weekday/is_working_day로 필터링 가능.",
+        "parameters": {
+            "member_id": "직원(상담사) ID (필수)",
+            "weekday": "요일 필터: MON, TUE, WED, THU, FRI, SAT, SUN (선택)",
+            "is_working_day": "근무일 여부 필터 (true=근무일만, false=비근무일만, 생략=전체)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'weekday,start_time,end_time'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "non_operating_time.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "센터의 비영업시간(휴무일, 특별 휴무 등)을 조회합니다. 날짜 범위, 활성 여부, 사유, 연/월, 등록 주체로 필터링할 수 있습니다. '이번 달 휴무일' → year/month 설정, '설날 휴무' → reason='설날', '공휴일만' → created_by='SYSTEM', '센터 자체 휴무' → created_by='CENTER'. 필터 없이 호출하면 전체 휴무일 목록을 반환합니다.",
+        "parameters": {
+            "date_from": "조회 시작일 (YYYY-MM-DD) (선택)",
+            "date_to": "조회 종료일 (YYYY-MM-DD) (선택)",
+            "active_only": "활성 항목만 조회 (기본 True)",
+            "reason": "사유 부분 일치 검색 (선택, 예: '설날')",
+            "year": "연도 필터 (선택, 예: 2026)",
+            "month": "월 필터 1-12 (선택)",
+            "created_by": "등록 주체 필터: SYSTEM(공휴일) 또는 CENTER(센터 등록) (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'reason,year,month,day'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "notification.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "알림을 조회합니다. 카테고리, 수신자, 이벤트 유형, 중요도, 제목, 읽음 여부로 필터링할 수 있습니다. '읽지 않은 알림 보여줘' → unread_only=true, '검사 관련 알림' → category='assessment', '중요 알림' → priority='important'. 필터 없이 호출하면 전체 알림 목록을 반환합니다.",
+        "parameters": {
+            "category": "알림 카테고리: assessment, counseling, system (선택)",
+            "recipient_id": "수신자 account_id (선택)",
+            "event_type": "이벤트 종류 (선택). 예: session_confirmed, schedule_changed",
+            "priority": "중요도: important, normal (선택)",
+            "title": "알림 제목 부분 검색 (선택)",
+            "unread_only": "읽지 않은 알림만 조회 (true/false) (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'title,category,is_read'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "operating_time.available_slots",
+        "category": "query",
+        "risk": "read",
+        "display": "none",
+        "description": "특정 날짜에 센터가 영업 가능한 시간 슬롯 목록을 조회합니다.",
+        "parameters": {
+            "target_date": "조회할 날짜 (YYYY-MM-DD)"
+        }
+    },
+    {
+        "name": "operating_time.check_slot",
+        "category": "query",
+        "risk": "read",
+        "display": "none",
+        "description": "특정 날짜와 시간 슬롯에 센터가 영업 가능한지 확인합니다.",
+        "parameters": {
+            "target_date": "조회할 날짜 (YYYY-MM-DD)",
+            "slot": "확인할 시간 슬롯 (예: 09:00)"
+        }
+    },
+    {
+        "name": "operating_time.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "센터의 요일별 운영시간을 조회합니다. 점심시간(휴게시간) 포함. 요일/운영여부로 필터링할 수 있습니다. '토요일 운영해?' → day_of_week='SAT', '평일 영업시간' → day_of_week 생략 (전체 반환), '운영하는 요일만' → is_operating=true, '휴무일만' → is_operating=false. 필터 없이 호출하면 전체 요일별 운영시간을 반환합니다.",
+        "parameters": {
+            "day_of_week": "요일 필터: MON, TUE, WED, THU, FRI, SAT, SUN (선택, 생략 시 전체)",
+            "is_operating": "운영 여부 필터: true=운영일(open_time 있음), false=휴무일(open_time 없음) (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'weekday,open_time,close_time'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "program.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담 프로그램을 검색하고, 요청한 필드만 반환합니다. 프로그램 유형, 활성 상태로 필터링할 수 있습니다. '프로그램 목록 보여줘' → 기본 필드 반환, '개인상담 프로그램 가격' → program_type=INDIVIDUAL, fields에 price 포함. 필터 없이 호출하면 전체 프로그램 목록을 반환합니다.",
+        "parameters": {
+            "name": "프로그램명으로 검색 (선택)",
+            "description": "프로그램 설명 키워드 검색 (선택). 예: '놀이치료', '부부 상담'",
+            "program_type": "유형 필터: INDIVIDUAL, GROUP (선택)",
+            "is_active": "활성 여부 필터: true/false (선택)",
+            "price_from": "가격 하한 (원, 이상). 예: 30000 → 30000원 이상 (선택)",
+            "price_to": "가격 상한 (원, 이하). 예: 80000 → 80000원 이하 (선택)",
+            "duration_minutes_from": "소요 시간 하한 (분, 이상). 예: 30 → 30분 이상 (선택)",
+            "duration_minutes_to": "소요 시간 상한 (분, 이하). 예: 60 → 60분 이하 (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,program_type,price'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "program_member.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "프로그램에 배정된 담당 직원/상담사를 검색하고, 요청한 필드만 반환합니다. program_id는 필수입니다. '이 프로그램 담당자 누구야?' → program_id 지정.",
+        "parameters": {
+            "program_id": "프로그램 ID (필수)",
+            "member_id": "특정 직원(상담사) ID로 필터링 (선택). 지정 시 해당 멤버 배정 여부 확인용",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'member_id,created_at'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "room.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "상담실을 검색하고, 요청한 필드만 반환합니다. 이름, 설명, 활성 상태로 필터링할 수 있습니다. '상담실 목록 보여줘' → 기본 필드 반환, '사용 가능한 상담실만' → is_active=true, '놀이치료 가능한 방' → description='놀이치료'. 필터 없이 호출하면 전체 상담실 목록을 반환합니다.",
+        "parameters": {
+            "name": "상담실 이름으로 검색 (부분 일치, 선택)",
+            "description": "상담실 설명으로 검색 (부분 일치, 선택)",
+            "is_active": "활성 여부 필터: true/false (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'name,is_active,description'. 생략 시 기본 필드 반환"
+        }
+    },
+    {
+        "name": "schedule.query",
+        "category": "query",
+        "risk": "read",
+        "display": "table",
+        "description": "일정을 검색하고, 요청한 필드만 반환합니다. 날짜 범위(필수), 일정 유형, 담당자, 상담실로 필터링할 수 있습니다. 오늘/이번주/특정 날짜의 일정을 확인할 때 사용하세요. '오늘 일정' → date_from/date_to에 오늘 날짜, '이번주 상담 일정' → schedule_type에 counseling 포함. 날짜 범위(date_from, date_to)는 필수이며, 생략 시 오늘 날짜가 기본값으로 사용됩니다.",
+        "parameters": {
+            "id": "ID로 1건 조회 (선택)",
+            "date_from": "조회 시작일 (YYYY-MM-DD) — 사용자에게 확인",
+            "date_to": "조회 종료일 (YYYY-MM-DD) — 사용자에게 확인",
+            "schedule_type": "일정 유형 필터: counseling, assessment, meeting, other (선택)",
+            "member_id": "담당자 ID — member.list로 조회 후 선택 (선택)",
+            "room_id": "상담실 ID — room.list로 조회 후 선택 (선택)",
+            "title": "일정 제목 검색어 (선택)",
+            "note": "메모 텍스트 부분 검색 (선택)",
+            "fields": "반환할 필드 목록 (콤마 구분). 예: 'title,start,end,schedule_type'. 생략 시 기본 필드 반환"
+        }
+    }
+]

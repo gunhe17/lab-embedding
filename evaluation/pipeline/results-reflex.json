@@ -1,0 +1,123 @@
+{
+  "total": 780,
+  "threshold": {
+    "reject": 0.52,
+    "reliable": 0.8
+  },
+  "matrix": {
+    "should_reliable": {
+      "reliable": {
+        "correct": 147,
+        "wrong": 12
+      },
+      "uncertain": {
+        "correct": 245,
+        "wrong": 109
+      },
+      "rejected": {
+        "correct": 0,
+        "wrong": 22
+      }
+    },
+    "should_unreliable": {
+      "reliable": {
+        "correct": 31,
+        "wrong": 1
+      },
+      "uncertain": {
+        "correct": 127,
+        "wrong": 72
+      },
+      "rejected": {
+        "correct": 0,
+        "wrong": 14
+      }
+    }
+  },
+  "metrics": {
+    "reliable_precision": 93.2,
+    "reliable_recall": 29.7,
+    "delegation_recall": 86.9,
+    "system_accuracy": 81.5
+  },
+  "reliable_wrong": [
+    {
+      "input": "센터 라는 이름 들어간 기관",
+      "expected": "institution.query",
+      "got": "center.query",
+      "score": 0.8188
+    },
+    {
+      "input": "이번주에 쉬는 날 있어?",
+      "expected": "non_operating_time.query",
+      "got": "member_non_working_time.query",
+      "score": 0.8066
+    },
+    {
+      "input": "센터 영업시간",
+      "expected": "operating_time.query",
+      "got": "operating_time.available_slots",
+      "score": 0.8041
+    },
+    {
+      "input": "전체 상담실 조회",
+      "expected": "room.query",
+      "got": "counseling.list",
+      "score": 0.8004
+    },
+    {
+      "input": "진행 중인 상담 보여줘",
+      "expected": "counseling_case.query",
+      "got": "counseling.list",
+      "score": 1.0
+    },
+    {
+      "input": "상담은 있나?",
+      "expected": "counseling_case.query",
+      "got": "member.query",
+      "score": 0.8171
+    },
+    {
+      "input": "오늘 검사 일정",
+      "expected": "schedule.query",
+      "got": "assessment_session.query",
+      "score": 0.903
+    },
+    {
+      "input": "보호자만 조회",
+      "expected": "client.query",
+      "got": "client_relation.query",
+      "score": 0.8063
+    },
+    {
+      "input": "진행 중인 상담",
+      "expected": "counseling.list",
+      "got": "counseling_case.query",
+      "score": 0.8836
+    },
+    {
+      "input": "김상담사 진행중 상담",
+      "expected": "counseling.list",
+      "got": "counseling_case.query",
+      "score": 0.8006
+    },
+    {
+      "input": "이번주 상담 케이스",
+      "expected": "counseling.list",
+      "got": "counseling_case.query",
+      "score": 0.8426
+    },
+    {
+      "input": "내일 가능시간",
+      "expected": "operating_time.available_slots",
+      "got": "member_working_time.available_slots",
+      "score": 0.8185
+    },
+    {
+      "input": "상담 회기 전체 보여줘",
+      "expected": "counseling_session.query",
+      "got": "counseling.list",
+      "score": 0.8168
+    }
+  ]
+}

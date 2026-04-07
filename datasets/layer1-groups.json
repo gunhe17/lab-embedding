@@ -1,31 +1,23 @@
 {
-  "상담케이스": [
-    "counseling_case.query",
-    "counseling.get",
-    "counseling.list"
-  ],
-  "상담회기": [
-    "counseling_session.query",
-    "counseling.list_session_participants"
+  "상담": [
+    "counseling.query",
+    "counseling.list_participants"
   ],
   "상담노트": [
     "counseling_note.query"
   ],
-  "상담참여자": [
-    "counseling.list_participants"
+  "상담회기": [
+    "counseling_session.query"
   ],
   "검사도구": [
     "assessment.query",
     "assessment_set.query"
   ],
   "검사케이스": [
-    "assessment_case.query",
-    "assessment_case.validate_update",
-    "assessment_participant.query"
+    "assessment_case.query"
   ],
   "검사실행": [
-    "assessment_session.query",
-    "assessment_task.query"
+    "assessment_session.query"
   ],
   "직원": [
     "member.query",
@@ -38,19 +30,16 @@
   "직원휴무": [
     "member_non_working_time.query"
   ],
-  "내담자": [
-    "client.query",
-    "client_relation.query",
-    "client_resource.query"
-  ],
   "운영시간": [
     "operating_time.query",
     "operating_time.available_slots",
     "operating_time.check_slot"
   ],
-  "센터정보": [
-    "center.query",
-    "center_application.query"
+  "센터휴무": [
+    "non_operating_time.query"
+  ],
+  "내담자": [
+    "client.query"
   ],
   "양식인스턴스": [
     "form_instance.query"
@@ -58,20 +47,14 @@
   "양식템플릿": [
     "form_template.query"
   ],
-  "메시지발송": [
-    "message_log.query"
-  ],
-  "메시지템플릿": [
-    "message_template.query"
-  ],
   "알림": [
     "notification.query"
   ],
-  "센터휴무": [
-    "non_operating_time.query"
+  "일정": [
+    "schedule.query"
   ],
-  "결제": [
-    "payment.query"
+  "상담실": [
+    "room.query"
   ],
   "프로그램": [
     "program.query"
@@ -79,29 +62,13 @@
   "프로그램배정": [
     "program_member.query"
   ],
-  "상담실": [
-    "room.query"
-  ],
-  "일정": [
-    "schedule.query",
-    "schedule.validate_batch"
-  ],
-  "검사링크": [
-    "send_link.query"
-  ],
-  "검사결과전송": [
-    "send_result.query"
-  ],
-  "활동로그": [
-    "activity_log.query"
-  ],
   "문서": [
     "document.query"
   ],
   "필드노트": [
     "field_note.query"
   ],
-  "기관": [
-    "institution.query"
+  "활동로그": [
+    "activity_log.list"
   ]
 }

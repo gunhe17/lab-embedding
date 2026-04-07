@@ -1,0 +1,107 @@
+[
+  {
+    "input": "CC-001 케이스 참여자 보여줘",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-001 내담자만 보여줘",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-002 보조검사자 누구야",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-100 검사 참여자 목록",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "검사케이스 CC-7 참여한 사람",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-001 어시스턴트만 알려줘",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-555 클라이언트 목록",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-9 검사에 누가 참여했어?",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-12 보조 검사자 명단",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-30 케이스 내담자 정보",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-77에 참여중인 사람들",
+    "expected": "assessment_participant.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "케이스 CC-100 검사 진행 상황",
+    "expected": "assessment_session.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "CC-200 케이스 노쇼 검사",
+    "expected": "assessment_session.query",
+    "reason": "CC-는 counseling 코드인데 assessment로 라벨링"
+  },
+  {
+    "input": "상담 현황 보여줘",
+    "expected": "counseling_case.query",
+    "reason": "사람도 답하기 모호 (query vs list)"
+  },
+  {
+    "input": "상담 케이스 전체",
+    "expected": "counseling_case.query",
+    "reason": "사람도 답하기 모호 (query vs list)"
+  },
+  {
+    "input": "끝난 상담 목록",
+    "expected": "counseling_case.query",
+    "reason": "사람도 답하기 모호 (query vs list)"
+  },
+  {
+    "input": "내담자 CL-100 결제 내역",
+    "expected": "payment.query",
+    "reason": "CL-은 client 코드인데 payment로 라벨링"
+  },
+  {
+    "input": "CL-200의 청구 기록",
+    "expected": "payment.query",
+    "reason": "CL-은 client 코드인데 payment로 라벨링"
+  },
+  {
+    "input": "CL-50 미수금",
+    "expected": "payment.query",
+    "reason": "CL-은 client 코드인데 payment로 라벨링"
+  },
+  {
+    "input": "CL-77 완료된 결제만",
+    "expected": "payment.query",
+    "reason": "CL-은 client 코드인데 payment로 라벨링"
+  },
+  {
+    "input": "CL-1 검사 결제 내역",
+    "expected": "payment.query",
+    "reason": "CL-은 client 코드인데 payment로 라벨링"
+  }
+]

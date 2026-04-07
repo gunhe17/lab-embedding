@@ -14,7 +14,8 @@ class MatchResult:
     group: str | None         # Layer 1에서 매칭된 그룹명
     score: float              # 최종 best cosine similarity
     confidence: float         # 투표 비율
-    reliable: bool = True     # score >= threshold이면 True (reflex 처리 가능)
+    reliable: bool = True     # score >= reliable_threshold이면 True (reflex 처리 가능)
+    rejected: bool = False    # Layer 1 score < reject_threshold이면 True (영역 밖)
     layer1_score: float = 0.0
     layer2_score: float = 0.0
     top_k: list[dict] = field(default_factory=list)
@@ -100,13 +101,15 @@ class TwoStepMatcher:
         model: str = "text-embedding-3-large",
         k: int = 5,
         voting: str = "majority",  # "majority" or "weighted"
-        score_threshold: float = 0.75,
+        reliable_threshold: float = 0.82,  # 이 이상이면 reflex 즉시 처리
+        reject_threshold: float = 0.52,    # Layer 1 score가 이 미만이면 영역 밖으로 거부
     ):
         self._client = openai_client or OpenAI()
         self._model = model
         self._k = k
         self._voting = voting
-        self._score_threshold = score_threshold
+        self._reliable_threshold = reliable_threshold
+        self._reject_threshold = reject_threshold
 
         # Load groups
         with open(groups_path, 'r') as f:
@@ -156,12 +159,28 @@ class TwoStepMatcher:
         return vec / np.linalg.norm(vec)
 
     def match(self, text: str) -> MatchResult:
-        """유저 입력을 2-Step으로 매칭."""
+        """유저 입력을 2-Step으로 매칭.
+
+        반환 분류:
+          - rejected=True   → 영역 밖 (Layer 1 score < reject_threshold)
+          - reliable=True   → reflex 즉시 처리 가능 (score >= reliable_threshold)
+          - 둘 다 False     → 불확실, 후속 파이프라인 위임
+        """
         query_vec = self._embed(text)
 
         # Layer 1: 그룹 분류
         l1_top_k = self._layer1.search(query_vec, k=self._k)
         group, l1_score, l1_conf = self._vote(l1_top_k)
+
+        # 영역 밖 거부 (Layer 1 best score가 너무 낮으면)
+        if l1_score < self._reject_threshold:
+            return MatchResult(
+                tool=None, group=None,
+                score=l1_score, confidence=l1_conf,
+                reliable=False, rejected=True,
+                layer1_score=l1_score,
+                top_k=l1_top_k,
+            )
 
         # Single-tool group → 바로 확정
         if group in self._single_groups:
@@ -169,7 +188,7 @@ class TwoStepMatcher:
             return MatchResult(
                 tool=tool, group=group,
                 score=l1_score, confidence=l1_conf,
-                reliable=l1_score >= self._score_threshold,
+                reliable=l1_score >= self._reliable_threshold,
                 layer1_score=l1_score,
                 top_k=l1_top_k,
             )
@@ -188,7 +207,7 @@ class TwoStepMatcher:
         return MatchResult(
             tool=tool, group=group,
             score=l2_score, confidence=l2_conf,
-            reliable=l2_score >= self._score_threshold,
+            reliable=l2_score >= self._reliable_threshold,
             layer1_score=l1_score,
             layer2_score=l2_score,
             top_k=l2_top_k,

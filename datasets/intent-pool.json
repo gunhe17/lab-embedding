@@ -1,992 +1,163 @@
 [
   {
-    "intent_id": "activity_log.query",
-    "canonical": "활동 로그를 검색",
+    "intent_id": "activity_log.list",
+    "canonical": "활동 로그를 조회",
     "risk": "read",
     "facade": "activity_log",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "activity_log.query"
-    },
-    "description": "활동 로그를 검색합니다. 카테고리, 액션, 엔티티 유형, 수행자, 날짜 범위로 필터링할 수 있습니다."
+    "description": "활동 로그를 조회합니다. 카테고리, 액션, 엔티티, 행위자, 날짜 범위, 이름/요약으로 필터링할 수 있습니다."
   },
   {
     "intent_id": "assessment.query",
-    "canonical": "심리검사 도구를 검색",
+    "canonical": "센터에서 운영 중인 검사를 조회",
     "risk": "read",
     "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment.query"
-    },
-    "description": "심리검사 도구를 검색합니다. 유형, 상태, 이름으로 필터링할 수 있습니다."
+    "description": "센터에서 운영 중인 검사를 조회합니다. 검사명/설명, 유형, 코드, 활성/온라인 지원 여부로 필터링하고, 요청한 필드만 반환합니다. 검사 접수 시 assessment_ids 선택에 사용하세요. 각 항목의 id가 assessment.individual.intake / assessment.batch.intake의 assessment_ids에 사용됩니다. 필터 없이 호출하면 전체 검사 목록을 반환합니다."
   },
   {
     "intent_id": "assessment_case.query",
-    "canonical": "검사 케이스를 검색",
+    "canonical": "검사 케이스를 조회",
     "risk": "read",
     "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_case.query"
-    },
-    "description": "검사 케이스를 검색합니다. 상태, 검사자, 케이스 코드, 태그, 날짜 범위로 필터링할 수 있습니다. include에 counselor_name, client_names를 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "assessment_case.validate_update",
-    "canonical": "검사 케이스 수정이 가능한지 사전 검증",
-    "risk": "read",
-    "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_case.validate_update"
-    },
-    "description": "검사 케이스 수정이 가능한지 사전 검증합니다."
-  },
-  {
-    "intent_id": "assessment_participant.query",
-    "canonical": "검사 케이스의 참여자(내담자/보조검사자)를 조회",
-    "risk": "read",
-    "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_participant.query"
-    },
-    "description": "검사 케이스의 참여자(내담자/보조검사자)를 조회합니다. case_id는 필수입니다. participant_type으로 유형 필터링 가능. include에 participant_name을 지정하면 참여자 이름을 반환합니다."
+    "description": "검사 케이스를 조회합니다. 상태, 검사자, 접수일/완료일 범위, 태그, 종합보고서 필요 여부로 필터링하고, 요청한 필드만 반환합니다. '진행 중인 검사' → status에 active, '종결된 검사' → status에 completed. 필터 없이 호출하면 전체 검사 케이스 목록을 반환합니다."
   },
   {
     "intent_id": "assessment_session.query",
-    "canonical": "검사 세션을 검색",
+    "canonical": "검사 회기를 조회",
     "risk": "read",
     "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_session.query"
-    },
-    "description": "검사 세션을 검색합니다. 케이스, 상태, 일정으로 필터링할 수 있습니다. include에 case_code, schedule을 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "assessment_set.create",
-    "canonical": "검사 세트를 생성",
-    "risk": "write",
-    "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_set.create"
-    },
-    "description": "검사 세트를 생성합니다."
-  },
-  {
-    "intent_id": "assessment_set.delete",
-    "canonical": "검사 세트를 삭제",
-    "risk": "delete",
-    "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_set.delete"
-    },
-    "description": "검사 세트를 삭제합니다. 삭제된 세트는 복구할 수 없습니다."
+    "description": "검사 회기를 조회합니다. 케이스 ID, 회기 ID, 상태, 일정, 날짜 범위로 자유롭게 필터링하고 요청한 필드만 반환합니다. '어제 진행한 검사' → date_from/date_to에 어제 날짜, '완료된 회기' → status에 attended. 필터 없이 호출하면 센터의 최근 회기 목록을 반환합니다."
   },
   {
     "intent_id": "assessment_set.query",
     "canonical": "검사 세트를 조회",
     "risk": "read",
     "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_set.query"
-    },
-    "description": "검사 세트를 조회합니다. 이름이나 설명으로 검색할 수 있습니다. 필터 없이 호출하면 전체 검사 세트 목록을 반환합니다."
-  },
-  {
-    "intent_id": "assessment_set.update",
-    "canonical": "검사 세트를 수정",
-    "risk": "write",
-    "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_set.update"
-    },
-    "description": "검사 세트를 수정합니다."
-  },
-  {
-    "intent_id": "assessment_task.query",
-    "canonical": "검사 수행(Task)을 조회",
-    "risk": "read",
-    "facade": "assessment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "assessment_task.query"
-    },
-    "description": "검사 수행(Task)을 조회합니다. 케이스, 검사, 상태, 실시 방식 등으로 필터링할 수 있습니다. include에 assessment_name, case_code를 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "center.query",
-    "canonical": "센터 정보를 조회",
-    "risk": "read",
-    "facade": "center",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "center.query"
-    },
-    "description": "센터 정보를 조회합니다. 현재 센터의 기본 정보(이름, 코드, 전화번호, 주소 등)를 반환합니다. is_active로 활성 여부를 필터링할 수 있습니다."
-  },
-  {
-    "intent_id": "center.update",
-    "canonical": "센터 정보를 수정",
-    "risk": "write",
-    "facade": "center",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "center.update"
-    },
-    "description": "센터 정보를 수정합니다."
-  },
-  {
-    "intent_id": "center_application.query",
-    "canonical": "센터 등록 신청을 검색",
-    "risk": "read",
-    "facade": "center",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "center_application.query"
-    },
-    "description": "센터 등록 신청을 검색합니다. 상태(PENDING/APPROVED/REJECTED), 신청자 ID로 필터링할 수 있습니다. include에 applicant_name을 지정하면 신청자 이름을 반환합니다."
-  },
-  {
-    "intent_id": "client.create",
-    "canonical": "새 내담자/보호자를 등록",
-    "risk": "write",
-    "facade": "client",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "client.create"
-    },
-    "description": "새 내담자/보호자를 등록합니다. 이름은 필수입니다."
-  },
-  {
-    "intent_id": "client.delete",
-    "canonical": "내담자/보호자를 삭제",
-    "risk": "delete",
-    "facade": "client",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "client.delete"
-    },
-    "description": "내담자/보호자를 삭제합니다."
+    "description": "검사 세트를 조회합니다. 이름/설명으로 검색하고 생성일 범위로 필터링합니다. 요청한 필드만 반환합니다. 필터 없이 호출하면 전체 검사 세트 목록을 반환합니다."
   },
   {
     "intent_id": "client.query",
-    "canonical": "내담자/보호자를 검색",
+    "canonical": "내담자/보호자를 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "client",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "client.query"
-    },
-    "description": "내담자/보호자를 검색합니다. 이름, 전화번호, 역할, 상태로 필터링할 수 있습니다. include에 guardian_names, counseling_count를 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "client.update",
-    "canonical": "내담자/보호자 정보를 수정",
-    "risk": "write",
-    "facade": "client",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "client.update"
-    },
-    "description": "내담자/보호자 정보를 수정합니다."
-  },
-  {
-    "intent_id": "client_relation.query",
-    "canonical": "내담자의 관계(보호자/자녀)를 검색",
-    "risk": "read",
-    "facade": "client",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "client_relation.query"
-    },
-    "description": "내담자의 관계(보호자/자녀)를 검색합니다. client_id는 필수입니다. relation_type으로 필터링할 수 있습니다. include에 related_client_name을 지정하면 관계 대상 이름을 반환합니다."
-  },
-  {
-    "intent_id": "client_resource.query",
-    "canonical": "내담자에 연결된 리소스(폼 인스턴스, 문서 등)를 검색",
-    "risk": "read",
-    "facade": "client",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "client_resource.query"
-    },
-    "description": "내담자에 연결된 리소스(폼 인스턴스, 문서 등)를 검색합니다. client_id는 필수입니다. resource_type으로 필터링할 수 있습니다. include에 resource_name을 지정하면 리소스 이름을 반환합니다."
-  },
-  {
-    "intent_id": "counseling.add_participant",
-    "canonical": "상담 케이스에 참여자(내담자 또는 상담사)를 추가",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.add_participant"
-    },
-    "description": "상담 케이스에 참여자(내담자 또는 상담사)를 추가합니다."
-  },
-  {
-    "intent_id": "counseling.cancel_session",
-    "canonical": "상담 세션을 취소",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.cancel_session"
-    },
-    "description": "상담 세션을 취소합니다. 취소 사유를 입력할 수 있습니다."
-  },
-  {
-    "intent_id": "counseling.create_case",
-    "canonical": "새 상담 케이스를 생성",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.create_case"
-    },
-    "description": "새 상담 케이스를 생성합니다. 상담사 ID, 프로그램 ID는 필수입니다."
-  },
-  {
-    "intent_id": "counseling.create_note",
-    "canonical": "상담 노트를 작성",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.create_note"
-    },
-    "description": "상담 노트를 작성합니다. 기분, 주제, 개입 기법, 진전, 과제, 다음 목표 등의 구조화된 필드를 지원합니다."
-  },
-  {
-    "intent_id": "counseling.create_session",
-    "canonical": "새 상담 세션(회기)을 생성",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.create_session"
-    },
-    "description": "새 상담 세션(회기)을 생성합니다. 케이스 ID와 일정 ID가 필수입니다."
-  },
-  {
-    "intent_id": "counseling.delete_case",
-    "canonical": "상담 케이스를 삭제",
-    "risk": "delete",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.delete_case"
-    },
-    "description": "상담 케이스를 삭제합니다. 삭제된 케이스는 복구할 수 없습니다."
-  },
-  {
-    "intent_id": "counseling.delete_note",
-    "canonical": "상담 노트를 삭제",
-    "risk": "delete",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.delete_note"
-    },
-    "description": "상담 노트를 삭제합니다. 삭제된 노트는 복구할 수 없습니다."
-  },
-  {
-    "intent_id": "counseling.delete_session",
-    "canonical": "상담 세션을 삭제",
-    "risk": "delete",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.delete_session"
-    },
-    "description": "상담 세션을 삭제합니다. 삭제된 세션은 복구할 수 없습니다."
-  },
-  {
-    "intent_id": "counseling.get",
-    "canonical": "상담 케이스 1건을 상세 조회",
-    "risk": "read",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.get"
-    },
-    "description": "상담 케이스 1건을 상세 조회합니다."
-  },
-  {
-    "intent_id": "counseling.leave_participant",
-    "canonical": "상담 케이스에서 참여자를 제거",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.leave_participant"
-    },
-    "description": "상담 케이스에서 참여자를 제거합니다."
-  },
-  {
-    "intent_id": "counseling.list",
-    "canonical": "상담 케이스 목록을 조회",
-    "risk": "read",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.list"
-    },
-    "description": "상담 케이스 목록을 조회합니다. 상태, 상담사, 프로그램, 날짜 범위로 필터링할 수 있습니다. '진행 중인 상담' → status에 active, '종결된 케이스' → status에 completed. 필터 없이 호출하면 전체 상담 케이스 목록을 반환합니다."
+    "description": "내담자/보호자를 검색하고, 요청한 필드만 반환합니다. 이름, 전화번호, 생년월일, 역할, 상태, 성별, 코드, 이메일, 주소로 필터링할 수 있습니다. '언제 등록했지?' → fields에 created_at 포함, '전화번호 알려줘' → fields에 phone 포함, '비활성 내담자' → status에 inactive. 필터 없이 호출하면 전체 내담자 목록을 반환합니다."
   },
   {
     "intent_id": "counseling.list_participants",
     "canonical": "상담 케이스의 참여자(내담자, 상담사) 목록을 조회",
     "risk": "read",
     "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.list_participants"
-    },
-    "description": "상담 케이스의 참여자(내담자, 상담사) 목록을 조회합니다."
+    "description": "상담 케이스의 참여자(내담자, 상담사) 목록을 조회합니다. role 필터로 내담자/상담사를 구분할 수 있고, participant_name으로 이름 검색이 가능합니다. 요청한 필드만 반환합니다."
   },
   {
-    "intent_id": "counseling.list_session_participants",
-    "canonical": "상담 세션의 참여자 출석 현황을 조회",
+    "intent_id": "counseling.query",
+    "canonical": "상담 케이스를 조회",
     "risk": "read",
     "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.list_session_participants"
-    },
-    "description": "상담 세션의 참여자 출석 현황을 조회합니다."
-  },
-  {
-    "intent_id": "counseling.revert_cancel_session",
-    "canonical": "취소된 상담 세션을 다시 예정 상태로 되돌립니다",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.revert_cancel_session"
-    },
-    "description": "취소된 상담 세션을 다시 예정 상태로 되돌립니다."
-  },
-  {
-    "intent_id": "counseling.update_attendance",
-    "canonical": "세션 참여자의 출석 상태를 기록",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.update_attendance"
-    },
-    "description": "세션 참여자의 출석 상태를 기록합니다. 출석, 결석, 지각 등을 관리합니다."
-  },
-  {
-    "intent_id": "counseling.update_case",
-    "canonical": "상담 케이스를 수정",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.update_case"
-    },
-    "description": "상담 케이스를 수정합니다. 상태, 상담사, 주호소, 메모, 총 회기 수를 변경할 수 있습니다."
-  },
-  {
-    "intent_id": "counseling.update_note",
-    "canonical": "상담 노트의 기분, 주제, 개입 기법, 진전, 과제 등 내용을 수정",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.update_note"
-    },
-    "description": "상담 노트의 기분, 주제, 개입 기법, 진전, 과제 등 내용을 수정합니다."
-  },
-  {
-    "intent_id": "counseling.update_session",
-    "canonical": "상담 세션의 상태(예정/완료/취소)를 변경",
-    "risk": "write",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling.update_session"
-    },
-    "description": "상담 세션의 상태(예정/완료/취소)를 변경합니다."
-  },
-  {
-    "intent_id": "counseling_case.query",
-    "canonical": "상담 케이스를 검색",
-    "risk": "read",
-    "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling_case.query"
-    },
-    "description": "상담 케이스를 검색합니다. 상태, 상담사, 프로그램, 날짜 범위, 키워드로 필터링할 수 있습니다. '진행 중인 상담' → status=active, '종결된 케이스' → status=completed. include에 counselor_name, program_name, client_names, session_count를 지정하면 추가 정보를 반환합니다."
+    "description": "상담 케이스를 조회합니다. 상태, 상담사(id/이름), 프로그램, 케이스 번호, 총 회기 수, 날짜 범위로 필터링하고, 요청한 필드만 반환합니다. '진행 중인 상담' → status에 active, '종결된 케이스' → status에 completed, '김상담사 케이스' → counselor_name에 '김상담'. 필터 없이 호출하면 전체 상담 케이스 목록을 반환합니다."
   },
   {
     "intent_id": "counseling_note.query",
-    "canonical": "상담 노트를 검색",
+    "canonical": "상담 노트를 조회",
     "risk": "read",
     "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling_note.query"
-    },
-    "description": "상담 노트를 검색합니다. 회기별, 내담자별로 검색할 수 있습니다. '노트 내용 보여줘' → 기본 필드에 content 포함. include에 client_name, author_name, case_code를 지정하면 추가 정보를 반환합니다."
+    "description": "상담 노트를 조회합니다. 회기별, 내담자별, 작성자별, 작성일 범위로 검색할 수 있습니다. '노트 내용 보여줘' → fields에 content 포함, '요약만 알려줘' → fields에 summary 포함. 필터 없이 호출하면 전체 상담 노트 목록을 반환합니다."
   },
   {
     "intent_id": "counseling_session.query",
-    "canonical": "상담 회기를 검색",
+    "canonical": "상담 회기를 조회",
     "risk": "read",
     "facade": "counseling",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "counseling_session.query"
-    },
-    "description": "상담 회기를 검색합니다. 케이스별, 상태별로 검색할 수 있습니다. '예정된 회기' → status=scheduled, '완료된 회기' → status=completed. include에 case_code, counselor_name, room_name, schedule_start, schedule_end를 지정하면 추가 정보를 반환합니다."
+    "description": "상담 회기를 조회합니다. 케이스별, 상태별, 일정/회기 번호/날짜 범위로 검색할 수 있습니다. '완료된 회기' → status에 completed, '예정된 회기' → status에 scheduled, '이번 달 회기' → date_from/date_to 사용. 필터 없이 호출하면 전체 상담 회기 목록을 반환합니다."
   },
   {
     "intent_id": "document.query",
     "canonical": "문서를 조회",
     "risk": "read",
     "facade": "document",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "document.query"
-    },
-    "description": "문서를 조회합니다. 이름, 파일 유형으로 검색할 수 있습니다. '어떤 문서가 있어?' → 전체 목록, 'PDF 파일 찾아줘' → file_type에 'pdf' 포함. include에 uploader_name을 지정하면 업로더 이름을 반환합니다."
-  },
-  {
-    "intent_id": "field_note.add_entry",
-    "canonical": "필드노트에 메모 또는 태그를 추가",
-    "risk": "write",
-    "facade": "field_note",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "field_note.add_entry"
-    },
-    "description": "필드노트에 메모 또는 태그를 추가합니다."
-  },
-  {
-    "intent_id": "field_note.create",
-    "canonical": "필드노트를 생성",
-    "risk": "write",
-    "facade": "field_note",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "field_note.create"
-    },
-    "description": "필드노트를 생성합니다. schedule_id 없이 바로 녹음을 시작할 수 있습니다."
-  },
-  {
-    "intent_id": "field_note.finish_recording",
-    "canonical": "필드노트의 녹음을 종료하고 총 녹음 시간을 기록",
-    "risk": "write",
-    "facade": "field_note",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "field_note.finish_recording"
-    },
-    "description": "필드노트의 녹음을 종료하고 총 녹음 시간을 기록합니다."
-  },
-  {
-    "intent_id": "field_note.link_schedule",
-    "canonical": "필드노트에 회기(schedule)를 연결",
-    "risk": "write",
-    "facade": "field_note",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "field_note.link_schedule"
-    },
-    "description": "필드노트에 회기(schedule)를 연결합니다."
+    "description": "문서를 조회합니다. 이름, 파일 유형, 업로더, 접근 레벨, 파일 크기 범위로 검색할 수 있습니다. '어떤 문서가 있어?' → 전체 목록, 'PDF 파일 찾아줘' → file_type에 'pdf' 포함, '공개 문서' → access_level='public'. 필터 없이 호출하면 전체 문서 목록을 반환합니다."
   },
   {
     "intent_id": "field_note.query",
-    "canonical": "필드노트를 검색",
+    "canonical": "필드노트를 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "field_note",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "field_note.query"
-    },
-    "description": "필드노트를 검색합니다. 일정 ID, 작성자 ID, 상태로 필터링할 수 있습니다. '이 일정의 필드노트' → schedule_id에 일정 ID. include에 author_name, schedule_start, schedule_end를 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "field_note.upload_audio",
-    "canonical": "필드노트에 오디오 청크 메타데이터를 저장",
-    "risk": "write",
-    "facade": "field_note",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "field_note.upload_audio"
-    },
-    "description": "필드노트에 오디오 청크 메타데이터를 저장합니다."
-  },
-  {
-    "intent_id": "form.clone_template",
-    "canonical": "기존 양식 템플릿을 복사하여 새 템플릿을 생성",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.clone_template"
-    },
-    "description": "기존 양식 템플릿을 복사하여 새 템플릿을 생성합니다."
-  },
-  {
-    "intent_id": "form.create_instance",
-    "canonical": "양식 템플릿을 기반으로 새 인스턴스를 생성",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.create_instance"
-    },
-    "description": "양식 템플릿을 기반으로 새 인스턴스를 생성합니다."
-  },
-  {
-    "intent_id": "form.create_template",
-    "canonical": "새 양식 템플릿을 생성",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.create_template"
-    },
-    "description": "새 양식 템플릿을 생성합니다."
-  },
-  {
-    "intent_id": "form.deactivate_template",
-    "canonical": "양식 템플릿을 비활성화",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.deactivate_template"
-    },
-    "description": "양식 템플릿을 비활성화합니다. 비활성화된 템플릿은 새 인스턴스 생성에 사용할 수 없습니다."
-  },
-  {
-    "intent_id": "form.delete_instance",
-    "canonical": "양식 인스턴스를 삭제",
-    "risk": "delete",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.delete_instance"
-    },
-    "description": "양식 인스턴스를 삭제합니다. 삭제된 인스턴스는 복구할 수 없습니다."
-  },
-  {
-    "intent_id": "form.revert_instance",
-    "canonical": "제출된 양식 인스턴스를 draft 상태로 되돌립니다",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.revert_instance"
-    },
-    "description": "제출된 양식 인스턴스를 draft 상태로 되돌립니다. 재작성이 필요할 때 사용합니다."
-  },
-  {
-    "intent_id": "form.save_answers",
-    "canonical": "양식 인스턴스에 사용자가 작성한 답변을 저장",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.save_answers"
-    },
-    "description": "양식 인스턴스에 사용자가 작성한 답변을 저장합니다."
-  },
-  {
-    "intent_id": "form.submit_instance",
-    "canonical": "양식 인스턴스를 제출",
-    "risk": "write",
-    "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form.submit_instance"
-    },
-    "description": "양식 인스턴스를 제출합니다. 제출 후에는 수정이 제한됩니다."
+    "description": "필드노트를 검색하고, 요청한 필드만 반환합니다. 일정 ID, 작성자, 상태, 처리/요약 상태로 필터링할 수 있습니다. '이 일정의 필드노트' → schedule_id 지정, '내 필드노트' → author_id 지정, '요약된 필드노트' → has_summary=true. 필터 없이 호출하면 전체 필드노트 목록을 반환합니다."
   },
   {
     "intent_id": "form_instance.query",
-    "canonical": "양식 인스턴스(작성된 양식)를 검색",
+    "canonical": "양식 인스턴스(작성된 양식)를 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form_instance.query"
-    },
-    "description": "양식 인스턴스(작성된 양식)를 검색합니다. 상태, 템플릿으로 필터링할 수 있습니다. '작성 중인 양식' → status=draft, '제출된 양식' → status=submitted. include에 template_name을 지정하면 템플릿 이름을 반환합니다."
+    "description": "양식 인스턴스(작성된 양식)를 검색하고, 요청한 필드만 반환합니다. 상태, 템플릿, 제출/생성 날짜 범위로 필터링할 수 있습니다. '작성 중인 양식' → status=draft, '제출된 양식' → status=submitted, '2026년 1월 이후 제출된 양식' → submitted_from='2026-01-01T00:00:00'. 필터 없이 호출하면 전체 양식 인스턴스 목록을 반환합니다."
   },
   {
     "intent_id": "form_template.query",
-    "canonical": "양식 템플릿을 검색",
+    "canonical": "양식 템플릿을 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "form",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "form_template.query"
-    },
-    "description": "양식 템플릿을 검색합니다. 시스템 기본 템플릿 포함 여부를 선택할 수 있습니다. '어떤 양식 있어?' → 기본 호출, '센터 전용 양식만' → is_active=true."
-  },
-  {
-    "intent_id": "institution.query",
-    "canonical": "기관을 검색",
-    "risk": "read",
-    "facade": "institution",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "institution.query"
-    },
-    "description": "기관을 검색합니다. 이름(부분 일치)으로 필터링하거나, ID로 1건 조회할 수 있습니다. 필터 없이 호출하면 전체 기관 목록을 반환합니다."
-  },
-  {
-    "intent_id": "member.delete",
-    "canonical": "직원을 삭제",
-    "risk": "delete",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member.delete"
-    },
-    "description": "직원을 삭제합니다. 삭제된 직원은 복구할 수 없습니다."
+    "description": "양식 템플릿을 검색하고, 요청한 필드만 반환합니다. 이름, 활성 여부, 버전, 시스템 템플릿 포함 여부로 필터링할 수 있습니다. '어떤 양식 있어?' → 기본 호출, '센터 전용 양식만' → include_system=false, '활성 양식만' → is_active=true. 필터 없이 호출하면 전체 양식 목록을 반환합니다."
   },
   {
     "intent_id": "member.query",
-    "canonical": "센터 직원(상담사, 관리자)을 검색",
+    "canonical": "직원/상담사를 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member.query"
-    },
-    "description": "센터 직원(상담사, 관리자)을 검색합니다. 상태, 역할, 고용 형태로 필터링할 수 있습니다. include에 person_name, person_phone, role_name, program_names를 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "member.update",
-    "canonical": "직원 정보를 수정",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member.update"
-    },
-    "description": "직원 정보를 수정합니다. 역할, 고용 형태, 입사일, 메모 등을 변경할 수 있습니다."
-  },
-  {
-    "intent_id": "member.update_status",
-    "canonical": "직원의 활성/비활성 상태를 변경",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member.update_status"
-    },
-    "description": "직원의 활성/비활성 상태를 변경합니다."
-  },
-  {
-    "intent_id": "member_invitation.accept",
-    "canonical": "멤버 초대를 수락하고 센터에 구성원으로 등록",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_invitation.accept"
-    },
-    "description": "멤버 초대를 수락하고 센터에 구성원으로 등록합니다."
-  },
-  {
-    "intent_id": "member_invitation.cancel",
-    "canonical": "멤버 초대를 취소",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_invitation.cancel"
-    },
-    "description": "멤버 초대를 취소합니다. 아직 수락되지 않은 초대만 취소할 수 있습니다."
-  },
-  {
-    "intent_id": "member_invitation.create",
-    "canonical": "직원/상담사를 센터에 초대",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_invitation.create"
-    },
-    "description": "직원/상담사를 센터에 초대합니다. 이름, 이메일, 역할 코드는 필수입니다."
+    "description": "직원/상담사를 검색하고, 요청한 필드만 반환합니다. 이름, 역할, 상태, 고용형태, 입사일로 검색할 수 있습니다. '상담사 연락처 알려줘' → fields에 phone 포함, '매니저 목록 보여줘' → role_code='MANAGER'. 필터 없이 호출하면 전체 구성원 목록을 반환합니다."
   },
   {
     "intent_id": "member_invitation.query",
-    "canonical": "멤버 초대 목록을 검색",
+    "canonical": "멤버 초대 목록을 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_invitation.query"
-    },
-    "description": "멤버 초대 목록을 검색합니다. 상태, 역할 ID, 이름/이메일 키워드로 필터링할 수 있습니다. include에 role_name, invited_by_name을 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "member_non_working_time.create",
-    "canonical": "직원의 비근무시간(휴가, 외출 등)을 등록",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_non_working_time.create"
-    },
-    "description": "직원의 비근무시간(휴가, 외출 등)을 등록합니다."
-  },
-  {
-    "intent_id": "member_non_working_time.delete",
-    "canonical": "직원의 비근무시간을 삭제",
-    "risk": "delete",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_non_working_time.delete"
-    },
-    "description": "직원의 비근무시간을 삭제합니다."
+    "description": "멤버 초대 목록을 검색하고, 요청한 필드만 반환합니다. 상태, 역할 코드, 이름/이메일/초대자/만료일로 필터링할 수 있습니다. '대기 중인 초대 알려줘' → status에 pending, '상담사 초대 현황' → role_code에 COUNSELOR. 필터 없이 호출하면 전체 초대 목록을 반환합니다."
   },
   {
     "intent_id": "member_non_working_time.query",
-    "canonical": "직원의 비근무시간(휴가, 외출 등)을 조회",
+    "canonical": "직원의 비근무시간(휴가, 외출 등)을 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_non_working_time.query"
-    },
-    "description": "직원의 비근무시간(휴가, 외출 등)을 조회합니다. member_id는 필수입니다. 연도, 월, 사유로 필터링할 수 있습니다. '휴가 언제야?' → year/month 설정, '비근무 사유 알려줘' → reason 필터. include에 member_name을 지정하면 담당자 이름을 반환합니다."
-  },
-  {
-    "intent_id": "member_non_working_time.update",
-    "canonical": "직원의 비근무시간 정보를 수정",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_non_working_time.update"
-    },
-    "description": "직원의 비근무시간 정보를 수정합니다."
+    "description": "직원의 비근무시간(휴가, 외출 등)을 검색하고, 요청한 필드만 반환합니다. 연도, 월, 일, 요일, 사유, 적용기간, 설명으로 필터링할 수 있습니다. '휴가 언제야?' → fields에 reason,year,month,day 포함, '비근무 사유 알려줘' → fields에 reason,description 포함. 필터 없이 호출하면 전체 구성원의 휴무 정보를 반환합니다."
   },
   {
     "intent_id": "member_working_time.available_slots",
     "canonical": "특정 날짜에 직원이 근무 가능한 시간 슬롯 목록을 조회",
     "risk": "read",
     "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_working_time.available_slots"
-    },
     "description": "특정 날짜에 직원이 근무 가능한 시간 슬롯 목록을 조회합니다."
-  },
-  {
-    "intent_id": "member_working_time.bulk_update",
-    "canonical": "직원의 요일별 근무시간을 일괄 수정",
-    "risk": "write",
-    "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_working_time.bulk_update"
-    },
-    "description": "직원의 요일별 근무시간을 일괄 수정합니다. 7일치 근무시간 데이터가 필요합니다."
   },
   {
     "intent_id": "member_working_time.query",
     "canonical": "상담사 근무시간을 조회",
     "risk": "read",
     "facade": "member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "member_working_time.query"
-    },
-    "description": "상담사 근무시간을 조회합니다. 요일별 근무 시작/종료 시간, 휴식 시간을 확인할 수 있습니다. member_id는 필수입니다. include에 member_name을 지정하면 담당자 이름을 반환합니다."
-  },
-  {
-    "intent_id": "message_log.query",
-    "canonical": "메시지 발송 로그를 검색",
-    "risk": "read",
-    "facade": "message",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "message_log.query"
-    },
-    "description": "메시지 발송 로그를 검색합니다. 메시지 타입, 상태, 수신자, 날짜 범위로 필터링할 수 있습니다."
-  },
-  {
-    "intent_id": "message_template.create",
-    "canonical": "새 메시지 양식을 생성",
-    "risk": "write",
-    "facade": "message",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "message_template.create"
-    },
-    "description": "새 메시지 양식을 생성합니다."
-  },
-  {
-    "intent_id": "message_template.delete",
-    "canonical": "메시지 양식을 삭제",
-    "risk": "delete",
-    "facade": "message",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "message_template.delete"
-    },
-    "description": "메시지 양식을 삭제합니다."
-  },
-  {
-    "intent_id": "message_template.query",
-    "canonical": "문자 양식을 검��",
-    "risk": "read",
-    "facade": "message",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "message_template.query"
-    },
-    "description": "문자 양식을 검��합니다. 양식 타입, 이름(부분 일치), 기본 양식 여부로 필터링할 수 있습니다. ID로 1건 조회도 가능합니다."
-  },
-  {
-    "intent_id": "message_template.update",
-    "canonical": "메시지 양식의 이름이나 내용을 수정",
-    "risk": "write",
-    "facade": "message",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "message_template.update"
-    },
-    "description": "메시지 양식의 이름이나 내용을 수정합니다."
-  },
-  {
-    "intent_id": "non_operating_time.create",
-    "canonical": "센터의 비영업시간(휴무일, 특별 휴무 등)을 등록",
-    "risk": "write",
-    "facade": "operating",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "non_operating_time.create"
-    },
-    "description": "센터의 비영업시간(휴무일, 특별 휴무 등)을 등록합니다."
-  },
-  {
-    "intent_id": "non_operating_time.delete",
-    "canonical": "센터의 비영업시간을 삭제",
-    "risk": "delete",
-    "facade": "operating",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "non_operating_time.delete"
-    },
-    "description": "센터의 비영업시간을 삭제합니다."
+    "description": "상담사 근무시간을 조회합니다. 요일별 근무 시작/종료 시간, 휴식 시간을 확인할 수 있습니다. weekday/is_working_day로 필터링 가능."
   },
   {
     "intent_id": "non_operating_time.query",
     "canonical": "센터의 비영업시간(휴무일, 특별 휴무 등)을 조회",
     "risk": "read",
     "facade": "operating",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "non_operating_time.query"
-    },
-    "description": "센터의 비영업시간(휴무일, 특별 휴무 등)을 조회합니다. 연도, 월, 사유, 생성자로 필터링할 수 있습니다. '이번 달 휴무일' → year/month 설정, '공휴일 확인' → created_by='SYSTEM'. 필터 없이 호출하면 전체 휴무일 목록을 반환합니다."
-  },
-  {
-    "intent_id": "non_operating_time.register_holidays",
-    "canonical": "공휴일을 일괄 등록",
-    "risk": "write",
-    "facade": "operating",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "non_operating_time.register_holidays"
-    },
-    "description": "공휴일을 일괄 등록합니다. 연도와 공휴일 목록이 필요합니다."
-  },
-  {
-    "intent_id": "non_operating_time.update",
-    "canonical": "센터의 비영업시간 정보를 수정",
-    "risk": "write",
-    "facade": "operating",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "non_operating_time.update"
-    },
-    "description": "센터의 비영업시간 정보를 수정합니다."
-  },
-  {
-    "intent_id": "notification.mark_all_read",
-    "canonical": "모든 알림을 읽음 처리",
-    "risk": "write",
-    "facade": "notification",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "notification.mark_all_read"
-    },
-    "description": "모든 알림을 읽음 처리합니다."
-  },
-  {
-    "intent_id": "notification.mark_read",
-    "canonical": "알림 1건을 읽음 처리",
-    "risk": "write",
-    "facade": "notification",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "notification.mark_read"
-    },
-    "description": "알림 1건을 읽음 처리합니다."
+    "description": "센터의 비영업시간(휴무일, 특별 휴무 등)을 조회합니다. 날짜 범위, 활성 여부, 사유, 연/월, 등록 주체로 필터링할 수 있습니다. '이번 달 휴무일' → year/month 설정, '설날 휴무' → reason='설날', '공휴일만' → created_by='SYSTEM', '센터 자체 휴무' → created_by='CENTER'. 필터 없이 호출하면 전체 휴무일 목록을 반환합니다."
   },
   {
     "intent_id": "notification.query",
     "canonical": "알림을 조회",
     "risk": "read",
     "facade": "notification",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "notification.query"
-    },
-    "description": "알림을 조회합니다. 카테고리, 읽음 여부로 필터링할 수 있습니다. '읽지 않은 알림 보여줘' → is_read=false, '검사 관련 알림' → category='assessment'."
+    "description": "알림을 조회합니다. 카테고리, 수신자, 이벤트 유형, 중요도, 제목, 읽음 여부로 필터링할 수 있습니다. '읽지 않은 알림 보여줘' → unread_only=true, '검사 관련 알림' → category='assessment', '중요 알림' → priority='important'. 필터 없이 호출하면 전체 알림 목록을 반환합니다."
   },
   {
     "intent_id": "operating_time.available_slots",
     "canonical": "특정 날짜에 센터가 영업 가능한 시간 슬롯 목록을 조회",
     "risk": "read",
     "facade": "operating_time",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "operating_time.available_slots"
-    },
     "description": "특정 날짜에 센터가 영업 가능한 시간 슬롯 목록을 조회합니다."
-  },
-  {
-    "intent_id": "operating_time.bulk_update",
-    "canonical": "센터의 요일별 영업시간을 일괄 수정",
-    "risk": "write",
-    "facade": "operating_time",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "operating_time.bulk_update"
-    },
-    "description": "센터의 요일별 영업시간을 일괄 수정합니다. 7일치 데이터가 필요합니다."
   },
   {
     "intent_id": "operating_time.check_slot",
     "canonical": "특정 날짜와 시간 슬롯에 센터가 영업 가능한지 확인",
     "risk": "read",
     "facade": "operating_time",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "operating_time.check_slot"
-    },
     "description": "특정 날짜와 시간 슬롯에 센터가 영업 가능한지 확인합니다."
   },
   {
@@ -994,263 +165,34 @@
     "canonical": "센터의 요일별 운영시간을 조회",
     "risk": "read",
     "facade": "operating_time",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "operating_time.query"
-    },
-    "description": "센터의 요일별 운영시간을 조회합니다. 점심시간(휴게시간) 포함. 요일로 필터링할 수 있습니다. '토요일 운영해?' → weekday='SAT', '평일 영업시간' → weekday 생략 (전체 반환). 필터 없이 호출하면 전체 요일별 운영시간을 반환합니다."
-  },
-  {
-    "intent_id": "payment.complete",
-    "canonical": "청구를 완료 처리",
-    "risk": "write",
-    "facade": "payment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "payment.complete"
-    },
-    "description": "청구를 완료 처리합니다."
-  },
-  {
-    "intent_id": "payment.create",
-    "canonical": "청구 기록을 생성",
-    "risk": "write",
-    "facade": "payment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "payment.create"
-    },
-    "description": "청구 기록을 생성합니다."
-  },
-  {
-    "intent_id": "payment.delete",
-    "canonical": "청구 기록을 삭제",
-    "risk": "delete",
-    "facade": "payment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "payment.delete"
-    },
-    "description": "청구 기록을 삭제합니다."
-  },
-  {
-    "intent_id": "payment.query",
-    "canonical": "청구 기록을 검색",
-    "risk": "read",
-    "facade": "payment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "payment.query"
-    },
-    "description": "청구 기록을 검색합니다. 상태, 내담자, 날짜 범위로 필터링할 수 있습니다. '미수금 조회' → status=pending, '완료된 결제' → status=completed. include에 client_code를 지정하면 내담자 코드를 반환합니다."
-  },
-  {
-    "intent_id": "payment.update",
-    "canonical": "청구 기록을 수정",
-    "risk": "write",
-    "facade": "payment",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "payment.update"
-    },
-    "description": "청구 기록을 수정합니다."
-  },
-  {
-    "intent_id": "program.create",
-    "canonical": "새 상담 프로그램을 생성",
-    "risk": "write",
-    "facade": "program",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program.create"
-    },
-    "description": "새 상담 프로그램을 생성합니다. 프로그램명, 유형(INDIVIDUAL/GROUP), 가격, 소요시간은 필수입니다."
-  },
-  {
-    "intent_id": "program.delete",
-    "canonical": "프로그램을 삭제",
-    "risk": "delete",
-    "facade": "program",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program.delete"
-    },
-    "description": "프로그램을 삭제합니다."
+    "description": "센터의 요일별 운영시간을 조회합니다. 점심시간(휴게시간) 포함. 요일/운영여부로 필터링할 수 있습니다. '토요일 운영해?' → day_of_week='SAT', '평일 영업시간' → day_of_week 생략 (전체 반환), '운영하는 요일만' → is_operating=true, '휴무일만' → is_operating=false. 필터 없이 호출하면 전체 요일별 운영시간을 반환합니다."
   },
   {
     "intent_id": "program.query",
-    "canonical": "상담 프로그램을 검색",
+    "canonical": "상담 프로그램을 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "program",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program.query"
-    },
-    "description": "상담 프로그램을 검색합니다. 프로그램 유형, 활성 상태, 이름으로 필터링할 수 있습니다. include에 member_names를 지정하면 담당자 이름 목록을 반환합니다."
-  },
-  {
-    "intent_id": "program.update",
-    "canonical": "프로그램 정보를 수정",
-    "risk": "write",
-    "facade": "program",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program.update"
-    },
-    "description": "프로그램 정보를 수정합니다. 이름, 유형, 가격, 소요 시간, 활성 여부를 변경할 수 있습니다."
-  },
-  {
-    "intent_id": "program_member.assign",
-    "canonical": "프로그램에 담당 직원/상담사를 일괄 배정",
-    "risk": "write",
-    "facade": "program_member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program_member.assign"
-    },
-    "description": "프로그램에 담당 직원/상담사를 일괄 배정합니다."
+    "description": "상담 프로그램을 검색하고, 요청한 필드만 반환합니다. 프로그램 유형, 활성 상태로 필터링할 수 있습니다. '프로그램 목록 보여줘' → 기본 필드 반환, '개인상담 프로그램 가격' → program_type=INDIVIDUAL, fields에 price 포함. 필터 없이 호출하면 전체 프로그램 목록을 반환합니다."
   },
   {
     "intent_id": "program_member.query",
-    "canonical": "프로그램에 배정된 담당 직원/상담사를 검색",
+    "canonical": "프로그램에 배정된 담당 직원/상담사를 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "program_member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program_member.query"
-    },
-    "description": "프로그램에 배정된 담당 직원/상담사를 검색합니다. program_id는 필수입니다. include에 member_name, program_name을 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "program_member.unassign",
-    "canonical": "프로그램에서 담당 직원/상담사를 해제",
-    "risk": "delete",
-    "facade": "program_member",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "program_member.unassign"
-    },
-    "description": "프로그램에서 담당 직원/상담사를 해제합니다."
-  },
-  {
-    "intent_id": "room.create",
-    "canonical": "새 상담실을 추가",
-    "risk": "write",
-    "facade": "room",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "room.create"
-    },
-    "description": "새 상담실을 추가합니다. 이름은 필수이며, 설명과 활성 여부를 설정할 수 있습니다."
-  },
-  {
-    "intent_id": "room.delete",
-    "canonical": "상담실을 삭제",
-    "risk": "delete",
-    "facade": "room",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "room.delete"
-    },
-    "description": "상담실을 삭제합니다. 삭제된 상담실은 복구할 수 없습니다."
+    "description": "프로그램에 배정된 담당 직원/상담사를 검색하고, 요청한 필드만 반환합니다. program_id는 필수입니다. '이 프로그램 담당자 누구야?' → program_id 지정."
   },
   {
     "intent_id": "room.query",
-    "canonical": "상담실을 검색",
+    "canonical": "상담실을 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "room",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "room.query"
-    },
-    "description": "상담실을 검색합니다. 이름, 활성 상태로 필터링하고, 임의 필드로 정렬할 수 있습니다. '사용 가능한 상담실' → is_active=true. 필터 없이 호출하면 전체 상담실 목록을 반환합니다."
-  },
-  {
-    "intent_id": "room.update",
-    "canonical": "상담실 정보를 수정",
-    "risk": "write",
-    "facade": "room",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "room.update"
-    },
-    "description": "상담실 정보를 수정합니다. 이름, 설명, 활성 여부 등을 변경할 수 있습니다."
-  },
-  {
-    "intent_id": "schedule.create",
-    "canonical": "새 일정을 생성",
-    "risk": "write",
-    "facade": "schedule",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "schedule.create"
-    },
-    "description": "새 일정을 생성합니다. 상담, 검사, 회의 등의 일정을 등록할 수 있습니다. 시작/종료 시간, 유형, 담당자는 필수입니다."
-  },
-  {
-    "intent_id": "schedule.delete",
-    "canonical": "일정을 삭제",
-    "risk": "delete",
-    "facade": "schedule",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "schedule.delete"
-    },
-    "description": "일정을 삭제합니다. 삭제된 일정은 복구할 수 없습니다."
+    "description": "상담실을 검색하고, 요청한 필드만 반환합니다. 이름, 설명, 활성 상태로 필터링할 수 있습니다. '상담실 목록 보여줘' → 기본 필드 반환, '사용 가능한 상담실만' → is_active=true, '놀이치료 가능한 방' → description='놀이치료'. 필터 없이 호출하면 전체 상담실 목록을 반환합니다."
   },
   {
     "intent_id": "schedule.query",
-    "canonical": "일정을 검색",
+    "canonical": "일정을 검색하고, 요청한 필드만 반환",
     "risk": "read",
     "facade": "schedule",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "schedule.query"
-    },
-    "description": "일정을 검색합니다. 날짜 범위, 일정 유형, 담당자, 상담실로 필터링할 수 있습니다. '오늘 일정' → start_date/end_date에 오늘 날짜. include에 member_name, room_name을 지정하면 추가 정보를 반환합니다."
-  },
-  {
-    "intent_id": "schedule.update",
-    "canonical": "기존 일정을 수정",
-    "risk": "write",
-    "facade": "schedule",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "schedule.update"
-    },
-    "description": "기존 일정을 수정합니다. 시간, 제목, 상담실, 메모를 변경할 수 있습니다."
-  },
-  {
-    "intent_id": "schedule.validate_batch",
-    "canonical": "반복 일정 생성 전 충돌 여부를 검증",
-    "risk": "read",
-    "facade": "schedule",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "schedule.validate_batch"
-    },
-    "description": "반복 일정 생성 전 충돌 여부를 검증합니다."
-  },
-  {
-    "intent_id": "send_link.query",
-    "canonical": "검사 바로링크 발송 내역을 조회",
-    "risk": "read",
-    "facade": "send",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "send_link.query"
-    },
-    "description": "검사 바로링크 발송 내역을 조회합니다. 케이스 ID로 필터링하거나 바로링크 ID로 단건 조회할 수 있습니다. include에 case_code를 지정하면 케이스 코드를 반환합니다."
-  },
-  {
-    "intent_id": "send_result.query",
-    "canonical": "검사 결과전송 내역을 조회",
-    "risk": "read",
-    "facade": "send",
-    "tool_config": {
-      "type": "single",
-      "tool_name": "send_result.query"
-    },
-    "description": "검사 결과전송 내역을 조회합니다. 케이스 ID로 필터링하거나 결과전송 ID로 단건 조회할 수 있습니다. include에 case_code를 지정하면 케이스 코드를 반환합니다."
+    "description": "일정을 검색하고, 요청한 필드만 반환합니다. 날짜 범위(필수), 일정 유형, 담당자, 상담실로 필터링할 수 있습니다. 오늘/이번주/특정 날짜의 일정을 확인할 때 사용하세요. '오늘 일정' → date_from/date_to에 오늘 날짜, '이번주 상담 일정' → schedule_type에 counseling 포함. 날짜 범위(date_from, date_to)는 필수이며, 생략 시 오늘 날짜가 기본값으로 사용됩니다."
   }
 ]
