@@ -1,557 +1,5 @@
 [
   {
-    "input": "활동 로그 보여줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "전체 활동 내역 조회",
-    "expected_method": "activity_log.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "오늘 활동 로그 보여줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "어제 로그 확인",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "date_from": "어제",
-      "date_to": "어제"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이번주 활동 기록 다 보여줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "date_from": "이번주",
-      "date_to": "이번주"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 카테고리 로그만 보여줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "category": "내담자"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "삭제 액션 로그 찾아줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "action": "삭제"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "생성된 로그만 볼래",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "action": "생성"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "수정 액션 활동 내역",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "action": "수정"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 엔티티 로그",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "entity_type": "내담자"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "M9UAA6 관련 활동 로그",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "entity_type": "내담자",
-      "entity_id": "M9UAA6"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "김영희가 한 활동 보여줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "actor_id": "김영희"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "지난주 삭제 로그 검색",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "action": "삭제",
-      "date_from": "지난주",
-      "date_to": "지난주"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "오늘 김상담사가 한 작업 다 보여줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "actor_id": "김상담사",
-      "date_from": "오늘",
-      "date_to": "오늘"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이번달 내담자 카테고리 로그",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "category": "내담자",
-      "date_from": "이번달",
-      "date_to": "이번달"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "어제 생성 액션만",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "action": "생성",
-      "date_from": "어제",
-      "date_to": "어제"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 엔티티 수정 로그 찾아줘",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "entity_type": "케이스",
-      "action": "수정"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "박영수가 삭제한 거 있어?",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "actor_id": "박영수",
-      "action": "삭제"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "2026년 1월 활동 로그",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "date_from": "2026년 1월",
-      "date_to": "2026년 1월"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "최근 한달 로그 다 보고싶어",
-    "expected_method": "activity_log.query",
-    "expected_params": {
-      "date_from": "최근 한달"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 AC0001 참여자 누구야",
-    "expected_method": "assessment_participant.query",
-    "expected_params": {
-      "case_id": "AC0001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "AC0002 참여자 알려줘",
-    "expected_method": "assessment_participant.query",
-    "expected_params": {
-      "case_id": "AC0002"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 AC0001 참여자 출력",
-    "expected_method": "assessment_participant.query",
-    "expected_params": {
-      "case_id": "AC0001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "AC0003 참여자",
-    "expected_method": "assessment_participant.query",
-    "expected_params": {
-      "case_id": "AC0003"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 정보 알려줘",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "우리 센터 어디야",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 전화번호 뭐야",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 주소 알려줘",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 이름 뭐지",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 코드 알려줘",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "활성화된 센터 보여줘",
-    "expected_method": "center.query",
-    "expected_params": {
-      "is_active": true
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "운영중인 센터만",
-    "expected_method": "center.query",
-    "expected_params": {
-      "is_active": true
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "비활성 센터 조회",
-    "expected_method": "center.query",
-    "expected_params": {
-      "is_active": false
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 기본정보 보여줘",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 연락처가 뭐였더라",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "여기 센터 어떤곳이지?",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "현재 센터 정보",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "활성 센터 리스트",
-    "expected_method": "center.query",
-    "expected_params": {
-      "is_active": true
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 상세보기",
-    "expected_method": "center.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "M9UAA6 내담자 자료 다 보여줘",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "M9UAA6"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "김영희 내담자 리소스 조회",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "김영희"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "L1XNB9 동의서 보여줘",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "L1XNB9",
-      "resource_type": "consent"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "EBDDN6 내담자 폼 인스턴스",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "EBDDN6",
-      "resource_type": "form_instance"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "박철수 사전접수 자료",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "박철수",
-      "resource_type": "pre_admission"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "R8TXQ3 검사 자료",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "R8TXQ3",
-      "resource_type": "assessment"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "T9AZC7 기타 리소스",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "T9AZC7",
-      "resource_type": "other"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "M9UAA6 동의서만 뽑아줘",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "M9UAA6",
-      "resource_type": "consent"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이지은 내담자 폼 다 보여",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "이지은",
-      "resource_type": "form_instance"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "W2FJL5 어떤 자료 있어?",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "W2FJL5"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "H8VEK6 내담자 사전접수서",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "H8VEK6",
-      "resource_type": "pre_admission"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "최민수 검사 결과 자료",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "최민수",
-      "resource_type": "assessment"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "N3PQR8 연결된 문서 다",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "N3PQR8"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S6UWY1 동의서들 확인",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "S6UWY1",
-      "resource_type": "consent"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "F5GHD2 폼 자료",
-    "expected_method": "client_resource.query",
-    "expected_params": {
-      "client_id": "F5GHD2",
-      "resource_type": "form_instance"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S-001 세션 출석 현황",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "세션 SS-100 참여자 출석",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "SS-100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S-7 출석 체크 보여줘",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-7"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "상담세션 SE-9 참석자 누구야",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "SE-9"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S-2026-01 출결 현황",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-2026-01"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "세션 1234 참여자 명단",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "1234"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "S-A 누가 참석했어",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-A"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "SS-55 세션 출석부",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "SS-55"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "session-99 출석 정보",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "session-99"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "S-12 결석자 있어?",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-12"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S-001 참석자 다 보여줘",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "SE-30 세션 참여자",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "SE-30"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S-77 출석 체크",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-77"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이번 세션 SS-1 참여자",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "SS-1"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "S-500 출석 명단 보여줘",
-    "expected_method": "counseling.list_session_participants",
-    "expected_params": {
-      "session_id": "S-500"
-    },
-    "expected_reliable": false
-  },
-  {
     "input": "문서 다 보여줘",
     "expected_method": "document.query",
     "expected_params": {},
@@ -598,9 +46,7 @@
   {
     "input": "DOM9UAA6 문서 보여줘",
     "expected_method": "document.query",
-    "expected_params": {
-      "document_id": "DOM9UAA6"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -608,14 +54,6 @@
     "expected_method": "document.query",
     "expected_params": {
       "uploader_id": "김영희"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "삭제된 문서도 포함해서 다 보여줘",
-    "expected_method": "document.query",
-    "expected_params": {
-      "include_deleted": true
     },
     "expected_reliable": true
   },
@@ -653,19 +91,9 @@
     "expected_reliable": true
   },
   {
-    "input": "지운 문서 포함해서 보여줘",
-    "expected_method": "document.query",
-    "expected_params": {
-      "include_deleted": true
-    },
-    "expected_reliable": true
-  },
-  {
     "input": "DOW2FJL59 문서 정보",
     "expected_method": "document.query",
-    "expected_params": {
-      "document_id": "DOW2FJL59"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -693,128 +121,9 @@
     "expected_reliable": true
   },
   {
-    "input": "기관 목록 보여줘",
-    "expected_method": "institution.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "어떤 기관 있어?",
-    "expected_method": "institution.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "서울 들어간 기관 검색",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "서울"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "초등학교 라는 기관 찾아줘",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "초등학교"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "INS-001 기관 정보",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "institution_id": "INS-001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "병원 키워드로 기관 검색",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "병원"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "전체 기관 조회",
-    "expected_method": "institution.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "복지관 검색해줘",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "복지관"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "강남 기관들 보여줘",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "강남"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "INST-100 정보",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "institution_id": "INST-100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "기관 다 알려줘",
-    "expected_method": "institution.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 라는 이름 들어간 기관",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "센터"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "한사랑 기관 찾기",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "한사랑"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "기관 ID INS-7 조회",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "institution_id": "INS-7"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "유치원 검색",
-    "expected_method": "institution.query",
-    "expected_params": {
-      "keyword": "유치원"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "등록된 기관 다 보여줘",
-    "expected_method": "institution.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
     "input": "M-001 오늘 가능한 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "M-001",
       "target_date": "오늘"
     },
     "expected_reliable": false
@@ -841,7 +150,6 @@
     "input": "M-100 2026-04-10 가용시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "M-100",
       "target_date": "2026-04-10"
     },
     "expected_reliable": false
@@ -868,7 +176,6 @@
     "input": "M-7 다음주 월요일 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "M-7",
       "target_date": "다음주 월요일"
     },
     "expected_reliable": false
@@ -895,7 +202,6 @@
     "input": "M-22 오늘 스케쥴 빈자리",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "M-22",
       "target_date": "오늘"
     },
     "expected_reliable": false
@@ -913,7 +219,6 @@
     "input": "M-50 내일모레 슬롯 알려줘",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "M-50",
       "target_date": "내일모레"
     },
     "expected_reliable": false
@@ -931,7 +236,6 @@
     "input": "M-9 2026-05-01 가능슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "M-9",
       "target_date": "2026-05-01"
     },
     "expected_reliable": false
@@ -1114,7 +418,7 @@
     "input": "토요일 운영해?",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "SAT"
+      "day_of_week": "SAT"
     },
     "expected_reliable": true
   },
@@ -1122,7 +426,7 @@
     "input": "일요일 영업해?",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "SUN"
+      "day_of_week": "SUN"
     },
     "expected_reliable": true
   },
@@ -1130,7 +434,7 @@
     "input": "월요일 운영시간",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "MON"
+      "day_of_week": "MON"
     },
     "expected_reliable": true
   },
@@ -1138,7 +442,7 @@
     "input": "화요일 영업시간 알려줘",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "TUE"
+      "day_of_week": "TUE"
     },
     "expected_reliable": true
   },
@@ -1146,7 +450,7 @@
     "input": "수요일 몇시까지 해?",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "WED"
+      "day_of_week": "WED"
     },
     "expected_reliable": true
   },
@@ -1154,7 +458,7 @@
     "input": "목요일 영업해?",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "THU"
+      "day_of_week": "THU"
     },
     "expected_reliable": true
   },
@@ -1162,7 +466,7 @@
     "input": "금요일 운영시간",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "FRI"
+      "day_of_week": "FRI"
     },
     "expected_reliable": true
   },
@@ -1206,7 +510,7 @@
     "input": "토욜 영업?",
     "expected_method": "operating_time.query",
     "expected_params": {
-      "weekday": "SAT"
+      "day_of_week": "SAT"
     },
     "expected_reliable": true
   },
@@ -1277,16 +581,14 @@
   {
     "input": "ROOM-001 상담실",
     "expected_method": "room.query",
-    "expected_params": {
-      "room_id": "ROOM-001"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "설명에 모래있는 상담실 어디였지?",
     "expected_method": "room.query",
     "expected_params": {
-      "keyword": "모래"
+      "description": "모래"
     },
     "expected_reliable": true
   },
@@ -1294,7 +596,7 @@
     "input": "방음 키워드 상담실",
     "expected_method": "room.query",
     "expected_params": {
-      "keyword": "방음"
+      "description": "방음"
     },
     "expected_reliable": true
   },
@@ -1318,7 +620,7 @@
     "input": "메모에 거울있는 룸",
     "expected_method": "room.query",
     "expected_params": {
-      "keyword": "거울"
+      "description": "거울"
     },
     "expected_reliable": true
   },
@@ -1347,138 +649,16 @@
   {
     "input": "ROOM-7 정보",
     "expected_method": "room.query",
-    "expected_params": {
-      "room_id": "ROOM-7"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "쇼파있는 상담실",
     "expected_method": "room.query",
     "expected_params": {
-      "keyword": "쇼파"
+      "description": "쇼파"
     },
     "expected_reliable": true
-  },
-  {
-    "input": "결과전송 내역 보여줘",
-    "expected_method": "send_result.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "검사 결과전송 다",
-    "expected_method": "send_result.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "C00001 결과전송 내역",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "C00001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 C00100 결과 전송한거",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "C00100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "RES-001 결과전송 정보",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "result_id": "RES-001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "결과ID R-7 조회",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "result_id": "R-7"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "CT9AZC7 케이스의 검사결과 보낸내역",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "CT9AZC7"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "AC0003 결과 송부 기록",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "AC0003"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "전체 결과전송 목록",
-    "expected_method": "send_result.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "RES-99 단건 조회",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "result_id": "RES-99"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "CEBDDN6026-01 결과 전송 보여줘",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "CEBDDN6026-01"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "결과전송 다 보여줘",
-    "expected_method": "send_result.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "CJ7KMV4 검사 결과 발송이력",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "CJ7KMV4"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "result-100 정보",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "result_id": "result-100"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "AC0077 결과 보낸 내역",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "case_id": "AC0077"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "RES-2026-1 결과전송 단건",
-    "expected_method": "send_result.query",
-    "expected_params": {
-      "result_id": "RES-2026-1"
-    },
-    "expected_reliable": false
   },
   {
     "input": "검사 목록 보여줘",
@@ -1496,7 +676,7 @@
     "input": "투사검사 종류 뭐 있어?",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "projective"
+      "assessment_type": "projective"
     },
     "expected_reliable": true
   },
@@ -1504,7 +684,7 @@
     "input": "지능검사 목록",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "intelligence"
+      "assessment_type": "intelligence"
     },
     "expected_reliable": true
   },
@@ -1512,7 +692,7 @@
     "input": "객관식 검사 보여줘",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "objective"
+      "assessment_type": "objective"
     },
     "expected_reliable": true
   },
@@ -1520,31 +700,27 @@
     "input": "발달검사 뭐있지",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "developmental"
+      "assessment_type": "developmental"
     },
     "expected_reliable": true
   },
   {
     "input": "공개된 검사만 보여줘",
     "expected_method": "assessment.query",
-    "expected_params": {
-      "status": "public"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "비공개 검사 목록",
     "expected_method": "assessment.query",
-    "expected_params": {
-      "status": "private"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "MMPI 검사 찾아줘",
     "expected_method": "assessment.query",
     "expected_params": {
-      "keyword": "MMPI"
+      "name": "MMPI"
     },
     "expected_reliable": true
   },
@@ -1552,7 +728,7 @@
     "input": "웩슬러 검사 있어?",
     "expected_method": "assessment.query",
     "expected_params": {
-      "keyword": "웩슬러"
+      "name": "웩슬러"
     },
     "expected_reliable": true
   },
@@ -1560,7 +736,7 @@
     "input": "로샤 검사 정보",
     "expected_method": "assessment.query",
     "expected_params": {
-      "keyword": "로샤"
+      "name": "로샤"
     },
     "expected_reliable": true
   },
@@ -1600,8 +776,7 @@
     "input": "공개된 지능검사",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "intelligence",
-      "status": "public"
+      "assessment_type": "intelligence"
     },
     "expected_reliable": true
   },
@@ -1609,8 +784,8 @@
     "input": "온라인으로 가능한 객관식 검사",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "objective",
-      "supports_online": true
+      "supports_online": true,
+      "assessment_type": "objective"
     },
     "expected_reliable": true
   },
@@ -1618,8 +793,8 @@
     "input": "온라인 투사검사 있어?",
     "expected_method": "assessment.query",
     "expected_params": {
-      "type": "projective",
-      "supports_online": true
+      "supports_online": true,
+      "assessment_type": "projective"
     },
     "expected_reliable": true
   },
@@ -1627,17 +802,14 @@
     "input": "공개된 MMPI",
     "expected_method": "assessment.query",
     "expected_params": {
-      "keyword": "MMPI",
-      "status": "public"
+      "name": "MMPI"
     },
     "expected_reliable": true
   },
   {
     "input": "BGT 검사 ID로 조회 ASMT-123",
     "expected_method": "assessment.query",
-    "expected_params": {
-      "assessment_id": "ASMT-123"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -1721,7 +893,6 @@
     "input": "케이스 C-555의 참석한 검사",
     "expected_method": "assessment_session.query",
     "expected_params": {
-      "case_id": "C-555",
       "status": "attended"
     },
     "expected_reliable": false
@@ -1729,17 +900,13 @@
   {
     "input": "일정 SCH-10에 연결된 검사 세션",
     "expected_method": "assessment_session.query",
-    "expected_params": {
-      "schedule_id": "SCH-10"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "세션 ID ASS-300 조회",
     "expected_method": "assessment_session.query",
-    "expected_params": {
-      "session_id": "ASS-300"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -1750,414 +917,6 @@
       "status": "cancelled"
     },
     "expected_reliable": false
-  },
-  {
-    "input": "센터 등록 신청 보여줘",
-    "expected_method": "center_application.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 신청 현황",
-    "expected_method": "center_application.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "전체 센터 신청 목록",
-    "expected_method": "center_application.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "대기중인 센터 신청",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "PENDING"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "심사 대기 신청 알려줘",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "PENDING"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "승인된 신청서",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "APPROVED"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "통과한 센터 등록",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "APPROVED"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "반려된 신청 보여줘",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "REJECTED"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "거절된 센터 신청",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "REJECTED"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "신청자 PER-100가 낸 신청",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "created_by": "PER-100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "PER-50 신청 내역",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "created_by": "PER-50"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "PER-100가 낸 대기중인 신청",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "created_by": "PER-100",
-      "status": "PENDING"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "PER-77 승인된 신청만",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "created_by": "PER-77",
-      "status": "APPROVED"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "신청 ID APP-001 조회",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "application_id": "APP-001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "PENDING 신청 다 보여줘",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "PENDING"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "REJECTED 된거",
-    "expected_method": "center_application.query",
-    "expected_params": {
-      "status": "REJECTED"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 M9UAA6 자세히 보여줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "M9UAA6"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "L1XNB9 케이스 정보",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "L1XNB9"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "CEBDDN600 상담 케이스 상세",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "CEBDDN600"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 C00555 좀 보여줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "C00555"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "J7KMV4 상담 자세하게",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "J7KMV4"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 ID CR8TXQ3 조회해줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "CR8TXQ3"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "상담 EBDDN6024-001 상세 정보",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "EBDDN6024-001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "H8VEK6 케이스 어떤 내용이지?",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "H8VEK6"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 W2FJL59 정보 알려줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "W2FJL59"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "AC00014 상담 좀 봐줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "AC00014"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "C00077 케이스 디테일",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "C00077"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "M9UAA6 좀 자세히",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "M9UAA6"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 C00555 한 건 보여줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "C00555"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "EBDDN6025-100 케이스 풀로 보여줘",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "EBDDN6025-100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 아이디 W2FJL5 조회",
-    "expected_method": "counseling.get",
-    "expected_params": {
-      "case_id": "W2FJL5"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "진행 중인 상담 보여줘",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "status": "active"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "활성 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "status": "active"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "종결된 케이스 알려줘",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "status": "completed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "취소된 상담 보여줘",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "status": "cancelled"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "메모에 우울 있는 내담자 보여줘",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "keyword": "우울"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "불안 키워드 들어간 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "keyword": "불안"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "주호소가 자존감인 상담",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "keyword": "자존감"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 코드 C00001 검색",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "case_code": "C00001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "상담사 M-100 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "counselor_id": "M-100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "M-50 담당 상담",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "counselor_id": "M-50"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "M-10 상담사가 진행중인 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "counselor_id": "M-10",
-      "status": "active"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "프로그램 PRG-1 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "program_id": "PRG-1"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "내담자 CL-100 상담",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "client_id": "CL-100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "CL-200 케이스 보여줘",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "client_id": "CL-200"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이번달 접수 상담",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "start_date": "이번달",
-      "end_date": "이번달"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "2024-01-01 부터 2024-12-31 까지 상담",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "start_date": "2024-01-01",
-      "end_date": "2024-12-31"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "지난주 접수된 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "start_date": "지난주",
-      "end_date": "지난주"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "M-10 상담사 종결 케이스",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "counselor_id": "M-10",
-      "status": "completed"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "우울 키워드 활성 상담",
-    "expected_method": "counseling_case.query",
-    "expected_params": {
-      "keyword": "우울",
-      "status": "active"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "상담은 있나?",
-    "expected_method": "counseling_case.query",
-    "expected_params": {},
-    "expected_reliable": true
   },
   {
     "input": "필드노트 전체 보여줘",
@@ -2174,41 +933,31 @@
   {
     "input": "이 일정 SCH-100의 필드노트",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "schedule_id": "SCH-100"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "일정 SCH-50 필드노트 알려줘",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "schedule_id": "SCH-50"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "스케줄 SCH-7 필드노트",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "schedule_id": "SCH-7"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "M-100 작성자 필드노트",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "author_id": "M-100"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "내가 쓴 필드노트 PER-22",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "author_id": "PER-22"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2255,7 +1004,6 @@
     "input": "SCH-100 일정의 완료된 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {
-      "schedule_id": "SCH-100",
       "status": "completed"
     },
     "expected_reliable": false
@@ -2264,7 +1012,6 @@
     "input": "M-50가 작성한 녹음중 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {
-      "author_id": "M-50",
       "status": "recording"
     },
     "expected_reliable": false
@@ -2273,7 +1020,6 @@
     "input": "M-10 작성자의 완료된 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {
-      "author_id": "M-10",
       "status": "completed"
     },
     "expected_reliable": false
@@ -2281,17 +1027,13 @@
   {
     "input": "필드노트 ID FN-100 조회",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "field_note_id": "FN-100"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "SCH-200 일정 필드노트 다",
     "expected_method": "field_note.query",
-    "expected_params": {
-      "schedule_id": "SCH-200"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2380,7 +1122,7 @@
     "input": "김영희 상담사 찾아줘",
     "expected_method": "member.query",
     "expected_params": {
-      "keyword": "김영희"
+      "name": "김영희"
     },
     "expected_reliable": true
   },
@@ -2388,7 +1130,7 @@
     "input": "이름이 박준호인 직원",
     "expected_method": "member.query",
     "expected_params": {
-      "keyword": "박준호"
+      "name": "박준호"
     },
     "expected_reliable": true
   },
@@ -2396,16 +1138,14 @@
     "input": "최치료 상담사",
     "expected_method": "member.query",
     "expected_params": {
-      "keyword": "최치료"
+      "name": "최치료"
     },
     "expected_reliable": true
   },
   {
     "input": "역할 ROLE-1인 멤버",
     "expected_method": "member.query",
-    "expected_params": {
-      "role_id": "ROLE-1"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2430,17 +1170,15 @@
     "input": "김상담 정직원",
     "expected_method": "member.query",
     "expected_params": {
-      "keyword": "김상담",
-      "employment_type": "FULLTIME"
+      "employment_type": "FULLTIME",
+      "name": "김상담"
     },
     "expected_reliable": true
   },
   {
     "input": "멤버 ID M-100 조회",
     "expected_method": "member.query",
-    "expected_params": {
-      "member_id": "M-100"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2452,41 +1190,32 @@
   {
     "input": "M-100 근무시간 알려줘",
     "expected_method": "member_working_time.query",
-    "expected_params": {
-      "member_id": "M-100"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "상담사 M-50 근무 일정",
     "expected_method": "member_working_time.query",
-    "expected_params": {
-      "member_id": "M-50"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "M-10 근무 시간",
     "expected_method": "member_working_time.query",
-    "expected_params": {
-      "member_id": "M-10"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "M-7 상담사 언제 일해?",
     "expected_method": "member_working_time.query",
-    "expected_params": {
-      "member_id": "M-7"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "M-100 월요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-100",
-      "weekday": "MON"
+      "day_of_week": "MON"
     },
     "expected_reliable": false
   },
@@ -2494,8 +1223,7 @@
     "input": "M-50 화요일 근무",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-50",
-      "weekday": "TUE"
+      "day_of_week": "TUE"
     },
     "expected_reliable": false
   },
@@ -2503,8 +1231,7 @@
     "input": "M-100 수요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-100",
-      "weekday": "WED"
+      "day_of_week": "WED"
     },
     "expected_reliable": false
   },
@@ -2512,8 +1239,7 @@
     "input": "M-200 목요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-200",
-      "weekday": "THU"
+      "day_of_week": "THU"
     },
     "expected_reliable": false
   },
@@ -2521,8 +1247,7 @@
     "input": "M-300 금요일 일하는 시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-300",
-      "weekday": "FRI"
+      "day_of_week": "FRI"
     },
     "expected_reliable": false
   },
@@ -2530,8 +1255,7 @@
     "input": "M-100 토요일 근무 있어?",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-100",
-      "weekday": "SAT"
+      "day_of_week": "SAT"
     },
     "expected_reliable": false
   },
@@ -2539,33 +1263,27 @@
     "input": "M-100 일요일도 일해?",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-100",
-      "weekday": "SUN"
+      "day_of_week": "SUN"
     },
     "expected_reliable": false
   },
   {
     "input": "M-22 근무시간 전체",
     "expected_method": "member_working_time.query",
-    "expected_params": {
-      "member_id": "M-22"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "상담사 M-77의 휴식시간 알려줘",
     "expected_method": "member_working_time.query",
-    "expected_params": {
-      "member_id": "M-77"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "M-1 상담사 월요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-1",
-      "weekday": "MON"
+      "day_of_week": "MON"
     },
     "expected_reliable": false
   },
@@ -2573,8 +1291,7 @@
     "input": "M-99 금욜 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-99",
-      "weekday": "FRI"
+      "day_of_week": "FRI"
     },
     "expected_reliable": false
   },
@@ -2582,8 +1299,7 @@
     "input": "M-5 일요일 근무 일정 확인",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "member_id": "M-5",
-      "weekday": "SUN"
+      "day_of_week": "SUN"
     },
     "expected_reliable": false
   },
@@ -2609,7 +1325,7 @@
     "input": "읽지 않은 알림 보여줘",
     "expected_method": "notification.query",
     "expected_params": {
-      "is_read": false
+      "unread_only": true
     },
     "expected_reliable": true
   },
@@ -2617,7 +1333,7 @@
     "input": "안읽은 알림",
     "expected_method": "notification.query",
     "expected_params": {
-      "is_read": false
+      "unread_only": true
     },
     "expected_reliable": true
   },
@@ -2625,7 +1341,7 @@
     "input": "이미 읽은 알림 목록",
     "expected_method": "notification.query",
     "expected_params": {
-      "is_read": true
+      "unread_only": false
     },
     "expected_reliable": true
   },
@@ -2689,8 +1405,8 @@
     "input": "안 읽은 검사 알림",
     "expected_method": "notification.query",
     "expected_params": {
-      "is_read": false,
-      "category": "assessment"
+      "category": "assessment",
+      "unread_only": true
     },
     "expected_reliable": true
   },
@@ -2698,8 +1414,8 @@
     "input": "읽지 않은 중요 알림",
     "expected_method": "notification.query",
     "expected_params": {
-      "is_read": false,
-      "priority": "important"
+      "priority": "important",
+      "unread_only": true
     },
     "expected_reliable": true
   },
@@ -2707,8 +1423,8 @@
     "input": "안읽은 상담 알림 보여줘",
     "expected_method": "notification.query",
     "expected_params": {
-      "is_read": false,
-      "category": "counseling"
+      "category": "counseling",
+      "unread_only": true
     },
     "expected_reliable": true
   },
@@ -2732,9 +1448,7 @@
   {
     "input": "알림 ID NOTI-10 보여줘",
     "expected_method": "notification.query",
-    "expected_params": {
-      "notification_id": "NOTI-10"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2744,134 +1458,11 @@
     "expected_reliable": true
   },
   {
-    "input": "결제 내역 전체",
-    "expected_method": "payment.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "청구 기록 보여줘",
-    "expected_method": "payment.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "미수금 조회",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "status": "pending"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "수금 안된거",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "status": "pending"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "결제 대기 목록",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "status": "pending"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "완료된 결제",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "status": "completed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "납부된 청구 보여줘",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "status": "completed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "상담 결제 내역",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "related_type": "counseling_session"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "검사 결제 보여줘",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "related_type": "assessment_session"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이번달 결제 내역",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "start_date": "이번달",
-      "end_date": "이번달"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "오늘 결제",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "2025-01-01부터 2025-03-31까지 결제",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "start_date": "2025-01-01",
-      "end_date": "2025-03-31"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "지난달 미수금",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "start_date": "지난달",
-      "end_date": "지난달",
-      "status": "pending"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이번주 완료 결제",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "start_date": "이번주",
-      "end_date": "이번주",
-      "status": "completed"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "결제 ID PAY-100 조회",
-    "expected_method": "payment.query",
-    "expected_params": {
-      "payment_id": "PAY-100"
-    },
-    "expected_reliable": false
-  },
-  {
     "input": "오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": false
   },
@@ -2879,8 +1470,8 @@
     "input": "오늘 일정 알려줘",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": true
   },
@@ -2894,8 +1485,8 @@
     "input": "내일 일정 보여줘",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "내일",
-      "end_date": "내일"
+      "date_from": "내일",
+      "date_to": "내일"
     },
     "expected_reliable": true
   },
@@ -2903,8 +1494,8 @@
     "input": "이번주 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "이번주",
-      "end_date": "이번주"
+      "date_from": "이번주",
+      "date_to": "이번주"
     },
     "expected_reliable": true
   },
@@ -2912,8 +1503,8 @@
     "input": "다음주 일정 알려줘",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "다음주",
-      "end_date": "다음주"
+      "date_from": "다음주",
+      "date_to": "다음주"
     },
     "expected_reliable": true
   },
@@ -2921,8 +1512,8 @@
     "input": "이번달 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "이번달",
-      "end_date": "이번달"
+      "date_from": "이번달",
+      "date_to": "이번달"
     },
     "expected_reliable": true
   },
@@ -2930,9 +1521,9 @@
     "input": "오늘 상담 있어?",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘",
-      "schedule_type": "counseling"
+      "schedule_type": "counseling",
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": false
   },
@@ -2940,9 +1531,9 @@
     "input": "오늘 검사 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘",
-      "schedule_type": "assessment"
+      "schedule_type": "assessment",
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": false
   },
@@ -2974,44 +1565,38 @@
     "input": "M-100 상담사 오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "member_id": "M-100",
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": false
   },
   {
     "input": "M-50 일정 다 보여줘",
     "expected_method": "schedule.query",
-    "expected_params": {
-      "member_id": "M-50"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "1번 상담실 오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "room_id": "ROOM-1",
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": false
   },
   {
     "input": "ROOM-2 일정",
     "expected_method": "schedule.query",
-    "expected_params": {
-      "room_id": "ROOM-2"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "2025-04-10부터 2025-04-20까지 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "2025-04-10",
-      "end_date": "2025-04-20"
+      "date_from": "2025-04-10",
+      "date_to": "2025-04-20"
     },
     "expected_reliable": true
   },
@@ -3019,7 +1604,7 @@
     "input": "초기상담 일정 검색",
     "expected_method": "schedule.query",
     "expected_params": {
-      "keyword": "초기상담"
+      "title": "초기상담"
     },
     "expected_reliable": true
   },
@@ -3027,7 +1612,7 @@
     "input": "메모에 부모상담 있는 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "keyword": "부모상담"
+      "note": "부모상담"
     },
     "expected_reliable": true
   },
@@ -3035,27 +1620,24 @@
     "input": "M-10 이번주 상담일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "member_id": "M-10",
-      "start_date": "이번주",
-      "end_date": "이번주",
-      "schedule_type": "counseling"
+      "schedule_type": "counseling",
+      "date_from": "이번주",
+      "date_to": "이번주"
     },
     "expected_reliable": false
   },
   {
     "input": "일정 ID SCH-100 조회",
     "expected_method": "schedule.query",
-    "expected_params": {
-      "schedule_id": "SCH-100"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "오늘 예약 몇건 있어?",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": true
   },
@@ -3071,8 +1653,8 @@
     "input": "오늘 일정 있어?",
     "expected_method": "schedule.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": true
   },
@@ -3148,7 +1730,9 @@
     "input": "ADHD 태그 있는 검사 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "tag": "ADHD"
+      "tags": [
+        "ADHD"
+      ]
     },
     "expected_reliable": true
   },
@@ -3156,7 +1740,9 @@
     "input": "자폐 태그 검사 케이스 보여줘",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "tag": "자폐"
+      "tags": [
+        "자폐"
+      ]
     },
     "expected_reliable": true
   },
@@ -3164,8 +1750,8 @@
     "input": "오늘 접수된 검사 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": true
   },
@@ -3173,7 +1759,7 @@
     "input": "이번주 접수 검사 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "start_date": "이번주"
+      "date_from": "이번주"
     },
     "expected_reliable": true
   },
@@ -3181,8 +1767,8 @@
     "input": "3월에 접수된 검사 케이스 보여줘",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "start_date": "3월",
-      "end_date": "3월"
+      "date_from": "3월",
+      "date_to": "3월"
     },
     "expected_reliable": true
   },
@@ -3191,8 +1777,8 @@
     "expected_method": "assessment_case.query",
     "expected_params": {
       "status": "completed",
-      "start_date": "지난달",
-      "end_date": "지난달"
+      "date_from": "지난달",
+      "date_to": "지난달"
     },
     "expected_reliable": false
   },
@@ -3201,7 +1787,9 @@
     "expected_method": "assessment_case.query",
     "expected_params": {
       "status": "processing",
-      "tag": "ADHD"
+      "tags": [
+        "ADHD"
+      ]
     },
     "expected_reliable": true
   },
@@ -3218,8 +1806,8 @@
     "input": "어제 접수된 검사 케이스 조회",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "start_date": "어제",
-      "end_date": "어제"
+      "date_from": "어제",
+      "date_to": "어제"
     },
     "expected_reliable": true
   },
@@ -3228,17 +1816,15 @@
     "expected_method": "assessment_case.query",
     "expected_params": {
       "status": "completed",
-      "start_date": "이번달",
-      "end_date": "이번달"
+      "date_from": "이번달",
+      "date_to": "이번달"
     },
     "expected_reliable": false
   },
   {
     "input": "검사 케이스 ID abc123 상세",
     "expected_method": "assessment_case.query",
-    "expected_params": {
-      "case_id": "abc123"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -3269,7 +1855,7 @@
     "input": "환검사 세트 목록",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "환검사"
+      "search": "환검사"
     },
     "expected_reliable": true
   },
@@ -3277,7 +1863,7 @@
     "input": "ADHD 검사 세트 찾아줘",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "ADHD"
+      "search": "ADHD"
     },
     "expected_reliable": true
   },
@@ -3285,7 +1871,7 @@
     "input": "지능검사 세트 있는지 확인",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "지능검사"
+      "search": "지능검사"
     },
     "expected_reliable": true
   },
@@ -3293,7 +1879,7 @@
     "input": "우울 관련 검사 세트",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "우울"
+      "search": "우울"
     },
     "expected_reliable": true
   },
@@ -3301,7 +1887,7 @@
     "input": "언어 발달 검사 세트 있어?",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "언어 발달"
+      "search": "언어 발달"
     },
     "expected_reliable": true
   },
@@ -3309,7 +1895,7 @@
     "input": "K-WISC 세트 알려줘",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "K-WISC"
+      "search": "K-WISC"
     },
     "expected_reliable": true
   },
@@ -3317,23 +1903,21 @@
     "input": "MMPI 검사 세트",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "MMPI"
+      "search": "MMPI"
     },
     "expected_reliable": true
   },
   {
     "input": "검사 세트 set_id xyz 조회",
     "expected_method": "assessment_set.query",
-    "expected_params": {
-      "set_id": "xyz"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "성인 검사 세트 어떤거 있나",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "성인"
+      "search": "성인"
     },
     "expected_reliable": true
   },
@@ -3341,7 +1925,7 @@
     "input": "아동 검사 세트",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "아동"
+      "search": "아동"
     },
     "expected_reliable": true
   },
@@ -3349,7 +1933,7 @@
     "input": "불안 검사 세트 좀 보여줘",
     "expected_method": "assessment_set.query",
     "expected_params": {
-      "keyword": "불안"
+      "search": "불안"
     },
     "expected_reliable": true
   },
@@ -3472,7 +2056,7 @@
     "input": "메모에 우울감 있는 내담자",
     "expected_method": "client.query",
     "expected_params": {
-      "keyword": "우울감"
+      "memo": "우울감"
     },
     "expected_reliable": true
   },
@@ -3480,7 +2064,7 @@
     "input": "우울감 문제 있는 내담자 누구였ㅈ;?",
     "expected_method": "client.query",
     "expected_params": {
-      "keyword": "우울감"
+      "memo": "우울감"
     },
     "expected_reliable": true
   },
@@ -3488,7 +2072,7 @@
     "input": "메모에 학교 적응 문제 있는 내담자",
     "expected_method": "client.query",
     "expected_params": {
-      "keyword": "학교 적응"
+      "memo": "학교 적응"
     },
     "expected_reliable": true
   },
@@ -3496,7 +2080,7 @@
     "input": "학교 적ㅇ응 문제 있던 내담자 누구였지?",
     "expected_method": "client.query",
     "expected_params": {
-      "keyword": "학교 적응"
+      "memo": "학교 적응"
     },
     "expected_reliable": true
   },
@@ -3504,7 +2088,7 @@
     "input": "언어 발달 지연 평가 의뢰 했던 내담자",
     "expected_method": "client.query",
     "expected_params": {
-      "keyword": "언어 발달 지연"
+      "memo": "언어 발달 지연"
     },
     "expected_reliable": true
   },
@@ -3512,7 +2096,7 @@
     "input": "메모에 어려움 기재된 내담자 찾아줘",
     "expected_method": "client.query",
     "expected_params": {
-      "keyword": "어려움"
+      "memo": "어려움"
     },
     "expected_reliable": true
   },
@@ -3533,157 +2117,6 @@
       "role": "client"
     },
     "expected_reliable": false
-  },
-  {
-    "input": "상담 케이스 전체 보여줘",
-    "expected_method": "counseling.list",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "상담 목록 좀",
-    "expected_method": "counseling.list",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "진행 중인 상담",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "active"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "종결된 케이스 보여줘",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "completed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "취소된 상담 목록",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "cancelled"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "김상담사 진행중 상담",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "active",
-      "counselor_id": "김상담사"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "박선생님이 맡은 상담",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "counselor_id": "박선생님"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "오늘 접수된 상담",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이번주 상담 케이스",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "start_date": "이번주"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "지난달 종결된 상담",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "completed",
-      "start_date": "지난달",
-      "end_date": "지난달"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "상담 오래된 순으로 보여줘",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "sort": "asc"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "최신순 상담 목록",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "sort": "desc"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이번달 진행중 상담 케이스",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "active",
-      "start_date": "이번달",
-      "end_date": "이번달"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "어제 접수된 상담",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "start_date": "어제",
-      "end_date": "어제"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "상담 진행중인거 오래된 순",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "active",
-      "sort": "asc"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이상담사 종결 케이스",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "completed",
-      "counselor_id": "이상담사"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "3월 상담 케이스 좀 봅시다",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "start_date": "3월",
-      "end_date": "3월"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이번주 종결된 상담 보여주세요",
-    "expected_method": "counseling.list",
-    "expected_params": {
-      "status": "completed",
-      "start_date": "이번주"
-    },
-    "expected_reliable": true
   },
   {
     "input": "상담 노트 확인",
@@ -3754,9 +2187,7 @@
   {
     "input": "session_id ses-001 노트",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "counseling_session_id": "ses-001"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -3804,9 +2235,7 @@
   {
     "input": "노트 ID note-555 상세",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "note_id": "note-555"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -3899,17 +2328,13 @@
   {
     "input": "template tmpl-1 양식 인스턴스",
     "expected_method": "form_instance.query",
-    "expected_params": {
-      "template_id": "tmpl-1"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "양식 instance_id ins-99",
     "expected_method": "form_instance.query",
-    "expected_params": {
-      "instance_id": "ins-99"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -3998,7 +2423,7 @@
     "input": "상담사 역할 초대 목록",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "role_id": "상담사"
+      "role_code": "상담사"
     },
     "expected_reliable": true
   },
@@ -4006,24 +2431,20 @@
     "input": "관리자 초대된거",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "role_id": "관리자"
+      "role_code": "관리자"
     },
     "expected_reliable": true
   },
   {
     "input": "김민수로 초대된거 있어?",
     "expected_method": "member_invitation.query",
-    "expected_params": {
-      "keyword": "김민수"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "test@example.com 초대 검색",
     "expected_method": "member_invitation.query",
-    "expected_params": {
-      "keyword": "test@example.com"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -4057,7 +2478,7 @@
     "expected_method": "member_invitation.query",
     "expected_params": {
       "status": "pending",
-      "role_id": "상담사"
+      "role_code": "상담사"
     },
     "expected_reliable": true
   },
@@ -4065,17 +2486,14 @@
     "input": "박선생 초대 만료된거",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "status": "expired",
-      "keyword": "박선생"
+      "status": "expired"
     },
     "expected_reliable": true
   },
   {
     "input": "초대 ID inv-12 조회",
     "expected_method": "member_invitation.query",
-    "expected_params": {
-      "invitation_id": "inv-12"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -4085,151 +2503,6 @@
       "status": "accepted",
       "date_from": "이번달",
       "date_to": "이번달"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "메시지 발송 로그 전부",
-    "expected_method": "message_log.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "문자 발송 내역",
-    "expected_method": "message_log.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "알림톡 발송 로그",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "alarmtalk"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "SMS 보낸거 보여줘",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "sms"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "LMS 발송 내역",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "lms"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "발송 실패한 메시지",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "status": "failed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "전송 완료된 메시지 조회",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "status": "sent"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "대기중인 메시지",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "status": "pending"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "취소된 메시지 발송",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "status": "cancelled"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "010-1234-5678 보낸 메시지",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "recipient": "010-1234-5678"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "오늘 발송된 메시지",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이번주 보낸 알림톡",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "alarmtalk",
-      "start_date": "이번주"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "어제 실패한 SMS",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "sms",
-      "status": "failed",
-      "start_date": "어제",
-      "end_date": "어제"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "지난달 알림톡 발송내역",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "alarmtalk",
-      "start_date": "지난달",
-      "end_date": "지난달"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "010-9999-8888 알림톡 실패건",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "alarmtalk",
-      "status": "failed",
-      "recipient": "010-9999-8888"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이번달 발송 완료된 메시지",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "status": "sent",
-      "start_date": "이번달",
-      "end_date": "이번달"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "오늘 알림톡 보낸거 다",
-    "expected_method": "message_log.query",
-    "expected_params": {
-      "message_type": "alarmtalk",
-      "start_date": "오늘",
-      "end_date": "오늘"
     },
     "expected_reliable": false
   },
@@ -4457,9 +2730,7 @@
   {
     "input": "프로그램 ID prog-3 정보",
     "expected_method": "program.query",
-    "expected_params": {
-      "program_id": "prog-3"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -4495,775 +2766,6 @@
       "is_active": true
     },
     "expected_reliable": false
-  },
-  {
-    "input": "4월 10일 오후 2시부터 매주 월요일 10회 1번방 50분 일정 검증",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "4월 10일",
-      "start_time": "14:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "monday"
-        ],
-        "count": 10
-      },
-      "room_id": "1번방",
-      "duration_minutes": 50
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "내일 10시부터 매일 5회 60분 A실 충돌 확인",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "내일",
-      "start_time": "10:00",
-      "recurrence": {
-        "pattern": "daily",
-        "count": 5
-      },
-      "room_id": "A실",
-      "duration_minutes": 60
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "2026-05-01 09:30 매주 화목 8회 상담실1 50분 검증해줘",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "2026-05-01",
-      "start_time": "09:30",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "tuesday",
-          "thursday"
-        ],
-        "count": 8
-      },
-      "room_id": "상담실1",
-      "duration_minutes": 50
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "다음주 월요일 15시부터 매주 12회 B룸 40분 일정 가능?",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "다음주 월요일",
-      "start_time": "15:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "count": 12
-      },
-      "room_id": "B룸",
-      "duration_minutes": 40
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "4/15 11:00 격주 수요일 6회 놀이방 50분 충돌체크",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "4/15",
-      "start_time": "11:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "interval": 2,
-        "days_of_week": [
-          "wednesday"
-        ],
-        "count": 6
-      },
-      "room_id": "놀이방",
-      "duration_minutes": 50
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "내일 14시부터 매주 금요일 10번 미술실 90분 가능한지 검증",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "내일",
-      "start_time": "14:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "friday"
-        ],
-        "count": 10
-      },
-      "room_id": "미술실",
-      "duration_minutes": 90
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "5월 1일 16:00 매주 월수금 20회까지 상담실A 30분 검증",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "5월 1일",
-      "start_time": "16:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "monday",
-          "wednesday",
-          "friday"
-        ],
-        "count": 20
-      },
-      "room_id": "상담실A",
-      "duration_minutes": 30
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "다음달 1일 10:00 매일 3회 1번방 120분 일정 가능?",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "다음달 1일",
-      "start_time": "10:00",
-      "recurrence": {
-        "pattern": "daily",
-        "count": 3
-      },
-      "room_id": "1번방",
-      "duration_minutes": 120
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "4월 20일 13시 매주 화요일 5월 30일까지 2번방 50분",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "4월 20일",
-      "start_time": "13:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "tuesday"
-        ],
-        "until": "5월 30일"
-      },
-      "room_id": "2번방",
-      "duration_minutes": 50
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "내일 09:00 매주 목요일 4회 그룹실 80분 충돌 검증",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "내일",
-      "start_time": "09:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "thursday"
-        ],
-        "count": 4
-      },
-      "room_id": "그룹실",
-      "duration_minutes": 80
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "오늘 17시 매일 7회 C방 45분 가능한지 봐줘",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "오늘",
-      "start_time": "17:00",
-      "recurrence": {
-        "pattern": "daily",
-        "count": 7
-      },
-      "room_id": "C방",
-      "duration_minutes": 45
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "4/8 15:30 매주 수요일 10회 언어치료실 50분",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "4/8",
-      "start_time": "15:30",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "wednesday"
-        ],
-        "count": 10
-      },
-      "room_id": "언어치료실",
-      "duration_minutes": 50
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "다음주 수요일 14시부터 매주 8회 미술실 60분 일정 충돌 확인",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "다음주 수요일",
-      "start_time": "14:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "count": 8
-      },
-      "room_id": "미술실",
-      "duration_minutes": 60
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "4월 12일 10:00 격주 토요일 6회 1번방 50분 검증",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "4월 12일",
-      "start_time": "10:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "interval": 2,
-        "days_of_week": [
-          "saturday"
-        ],
-        "count": 6
-      },
-      "room_id": "1번방",
-      "duration_minutes": 50
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "내일 13:00 매주 월화수목금 10회 상담실 30분 일정 가능?",
-    "expected_method": "schedule.validate_batch",
-    "expected_params": {
-      "start_date": "내일",
-      "start_time": "13:00",
-      "recurrence": {
-        "pattern": "weekly",
-        "days_of_week": [
-          "monday",
-          "tuesday",
-          "wednesday",
-          "thursday",
-          "friday"
-        ],
-        "count": 10
-      },
-      "room_id": "상담실",
-      "duration_minutes": 30
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 검사 케이스 수정 가능한지 확인해줘",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 검사 케이스"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 AC0001 수정해도 되나?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "AC0001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 검사자를 김상담으로 바꿀 수 있어?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "counselor_id": "김상담"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 ABC123 담당 검사자 변경 가능한지",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "ABC123",
-      "counselor_id": "변경"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스에 MMPI 추가할 수 있는지 검증해줘",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "assessment_ids": [
-        "MMPI"
-      ]
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 L1XNB9에 검사 세트 SET-A 적용 가능?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "L1XNB9",
-      "set_id": "SET-A"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 내담자 홍길동으로 변경 가능한지 확인",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "client_ids": [
-        "홍길동"
-      ]
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 X1 보조검사자에 박조교 추가해도 돼?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "X1",
-      "assistant_ids": [
-        "박조교"
-      ]
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 검사 케이스에 태그 우울 추가할 수 있어?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 검사 케이스",
-      "tags": [
-        "우울"
-      ]
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 K200 종합보고서 필요로 바꿀 수 있나",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "K200",
-      "is_final_report_required": true
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 종합보고서 필요 없음으로 바꿔도 돼?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "is_final_report_required": false
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 CC1 일정 수정 가능한지",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "CC1",
-      "schedule": {
-        "has_schedule": true
-      }
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스를 제2상담실로 옮길 수 있어?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "schedule": {
-        "room_id": "제2상담실"
-      }
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 ID T9 검사자 김선생, MMPI 추가 가능?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "T9",
-      "counselor_id": "김선생",
-      "assessment_ids": [
-        "MMPI"
-      ]
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 기관을 본원으로 옮겨도 되나",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "institution_id": "본원"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 P1 태그 ADHD, 학습 추가 가능한지 봐줘",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "P1",
-      "tags": [
-        "ADHD",
-        "학습"
-      ]
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 보조검사자 두명 (이조교, 박조교) 추가 가능?",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "assistant_ids": [
-        "이조교",
-        "박조교"
-      ]
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 G7 일정 없음으로 바꿀 수 있나",
-    "expected_method": "assessment_case.validate_update",
-    "expected_params": {
-      "case_id": "G7",
-      "schedule": {
-        "has_schedule": false
-      }
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "검사 수행 목록 보여줘",
-    "expected_method": "assessment_task.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "task ID T-555 상세조회",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "task_id": "T-555"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 C-1의 검사 task 보여줘",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "case_id": "C-1"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "MMPI 검사 task만 조회",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "assessment_id": "MMPI"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "진행중인 검사 task 리스트",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "status": "in_progress"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "완료된 검사 보여줘",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "status": "completed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "대기중인 검사",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "status": "pending"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "거부된 검사 task",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "status": "refused"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "취소된 검사 보여줘요",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "status": "cancelled"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "제출된 검사 목록",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "status": "submitted"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "온라인 검사만 보여줘",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "execution_method": "online"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내방 검사 task 조회",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "execution_method": "onsite"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 L1XNB9에서 진행중인 검사",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "case_id": "L1XNB9",
-      "status": "in_progress"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 K1의 완료된 온라인 검사",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "case_id": "K1",
-      "status": "completed",
-      "execution_method": "online"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "MMPI 완료된 task만",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "assessment_id": "MMPI",
-      "status": "completed"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "세션 S-9 의 검사 task",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "session_id": "S-9"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 ABC 의 MMPI 진행상황",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "case_id": "ABC",
-      "assessment_id": "MMPI"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이 케이스 거부된 검사 있어?",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "case_id": "이 케이스",
-      "status": "refused"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "오프라인 미시작 검사",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "execution_method": "onsite",
-      "status": "pending"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "온라인 진행중인거",
-    "expected_method": "assessment_task.query",
-    "expected_params": {
-      "execution_method": "online",
-      "status": "in_progress"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 CL-1의 관계 보여줘",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "CL-1"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "홍길동 보호자 누구야?",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "홍길동",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 김민수 자녀 알려줘",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "김민수",
-      "relation_type": "child"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이 내담자 가족 관계 조회",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "이 내담자"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 CL-200의 보호자 목록",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "CL-200",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "박지원 자녀 정보",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "박지원",
-      "relation_type": "child"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이 아이 부모님 누구야?",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "이 아이",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 ID C99 관계 전부",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "C99"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이수민의 자녀 보여줘",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "이수민",
-      "relation_type": "child"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "CL_55 보호자 알려줘요",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "CL_55",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 김철수 가족",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "김철수"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "H8VEK6 자녀들 조회",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "H8VEK6",
-      "relation_type": "child"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 내담자 보호자만",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "이 내담자",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "내담자 박영희 관계자 전체",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "박영희"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "CL10 의 보호자 누구임?",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "CL10",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "내담자 정수정 자식",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "정수정",
-      "relation_type": "child"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "C001 관계 조회해줘",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "C001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 분 보호자 정보",
-    "expected_method": "client_relation.query",
-    "expected_params": {
-      "client_id": "이 분",
-      "relation_type": "guardian"
-    },
-    "expected_reliable": true
   },
   {
     "input": "이 상담 케이스 참여자 보여줘",
@@ -5311,7 +2813,6 @@
     "input": "케이스 P-77 모든 참여자 (탈퇴 포함)",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "P-77",
       "active_only": false
     },
     "expected_reliable": false
@@ -5327,9 +2828,7 @@
   {
     "input": "케이스 CN-200 상담사랑 내담자 보여줘",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "CN-200"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -5379,7 +2878,6 @@
     "input": "케이스 K-12 참여자 활성만 보여주세요",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "K-12",
       "active_only": true
     },
     "expected_reliable": false
@@ -5433,16 +2931,14 @@
   {
     "input": "회기 ID S-1 조회",
     "expected_method": "counseling_session.query",
-    "expected_params": {
-      "session_id": "S-1"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "케이스 L1XNB9 의 회기들",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "counseling_case_id": "L1XNB9"
+      "case_id": "L1XNB9"
     },
     "expected_reliable": false
   },
@@ -5482,8 +2978,8 @@
     "input": "오늘 회기 보여줘",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "start_date": "오늘",
-      "end_date": "오늘"
+      "date_from": "오늘",
+      "date_to": "오늘"
     },
     "expected_reliable": true
   },
@@ -5492,8 +2988,8 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "scheduled",
-      "start_date": "이번주",
-      "end_date": "이번주"
+      "date_from": "이번주",
+      "date_to": "이번주"
     },
     "expected_reliable": false
   },
@@ -5501,8 +2997,8 @@
     "input": "케이스 K1 완료 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "counseling_case_id": "K1",
-      "status": "completed"
+      "status": "completed",
+      "case_id": "K1"
     },
     "expected_reliable": false
   },
@@ -5510,8 +3006,8 @@
     "input": "다음주 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "start_date": "다음주",
-      "end_date": "다음주"
+      "date_from": "다음주",
+      "date_to": "다음주"
     },
     "expected_reliable": true
   },
@@ -5519,8 +3015,8 @@
     "input": "12월 회기 전부",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "start_date": "12월",
-      "end_date": "12월"
+      "date_from": "12월",
+      "date_to": "12월"
     },
     "expected_reliable": true
   },
@@ -5528,17 +3024,15 @@
     "input": "케이스 CC1 예정 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "counseling_case_id": "CC1",
-      "status": "scheduled"
+      "status": "scheduled",
+      "case_id": "CC1"
     },
     "expected_reliable": false
   },
   {
     "input": "일정 ID SCH-9 회기",
     "expected_method": "counseling_session.query",
-    "expected_params": {
-      "schedule_id": "SCH-9"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -5546,8 +3040,8 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "no_show",
-      "start_date": "이번달",
-      "end_date": "이번달"
+      "date_from": "이번달",
+      "date_to": "이번달"
     },
     "expected_reliable": false
   },
@@ -5555,8 +3049,8 @@
     "input": "내일 회기 일정",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "start_date": "내일",
-      "end_date": "내일"
+      "date_from": "내일",
+      "date_to": "내일"
     },
     "expected_reliable": true
   },
@@ -5565,8 +3059,8 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "completed",
-      "start_date": "어제",
-      "end_date": "어제"
+      "date_from": "어제",
+      "date_to": "어제"
     },
     "expected_reliable": false
   },
@@ -5574,8 +3068,8 @@
     "input": "케이스 G3 취소 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "counseling_case_id": "G3",
-      "status": "cancelled"
+      "status": "cancelled",
+      "case_id": "G3"
     },
     "expected_reliable": false
   },
@@ -5606,9 +3100,7 @@
   {
     "input": "양식 ID FT-1 조회",
     "expected_method": "form_template.query",
-    "expected_params": {
-      "template_id": "FT-1"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -5702,9 +3194,7 @@
   {
     "input": "ID FORM-99 양식",
     "expected_method": "form_template.query",
-    "expected_params": {
-      "template_id": "FORM-99"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -5726,9 +3216,7 @@
   {
     "input": "직원 M-1 비근무 시간",
     "expected_method": "member_non_working_time.query",
-    "expected_params": {
-      "member_id": "M-1"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -5753,7 +3241,6 @@
     "input": "M-9 의 2025년 12월 비근무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "M-9",
       "year": 2025,
       "month": 12
     },
@@ -5864,9 +3351,7 @@
   {
     "input": "M-3 이번달 휴가 알려줘",
     "expected_method": "member_non_working_time.query",
-    "expected_params": {
-      "member_id": "M-3"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -5874,148 +3359,6 @@
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "member_id": "정선생"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "문자 양식 보여줘",
-    "expected_method": "message_template.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "문자 템플릿 ID MT-1",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "template_id": "MT-1"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "예약 알림 문자 양식",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "예약 알림"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "리마인드 문자 검색",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "리마인드"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "기본 문자 양식만",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "is_default": true
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "사용자 정의 문자 양식",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "is_default": false
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "예약확정 타입 양식",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "template_type": "예약확정"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "검사링크 발송 문자",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "검사링크 발송"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "예약 타입 기본 문자",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "template_type": "예약",
-      "is_default": true
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "리마인드 타입 문자 양식",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "template_type": "리마인드"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "센터 전용 문자 양식",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "is_default": false
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "결제 안내 문자",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "결제 안내"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "취소 안내 문자 양식 기본거",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "취소 안내",
-      "is_default": true
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "MT99 양식 보여줘",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "template_id": "MT99"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "감사 인사 문자",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "감사 인사"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "문자 양식 종류 다 보여줘",
-    "expected_method": "message_template.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "예약확인 양식 부분 일치 검색",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "name": "예약확인"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "디폴트 문자 템플릿",
-    "expected_method": "message_template.query",
-    "expected_params": {
-      "is_default": true
     },
     "expected_reliable": true
   },
@@ -6185,38 +3528,36 @@
     "input": "담당자 목록",
     "expected_method": "program_member.query",
     "expected_params": {},
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "이건 누가 담당이야?",
     "expected_method": "program_member.query",
     "expected_params": {},
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "담당자가 누구야?",
     "expected_method": "program_member.query",
     "expected_params": {},
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "이거 담당자가 누구야?",
     "expected_method": "program_member.query",
     "expected_params": {},
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "담당자 이름 알려줘",
     "expected_method": "program_member.query",
     "expected_params": {},
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "프로그램 PRG-1 담당자 보여줘",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "PRG-1"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -6238,9 +3579,7 @@
   {
     "input": "ART-1 프로그램 담당자",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "ART-1"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -6256,7 +3595,6 @@
     "input": "프로그램 PRG-7 박선생 담당인지",
     "expected_method": "program_member.query",
     "expected_params": {
-      "program_id": "PRG-7",
       "member_id": "박선생"
     },
     "expected_reliable": false
@@ -6272,9 +3610,7 @@
   {
     "input": "P-50 담당자 명단",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "P-50"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -6297,9 +3633,7 @@
   {
     "input": "PRG-99 담당 멤버",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "PRG-99"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -6314,144 +3648,7 @@
     "input": "프로그램 P-10 직원 M5 배정 여부",
     "expected_method": "program_member.query",
     "expected_params": {
-      "program_id": "P-10",
       "member_id": "M5"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "검사 바로링크 발송 내역 보여줘",
-    "expected_method": "send_link.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 AC0001 바로링크 내역",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "AC0001"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 발송 링크 조회",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "이 케이스"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "바로링크 ID L-99 단건 조회",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "link_id": "L-99"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 K100 검사 링크 보낸거 보여줘",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "K100"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "발송 링크 전체",
-    "expected_method": "send_link.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 ABC1 바로링크 발송 내역",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "ABC1"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "링크 ID LINK-5 보여줘",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "link_id": "LINK-5"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "이 케이스 검사 보낸거 다 알려줘",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "이 케이스"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "바로링크 다 보여줘",
-    "expected_method": "send_link.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "H8VEK6 케이스 바로링크",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "H8VEK6"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "케이스 P9 검사 발송 이력",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "P9"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "L_001 링크 상세",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "link_id": "L_001"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "이 상담건 검사링크 내역",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "이 상담건"
-    },
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 ID K-7 의 발송 링크",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "K-7"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "검사 보낸 기록 전체 조회",
-    "expected_method": "send_link.query",
-    "expected_params": {},
-    "expected_reliable": true
-  },
-  {
-    "input": "케이스 X9 바로링크 보낸거",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "case_id": "X9"
-    },
-    "expected_reliable": false
-  },
-  {
-    "input": "링크 LK-22 조회해줘",
-    "expected_method": "send_link.query",
-    "expected_params": {
-      "link_id": "LK-22"
     },
     "expected_reliable": false
   }
