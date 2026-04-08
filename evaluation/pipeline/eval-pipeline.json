@@ -56,7 +56,7 @@
     "expected_reliable": true
   },
   {
-    "input": "박상담이 업로드한 PDF",
+    "input": "김민수이 업로드한 PDF",
     "expected_method": "document.query",
     "expected_params": {
       "file_type": "pdf"
@@ -102,7 +102,7 @@
     "expected_reliable": true
   },
   {
-    "input": "이상담사 업로드 문서 다",
+    "input": "이하준 업로드 문서 다",
     "expected_method": "document.query",
     "expected_params": {},
     "expected_reliable": true
@@ -116,7 +116,7 @@
     "expected_reliable": true
   },
   {
-    "input": "김상담사 오늘 가능한 시간",
+    "input": "이하준 오늘 가능한 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-08"
@@ -124,7 +124,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담사 내일 빈 슬롯",
+    "input": "이하준 내일 빈 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-09"
@@ -132,7 +132,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박영수 4월 5일 가능 시간",
+    "input": "김민수 4월 5일 가능 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-05"
@@ -140,7 +140,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담사 2026-04-10 가용시간",
+    "input": "이하준 2026-04-10 가용시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-10"
@@ -156,7 +156,7 @@
     "expected_reliable": false
   },
   {
-    "input": "최민수 모레 근무 가능 시간",
+    "input": "김민수 모레 근무 가능 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-10"
@@ -164,7 +164,7 @@
     "expected_reliable": false
   },
   {
-    "input": "정상담사 다음주 월요일 슬롯",
+    "input": "이하준 다음주 월요일 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-13"
@@ -180,7 +180,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박상담사 4/15 빈시간",
+    "input": "이하준 4/15 빈시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-15"
@@ -196,7 +196,7 @@
     "expected_reliable": false
   },
   {
-    "input": "이상담 금요일 가능 시간",
+    "input": "김민수 금요일 가능 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-10"
@@ -212,7 +212,7 @@
     "expected_reliable": false
   },
   {
-    "input": "정상담사 다음주 화요일 가능시간",
+    "input": "이하준 다음주 화요일 가능시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-14"
@@ -228,7 +228,7 @@
     "expected_reliable": false
   },
   {
-    "input": "한상담 오늘 비는 슬롯",
+    "input": "김민수 오늘 비는 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-08"
@@ -933,7 +933,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담사 작성자 필드노트",
+    "input": "이하준 작성자 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1119,10 +1119,10 @@
     "expected_reliable": true
   },
   {
-    "input": "최치료 상담사",
+    "input": "김민수 상담사",
     "expected_method": "member.query",
     "expected_params": {
-      "name": "최치료"
+      "name": "김민수"
     },
     "expected_reliable": true
   },
@@ -1151,16 +1151,16 @@
     "expected_reliable": true
   },
   {
-    "input": "김상담 정직원",
+    "input": "김민수 정직원",
     "expected_method": "member.query",
     "expected_params": {
       "employment_type": "FULLTIME",
-      "name": "김상담"
+      "name": "김민수"
     },
     "expected_reliable": true
   },
   {
-    "input": "김상담사 멤버 조회",
+    "input": "이하준 멤버 조회",
     "expected_method": "member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1172,25 +1172,25 @@
     "expected_reliable": true
   },
   {
-    "input": "김상담사 근무시간 알려줘",
+    "input": "이하준 근무시간 알려줘",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "김상담사 근무 일정",
+    "input": "이하준 근무 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "박선생 근무 시간",
+    "input": "김민수 근무 시간",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "이상담사 언제 일해?",
+    "input": "이하준 언제 일해?",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1212,7 +1212,7 @@
     "expected_reliable": false
   },
   {
-    "input": "최선생 수요일 일정",
+    "input": "김민수 수요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "WED"
@@ -1220,7 +1220,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담사 목요일 근무시간",
+    "input": "이하준 목요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "THU"
@@ -1228,7 +1228,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박선생 금요일 일하는 시간",
+    "input": "김민수 금요일 일하는 시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "FRI"
@@ -1236,7 +1236,7 @@
     "expected_reliable": false
   },
   {
-    "input": "이상담사 토요일 근무 있어?",
+    "input": "이하준 토요일 근무 있어?",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "SAT"
@@ -1258,13 +1258,13 @@
     "expected_reliable": false
   },
   {
-    "input": "상담사 정상담사7의 휴식시간 알려줘",
+    "input": "상담사 이하준7의 휴식시간 알려줘",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "최선생 월요일 일정",
+    "input": "김민수 월요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "MON"
@@ -1272,7 +1272,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담사 금욜 근무시간",
+    "input": "이하준 금욜 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "FRI"
@@ -1280,7 +1280,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박선생 일요일 근무 일정 확인",
+    "input": "김민수 일요일 근무 일정 확인",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "SUN"
@@ -1546,7 +1546,7 @@
     "expected_reliable": true
   },
   {
-    "input": "김상담사00 상담사 오늘 일정",
+    "input": "이하준00 상담사 오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
       "date_from": "2026-04-08",
@@ -1601,7 +1601,7 @@
     "expected_reliable": true
   },
   {
-    "input": "김상담사0 이번주 상담일정",
+    "input": "이하준0 이번주 상담일정",
     "expected_method": "schedule.query",
     "expected_params": {
       "schedule_type": "counseling",
@@ -1703,7 +1703,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담사가 담당한 검사 케이스",
+    "input": "이하준가 담당한 검사 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {},
     "expected_reliable": true
@@ -1776,7 +1776,7 @@
     "expected_reliable": true
   },
   {
-    "input": "박검사자가 맡은 대기 케이스",
+    "input": "김민수가 맡은 대기 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
       "status": "pending"
@@ -2174,13 +2174,13 @@
     "expected_reliable": true
   },
   {
-    "input": "박선생님이 작성한 노트",
+    "input": "이하준이 작성한 노트",
     "expected_method": "counseling_note.query",
     "expected_params": {},
     "expected_reliable": true
   },
   {
-    "input": "김상담사가 쓴 노트 보여줘",
+    "input": "이하준가 쓴 노트 보여줘",
     "expected_method": "counseling_note.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2194,7 +2194,7 @@
     "expected_reliable": true
   },
   {
-    "input": "박선생님이 쓴 우울 키워드 노트",
+    "input": "이하준이 쓴 우울 키워드 노트",
     "expected_method": "counseling_note.query",
     "expected_params": {
       "keyword": "우울"
@@ -2445,7 +2445,7 @@
     "expected_reliable": true
   },
   {
-    "input": "박선생 초대 만료된거",
+    "input": "김민수 초대 만료된거",
     "expected_method": "member_invitation.query",
     "expected_params": {
       "status": "expired"
@@ -3146,19 +3146,19 @@
     "expected_reliable": true
   },
   {
-    "input": "김상담사 휴가 언제야?",
+    "input": "이하준 휴가 언제야?",
     "expected_method": "member_non_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "김상담사 비근무 시간",
+    "input": "이하준 비근무 시간",
     "expected_method": "member_non_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "박선생 2026년 휴가",
+    "input": "김민수 2026년 휴가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "year": 2026
@@ -3166,7 +3166,7 @@
     "expected_reliable": false
   },
   {
-    "input": "이상담 4월 휴가",
+    "input": "김민수 4월 휴가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "month": 4
@@ -3174,7 +3174,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박선생의 2025년 12월 비근무",
+    "input": "김민수의 2025년 12월 비근무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "year": 2025,
@@ -3183,7 +3183,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김선생 연차 내역",
+    "input": "김민수 연차 내역",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "ANNUAL_LEAVE"
@@ -3191,7 +3191,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박상담사 병가",
+    "input": "이하준 병가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "SICK_LEAVE"
@@ -3199,7 +3199,7 @@
     "expected_reliable": false
   },
   {
-    "input": "이선생 오전 반차",
+    "input": "김민수 오전 반차",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "HALF_DAY_AM"
@@ -3207,7 +3207,7 @@
     "expected_reliable": false
   },
   {
-    "input": "정상담 오후 반차 내역",
+    "input": "김민수 오후 반차 내역",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "HALF_DAY_PM"
@@ -3223,7 +3223,7 @@
     "expected_reliable": false
   },
   {
-    "input": "윤선생 교육",
+    "input": "김민수 교육",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "TRAINING"
@@ -3231,7 +3231,7 @@
     "expected_reliable": false
   },
   {
-    "input": "최상담 개인사정 휴무",
+    "input": "김민수 개인사정 휴무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "PERSONAL"
@@ -3247,7 +3247,7 @@
     "expected_reliable": false
   },
   {
-    "input": "김상담 2026년 연차",
+    "input": "김민수 2026년 연차",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "year": 2026,
@@ -3256,7 +3256,7 @@
     "expected_reliable": false
   },
   {
-    "input": "이선생 4월 병가",
+    "input": "김민수 4월 병가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "month": 4,
@@ -3265,7 +3265,7 @@
     "expected_reliable": false
   },
   {
-    "input": "박선생 2025년 5월 휴가",
+    "input": "김민수 2025년 5월 휴가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "year": 2025,
@@ -3274,13 +3274,13 @@
     "expected_reliable": false
   },
   {
-    "input": "이상담사 이번달 휴가 알려줘",
+    "input": "이하준 이번달 휴가 알려줘",
     "expected_method": "member_non_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "정선생 비근무 사유",
+    "input": "김민수 비근무 사유",
     "expected_method": "member_non_working_time.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3502,13 +3502,13 @@
     "expected_reliable": false
   },
   {
-    "input": "프로그램 PG9에 김상담 배정되어있어?",
+    "input": "프로그램 PG9에 김민수 배정되어있어?",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "그룹상담 프로그램 박선생 담당인지",
+    "input": "그룹상담 프로그램 김민수 담당인지",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3526,7 +3526,7 @@
     "expected_reliable": false
   },
   {
-    "input": "프로그램 GROUP1 담당이 이선생 맞아?",
+    "input": "프로그램 GROUP1 담당이 김민수 맞아?",
     "expected_method": "program_member.query",
     "expected_params": {
       "program_id": "GROUP1"
