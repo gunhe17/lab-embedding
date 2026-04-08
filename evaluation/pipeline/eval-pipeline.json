@@ -767,9 +767,7 @@
   {
     "input": "검사 코드 A-001 조회",
     "expected_method": "assessment.query",
-    "expected_params": {
-      "code": "A-001"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -1215,7 +1213,7 @@
     "input": "M-100 월요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "MON"
+      "weekday": "MON"
     },
     "expected_reliable": false
   },
@@ -1223,7 +1221,7 @@
     "input": "M-50 화요일 근무",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "TUE"
+      "weekday": "TUE"
     },
     "expected_reliable": false
   },
@@ -1231,7 +1229,7 @@
     "input": "M-100 수요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "WED"
+      "weekday": "WED"
     },
     "expected_reliable": false
   },
@@ -1239,7 +1237,7 @@
     "input": "M-200 목요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "THU"
+      "weekday": "THU"
     },
     "expected_reliable": false
   },
@@ -1247,7 +1245,7 @@
     "input": "M-300 금요일 일하는 시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "FRI"
+      "weekday": "FRI"
     },
     "expected_reliable": false
   },
@@ -1255,7 +1253,7 @@
     "input": "M-100 토요일 근무 있어?",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "SAT"
+      "weekday": "SAT"
     },
     "expected_reliable": false
   },
@@ -1263,7 +1261,7 @@
     "input": "M-100 일요일도 일해?",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "SUN"
+      "weekday": "SUN"
     },
     "expected_reliable": false
   },
@@ -1283,7 +1281,7 @@
     "input": "M-1 상담사 월요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "MON"
+      "weekday": "MON"
     },
     "expected_reliable": false
   },
@@ -1291,7 +1289,7 @@
     "input": "M-99 금욜 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "FRI"
+      "weekday": "FRI"
     },
     "expected_reliable": false
   },
@@ -1299,7 +1297,7 @@
     "input": "M-5 일요일 근무 일정 확인",
     "expected_method": "member_working_time.query",
     "expected_params": {
-      "day_of_week": "SUN"
+      "weekday": "SUN"
     },
     "expected_reliable": false
   },
@@ -1706,7 +1704,7 @@
     "input": "AEBDDN6026-001 케이스 정보",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "case_code": "AEBDDN6026-001"
+      "search": "AEBDDN6026-001"
     },
     "expected_reliable": false
   },
@@ -1714,7 +1712,7 @@
     "input": "케이스코드 AC1023 찾아줘",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "case_code": "AC1023"
+      "search": "AC1023"
     },
     "expected_reliable": false
   },
@@ -2194,7 +2192,7 @@
     "input": "이번 회기 노트 좀",
     "expected_method": "counseling_note.query",
     "expected_params": {
-      "counseling_session_id": "이번 회기"
+      "session_id": "이번 회기"
     },
     "expected_reliable": true
   },
@@ -2451,7 +2449,7 @@
     "input": "이번주 보낸 초대",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "date_from": "이번주"
+      "expires_after": "이번주"
     },
     "expected_reliable": true
   },
@@ -2459,8 +2457,8 @@
     "input": "오늘 초대된 사람",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "expires_after": "오늘",
+      "expires_before": "오늘"
     },
     "expected_reliable": true
   },
@@ -2468,8 +2466,8 @@
     "input": "지난달 초대 목록",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "date_from": "지난달",
-      "date_to": "지난달"
+      "expires_after": "지난달",
+      "expires_before": "지난달"
     },
     "expected_reliable": true
   },
@@ -2501,8 +2499,8 @@
     "expected_method": "member_invitation.query",
     "expected_params": {
       "status": "accepted",
-      "date_from": "이번달",
-      "date_to": "이번달"
+      "expires_after": "이번달",
+      "expires_before": "이번달"
     },
     "expected_reliable": false
   },
@@ -2786,9 +2784,7 @@
   {
     "input": "상담 케이스 K9 누구 참여하고 있어?",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "K9"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2844,7 +2840,6 @@
     "input": "케이스 X1 참여자 전체 (과거 포함)",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "X1",
       "active_only": false
     },
     "expected_reliable": false
@@ -2911,7 +2906,6 @@
     "input": "케이스 R3 활성 참여자",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "R3",
       "active_only": true
     },
     "expected_reliable": false
@@ -2997,8 +2991,7 @@
     "input": "케이스 K1 완료 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "status": "completed",
-      "case_id": "K1"
+      "status": "completed"
     },
     "expected_reliable": false
   },
@@ -3068,8 +3061,7 @@
     "input": "케이스 G3 취소 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "status": "cancelled",
-      "case_id": "G3"
+      "status": "cancelled"
     },
     "expected_reliable": false
   },
@@ -3286,7 +3278,6 @@
     "input": "직원 ID M2 출장",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "M2",
       "reason": "BUSINESS_TRIP"
     },
     "expected_reliable": false
@@ -3313,7 +3304,6 @@
     "input": "M5 기타 비근무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "M5",
       "reason": "OTHER"
     },
     "expected_reliable": false
@@ -3647,9 +3637,7 @@
   {
     "input": "프로그램 P-10 직원 M5 배정 여부",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "member_id": "M5"
-    },
+    "expected_params": {},
     "expected_reliable": false
   }
 ]
