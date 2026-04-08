@@ -121,10 +121,10 @@
     "expected_reliable": true
   },
   {
-    "input": "M-001 오늘 가능한 시간",
+    "input": "김상담사 오늘 가능한 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": false
   },
@@ -133,7 +133,7 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "김상담사",
-      "target_date": "내일"
+      "target_date": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -142,12 +142,12 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "박영수",
-      "target_date": "4월 5일"
+      "target_date": "2026-04-05"
     },
     "expected_reliable": true
   },
   {
-    "input": "M-100 2026-04-10 가용시간",
+    "input": "김상담사 2026-04-10 가용시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-04-10"
@@ -159,7 +159,7 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "이지은",
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -168,15 +168,15 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "최민수",
-      "target_date": "모레"
+      "target_date": "2026-04-10"
     },
     "expected_reliable": true
   },
   {
-    "input": "M-7 다음주 월요일 슬롯",
+    "input": "정상담사 다음주 월요일 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "target_date": "다음주 월요일"
+      "target_date": "2026-04-13"
     },
     "expected_reliable": false
   },
@@ -185,7 +185,7 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "김영희",
-      "target_date": "내일"
+      "target_date": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -194,15 +194,15 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "박상담사",
-      "target_date": "4/15"
+      "target_date": "2026-04-15"
     },
     "expected_reliable": true
   },
   {
-    "input": "M-22 오늘 스케쥴 빈자리",
+    "input": "박지은 선생님 오늘 스케쥴 빈자리",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": false
   },
@@ -211,15 +211,15 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "이상담",
-      "target_date": "금요일"
+      "target_date": "2026-04-10"
     },
     "expected_reliable": true
   },
   {
-    "input": "M-50 내일모레 슬롯 알려줘",
+    "input": "이영희 선생님 내일모레 슬롯 알려줘",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "target_date": "내일모레"
+      "target_date": "2026-04-10"
     },
     "expected_reliable": false
   },
@@ -228,12 +228,12 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "정상담사",
-      "target_date": "다음주 화요일"
+      "target_date": "2026-04-14"
     },
     "expected_reliable": true
   },
   {
-    "input": "M-9 2026-05-01 가능슬롯",
+    "input": "김민수 선생님 2026-05-01 가능슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "target_date": "2026-05-01"
@@ -245,7 +245,7 @@
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
       "member_id": "한상담",
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -579,7 +579,7 @@
     "expected_reliable": true
   },
   {
-    "input": "ROOM-001 상담실",
+    "input": "1번 상담실 정보",
     "expected_method": "room.query",
     "expected_params": {},
     "expected_reliable": false
@@ -647,7 +647,7 @@
     "expected_reliable": true
   },
   {
-    "input": "ROOM-7 정보",
+    "input": "미술치료실 정보",
     "expected_method": "room.query",
     "expected_params": {},
     "expected_reliable": false
@@ -765,7 +765,7 @@
     "expected_reliable": true
   },
   {
-    "input": "검사 코드 A-001 조회",
+    "input": "MMPI 검사 조회",
     "expected_method": "assessment.query",
     "expected_params": {},
     "expected_reliable": false
@@ -805,7 +805,7 @@
     "expected_reliable": true
   },
   {
-    "input": "BGT 검사 ID로 조회 ASMT-123",
+    "input": "K-WISC 검사 조회",
     "expected_method": "assessment.query",
     "expected_params": {},
     "expected_reliable": false
@@ -902,7 +902,7 @@
     "expected_reliable": false
   },
   {
-    "input": "세션 ID ASS-300 조회",
+    "input": "성격검사 세션 조회",
     "expected_method": "assessment_session.query",
     "expected_params": {},
     "expected_reliable": false
@@ -935,25 +935,25 @@
     "expected_reliable": false
   },
   {
-    "input": "일정 SCH-50 필드노트 알려줘",
+    "input": "오늘 일정 필드노트 알려줘",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "스케줄 SCH-7 필드노트",
+    "input": "오늘 일정 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "M-100 작성자 필드노트",
+    "input": "김상담사 작성자 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "내가 쓴 필드노트 PER-22",
+    "input": "내가 쓴 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
@@ -999,7 +999,7 @@
     "expected_reliable": true
   },
   {
-    "input": "SCH-100 일정의 완료된 필드노트",
+    "input": "오늘 일정의 완료된 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {
       "status": "completed"
@@ -1007,7 +1007,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-50가 작성한 녹음중 필드노트",
+    "input": "이영희 선생님가 작성한 녹음중 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {
       "status": "recording"
@@ -1015,7 +1015,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-10 작성자의 완료된 필드노트",
+    "input": "이영희 선생님 작성자의 완료된 필드노트",
     "expected_method": "field_note.query",
     "expected_params": {
       "status": "completed"
@@ -1023,13 +1023,13 @@
     "expected_reliable": false
   },
   {
-    "input": "필드노트 ID FN-100 조회",
+    "input": "오늘 필드노트 조회",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "SCH-200 일정 필드노트 다",
+    "input": "이번주 일정 필드노트 다",
     "expected_method": "field_note.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1174,7 +1174,7 @@
     "expected_reliable": true
   },
   {
-    "input": "멤버 ID M-100 조회",
+    "input": "김상담사 멤버 조회",
     "expected_method": "member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1186,31 +1186,31 @@
     "expected_reliable": true
   },
   {
-    "input": "M-100 근무시간 알려줘",
+    "input": "김상담사 근무시간 알려줘",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "상담사 M-50 근무 일정",
+    "input": "김상담사 근무 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "M-10 근무 시간",
+    "input": "박선생 근무 시간",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "M-7 상담사 언제 일해?",
+    "input": "이상담사 언제 일해?",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "M-100 월요일 근무시간",
+    "input": "김민수 선생님 월요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "MON"
@@ -1218,7 +1218,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-50 화요일 근무",
+    "input": "박지은 선생님 화요일 근무",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "TUE"
@@ -1226,7 +1226,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-100 수요일 일정",
+    "input": "최선생 수요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "WED"
@@ -1234,7 +1234,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-200 목요일 근무시간",
+    "input": "김상담사 목요일 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "THU"
@@ -1242,7 +1242,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-300 금요일 일하는 시간",
+    "input": "박선생 금요일 일하는 시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "FRI"
@@ -1250,7 +1250,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-100 토요일 근무 있어?",
+    "input": "이상담사 토요일 근무 있어?",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "SAT"
@@ -1258,7 +1258,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-100 일요일도 일해?",
+    "input": "김민수 선생님 일요일도 일해?",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "SUN"
@@ -1266,19 +1266,19 @@
     "expected_reliable": false
   },
   {
-    "input": "M-22 근무시간 전체",
+    "input": "박지은 선생님 근무시간 전체",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "상담사 M-77의 휴식시간 알려줘",
+    "input": "상담사 정상담사7의 휴식시간 알려줘",
     "expected_method": "member_working_time.query",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "M-1 상담사 월요일 일정",
+    "input": "최선생 월요일 일정",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "MON"
@@ -1286,7 +1286,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-99 금욜 근무시간",
+    "input": "김상담사 금욜 근무시간",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "FRI"
@@ -1294,7 +1294,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-5 일요일 근무 일정 확인",
+    "input": "박선생 일요일 근무 일정 확인",
     "expected_method": "member_working_time.query",
     "expected_params": {
       "weekday": "SUN"
@@ -1444,7 +1444,7 @@
     "expected_reliable": true
   },
   {
-    "input": "알림 ID NOTI-10 보여줘",
+    "input": "최근 알림 보여줘",
     "expected_method": "notification.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1459,8 +1459,8 @@
     "input": "오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": false
   },
@@ -1468,8 +1468,8 @@
     "input": "오늘 일정 알려줘",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -1483,8 +1483,8 @@
     "input": "내일 일정 보여줘",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "내일",
-      "date_to": "내일"
+      "date_from": "2026-04-09",
+      "date_to": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -1492,8 +1492,8 @@
     "input": "이번주 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "이번주",
-      "date_to": "이번주"
+      "date_from": "2026-04-06",
+      "date_to": "2026-04-12"
     },
     "expected_reliable": true
   },
@@ -1501,8 +1501,8 @@
     "input": "다음주 일정 알려줘",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "다음주",
-      "date_to": "다음주"
+      "date_from": "2026-04-13",
+      "date_to": "2026-04-19"
     },
     "expected_reliable": true
   },
@@ -1510,8 +1510,8 @@
     "input": "이번달 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "이번달",
-      "date_to": "이번달"
+      "date_from": "2026-04-01",
+      "date_to": "2026-04-30"
     },
     "expected_reliable": true
   },
@@ -1520,8 +1520,8 @@
     "expected_method": "schedule.query",
     "expected_params": {
       "schedule_type": "counseling",
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": false
   },
@@ -1530,8 +1530,8 @@
     "expected_method": "schedule.query",
     "expected_params": {
       "schedule_type": "assessment",
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": false
   },
@@ -1560,16 +1560,16 @@
     "expected_reliable": true
   },
   {
-    "input": "M-100 상담사 오늘 일정",
+    "input": "김상담사00 상담사 오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": false
   },
   {
-    "input": "M-50 일정 다 보여줘",
+    "input": "김민수 선생님 일정 다 보여줘",
     "expected_method": "schedule.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1578,13 +1578,13 @@
     "input": "1번 상담실 오늘 일정",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": false
   },
   {
-    "input": "ROOM-2 일정",
+    "input": "놀이치료실 일정",
     "expected_method": "schedule.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1615,17 +1615,17 @@
     "expected_reliable": true
   },
   {
-    "input": "M-10 이번주 상담일정",
+    "input": "김상담사0 이번주 상담일정",
     "expected_method": "schedule.query",
     "expected_params": {
       "schedule_type": "counseling",
-      "date_from": "이번주",
-      "date_to": "이번주"
+      "date_from": "2026-04-06",
+      "date_to": "2026-04-12"
     },
     "expected_reliable": false
   },
   {
-    "input": "일정 ID SCH-100 조회",
+    "input": "오늘 일정 조회",
     "expected_method": "schedule.query",
     "expected_params": {},
     "expected_reliable": false
@@ -1634,8 +1634,8 @@
     "input": "오늘 예약 몇건 있어?",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -1651,8 +1651,8 @@
     "input": "오늘 일정 있어?",
     "expected_method": "schedule.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -1748,8 +1748,8 @@
     "input": "오늘 접수된 검사 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -1757,7 +1757,7 @@
     "input": "이번주 접수 검사 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "date_from": "이번주"
+      "date_from": "2026-04-06"
     },
     "expected_reliable": true
   },
@@ -1765,8 +1765,8 @@
     "input": "3월에 접수된 검사 케이스 보여줘",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "date_from": "3월",
-      "date_to": "3월"
+      "date_from": "2026-03-01",
+      "date_to": "2026-03-31"
     },
     "expected_reliable": true
   },
@@ -1775,8 +1775,8 @@
     "expected_method": "assessment_case.query",
     "expected_params": {
       "status": "completed",
-      "date_from": "지난달",
-      "date_to": "지난달"
+      "date_from": "2026-03-01",
+      "date_to": "2026-03-31"
     },
     "expected_reliable": false
   },
@@ -1804,8 +1804,8 @@
     "input": "어제 접수된 검사 케이스 조회",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "date_from": "어제",
-      "date_to": "어제"
+      "date_from": "2026-04-07",
+      "date_to": "2026-04-07"
     },
     "expected_reliable": true
   },
@@ -1814,8 +1814,8 @@
     "expected_method": "assessment_case.query",
     "expected_params": {
       "status": "completed",
-      "date_from": "이번달",
-      "date_to": "이번달"
+      "date_from": "2026-04-01",
+      "date_to": "2026-04-30"
     },
     "expected_reliable": false
   },
@@ -2449,7 +2449,7 @@
     "input": "이번주 보낸 초대",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "expires_after": "이번주"
+      "expires_after": "2026-04-06"
     },
     "expected_reliable": true
   },
@@ -2457,8 +2457,8 @@
     "input": "오늘 초대된 사람",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "expires_after": "오늘",
-      "expires_before": "오늘"
+      "expires_after": "2026-04-08",
+      "expires_before": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -2466,8 +2466,8 @@
     "input": "지난달 초대 목록",
     "expected_method": "member_invitation.query",
     "expected_params": {
-      "expires_after": "지난달",
-      "expires_before": "지난달"
+      "expires_after": "2026-03-01",
+      "expires_before": "2026-03-31"
     },
     "expected_reliable": true
   },
@@ -2499,8 +2499,8 @@
     "expected_method": "member_invitation.query",
     "expected_params": {
       "status": "accepted",
-      "expires_after": "이번달",
-      "expires_before": "이번달"
+      "expires_after": "2026-04-01",
+      "expires_before": "2026-04-30"
     },
     "expected_reliable": false
   },
@@ -2508,7 +2508,7 @@
     "input": "오늘 가능한 시간대 알려줘",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -2516,7 +2516,7 @@
     "input": "내일 영업시간 슬롯",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "내일"
+      "target_date": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -2524,7 +2524,7 @@
     "input": "모레 예약 가능시간",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "모레"
+      "target_date": "2026-04-10"
     },
     "expected_reliable": true
   },
@@ -2540,7 +2540,7 @@
     "input": "다음주 월요일 영업 슬롯",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "다음주 월요일"
+      "target_date": "2026-04-13"
     },
     "expected_reliable": true
   },
@@ -2548,7 +2548,7 @@
     "input": "이번주 금요일 빈 시간",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "이번주 금요일"
+      "target_date": "2026-04-10"
     },
     "expected_reliable": true
   },
@@ -2556,7 +2556,7 @@
     "input": "4월 5일 가용 시간 알려줘",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "4월 5일"
+      "target_date": "2026-04-05"
     },
     "expected_reliable": true
   },
@@ -2564,7 +2564,7 @@
     "input": "오늘 빈 슬롯 어떤거 있어",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -2572,7 +2572,7 @@
     "input": "내일 센터 영업 시간 슬롯",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "내일"
+      "target_date": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -2580,7 +2580,7 @@
     "input": "다음주 화요일 가능한 시간",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "다음주 화요일"
+      "target_date": "2026-04-14"
     },
     "expected_reliable": true
   },
@@ -2588,7 +2588,7 @@
     "input": "오늘 예약 가능한 시간 보여줘",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -2596,7 +2596,7 @@
     "input": "이번주 토요일 슬롯",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "이번주 토요일"
+      "target_date": "2026-04-11"
     },
     "expected_reliable": true
   },
@@ -2604,7 +2604,7 @@
     "input": "4/15 빈시간 좀 알려줘",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "4/15"
+      "target_date": "2026-04-15"
     },
     "expected_reliable": true
   },
@@ -2612,7 +2612,7 @@
     "input": "오늘 비어있는 시간대",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "오늘"
+      "target_date": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -2620,7 +2620,7 @@
     "input": "내일 가능시간",
     "expected_method": "operating_time.available_slots",
     "expected_params": {
-      "target_date": "내일"
+      "target_date": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -2791,7 +2791,7 @@
     "input": "케이스 C100 활성 참여자만",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "C100",
+      "case_id": "이 상담 케이스",
       "active_only": true
     },
     "expected_reliable": false
@@ -2806,7 +2806,7 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 P-77 모든 참여자 (탈퇴 포함)",
+    "input": "이 케이스 모든 참여자 (탈퇴 포함)",
     "expected_method": "counseling.list_participants",
     "expected_params": {
       "active_only": false
@@ -2817,12 +2817,12 @@
     "input": "상담 ABC1 누구누구 들어가있어",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "ABC1"
+      "case_id": "이 상담 케이스"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 CN-200 상담사랑 내담자 보여줘",
+    "input": "이 케이스 상담사랑 내담자 보여줘",
     "expected_method": "counseling.list_participants",
     "expected_params": {},
     "expected_reliable": false
@@ -2870,7 +2870,7 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 K-12 참여자 활성만 보여주세요",
+    "input": "이 케이스 참여자 활성만 보여주세요",
     "expected_method": "counseling.list_participants",
     "expected_params": {
       "active_only": true
@@ -2898,7 +2898,7 @@
     "input": "케이스 GG의 참여자",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "GG"
+      "case_id": "이 상담 케이스"
     },
     "expected_reliable": true
   },
@@ -2923,7 +2923,7 @@
     "expected_reliable": true
   },
   {
-    "input": "회기 ID S-1 조회",
+    "input": "이 회기 조회",
     "expected_method": "counseling_session.query",
     "expected_params": {},
     "expected_reliable": false
@@ -2972,8 +2972,8 @@
     "input": "오늘 회기 보여줘",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "date_from": "오늘",
-      "date_to": "오늘"
+      "date_from": "2026-04-08",
+      "date_to": "2026-04-08"
     },
     "expected_reliable": true
   },
@@ -2982,8 +2982,8 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "scheduled",
-      "date_from": "이번주",
-      "date_to": "이번주"
+      "date_from": "2026-04-06",
+      "date_to": "2026-04-12"
     },
     "expected_reliable": false
   },
@@ -2999,8 +2999,8 @@
     "input": "다음주 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "date_from": "다음주",
-      "date_to": "다음주"
+      "date_from": "2026-04-13",
+      "date_to": "2026-04-19"
     },
     "expected_reliable": true
   },
@@ -3008,8 +3008,8 @@
     "input": "12월 회기 전부",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "date_from": "12월",
-      "date_to": "12월"
+      "date_from": "2026-12-01",
+      "date_to": "2026-12-31"
     },
     "expected_reliable": true
   },
@@ -3018,12 +3018,12 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "scheduled",
-      "case_id": "CC1"
+      "case_id": "이 상담 케이스"
     },
     "expected_reliable": false
   },
   {
-    "input": "일정 ID SCH-9 회기",
+    "input": "오늘 일정 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3033,8 +3033,8 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "no_show",
-      "date_from": "이번달",
-      "date_to": "이번달"
+      "date_from": "2026-04-01",
+      "date_to": "2026-04-30"
     },
     "expected_reliable": false
   },
@@ -3042,8 +3042,8 @@
     "input": "내일 회기 일정",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "date_from": "내일",
-      "date_to": "내일"
+      "date_from": "2026-04-09",
+      "date_to": "2026-04-09"
     },
     "expected_reliable": true
   },
@@ -3052,8 +3052,8 @@
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "completed",
-      "date_from": "어제",
-      "date_to": "어제"
+      "date_from": "2026-04-07",
+      "date_to": "2026-04-07"
     },
     "expected_reliable": false
   },
@@ -3090,7 +3090,7 @@
     "expected_reliable": true
   },
   {
-    "input": "양식 ID FT-1 조회",
+    "input": "초기 면담지 조회",
     "expected_method": "form_template.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3184,7 +3184,7 @@
     "expected_reliable": true
   },
   {
-    "input": "ID FORM-99 양식",
+    "input": "동의서 양식",
     "expected_method": "form_template.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3206,7 +3206,7 @@
     "expected_reliable": true
   },
   {
-    "input": "직원 M-1 비근무 시간",
+    "input": "김상담사 비근무 시간",
     "expected_method": "member_non_working_time.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3230,7 +3230,7 @@
     "expected_reliable": true
   },
   {
-    "input": "M-9 의 2025년 12월 비근무",
+    "input": "박선생의 2025년 12월 비근무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "year": 2025,
@@ -3339,7 +3339,7 @@
     "expected_reliable": false
   },
   {
-    "input": "M-3 이번달 휴가 알려줘",
+    "input": "이상담사 이번달 휴가 알려줘",
     "expected_method": "member_non_working_time.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3356,7 +3356,7 @@
     "input": "오늘 9시 영업하나?",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "오늘",
+      "target_date": "2026-04-08",
       "slot": "09:00"
     },
     "expected_reliable": true
@@ -3365,7 +3365,7 @@
     "input": "내일 오후 2시 가능?",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "내일",
+      "target_date": "2026-04-09",
       "slot": "14:00"
     },
     "expected_reliable": true
@@ -3383,7 +3383,7 @@
     "input": "토요일 11시 센터 운영하나요",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "토요일",
+      "target_date": "2026-04-11",
       "slot": "11:00"
     },
     "expected_reliable": true
@@ -3392,7 +3392,7 @@
     "input": "다음주 월요일 15:00 가능한지",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "다음주 월요일",
+      "target_date": "2026-04-13",
       "slot": "15:00"
     },
     "expected_reliable": true
@@ -3401,7 +3401,7 @@
     "input": "오늘 18시에 열어?",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "오늘",
+      "target_date": "2026-04-08",
       "slot": "18:00"
     },
     "expected_reliable": true
@@ -3410,7 +3410,7 @@
     "input": "4월 10일 13시 영업가능",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "4월 10일",
+      "target_date": "2026-04-10",
       "slot": "13:00"
     },
     "expected_reliable": true
@@ -3419,7 +3419,7 @@
     "input": "내일 오전 10시 슬롯",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "내일",
+      "target_date": "2026-04-09",
       "slot": "10:00"
     },
     "expected_reliable": true
@@ -3437,7 +3437,7 @@
     "input": "일요일 10시 영업하나",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "일요일",
+      "target_date": "2026-04-12",
       "slot": "10:00"
     },
     "expected_reliable": true
@@ -3446,7 +3446,7 @@
     "input": "오늘 19:00 가능?",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "오늘",
+      "target_date": "2026-04-08",
       "slot": "19:00"
     },
     "expected_reliable": true
@@ -3455,7 +3455,7 @@
     "input": "이번주 금요일 16시 가능한가",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "이번주 금요일",
+      "target_date": "2026-04-10",
       "slot": "16:00"
     },
     "expected_reliable": true
@@ -3464,7 +3464,7 @@
     "input": "내일 8시 열어?",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "내일",
+      "target_date": "2026-04-09",
       "slot": "08:00"
     },
     "expected_reliable": true
@@ -3482,7 +3482,7 @@
     "input": "오늘 12시 점심시간에 영업?",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "오늘",
+      "target_date": "2026-04-08",
       "slot": "12:00"
     },
     "expected_reliable": true
@@ -3491,7 +3491,7 @@
     "input": "모레 11:30 가능",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "모레",
+      "target_date": "2026-04-10",
       "slot": "11:30"
     },
     "expected_reliable": true
@@ -3500,7 +3500,7 @@
     "input": "4/20 14시 운영여부",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "4/20",
+      "target_date": "2026-04-20",
       "slot": "14:00"
     },
     "expected_reliable": true
@@ -3509,7 +3509,7 @@
     "input": "내일 오후 6시 영업하나요",
     "expected_method": "operating_time.check_slot",
     "expected_params": {
-      "target_date": "내일",
+      "target_date": "2026-04-09",
       "slot": "18:00"
     },
     "expected_reliable": true
@@ -3545,7 +3545,7 @@
     "expected_reliable": false
   },
   {
-    "input": "프로그램 PRG-1 담당자 보여줘",
+    "input": "개인상담 프로그램 담당자 보여줘",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3562,12 +3562,12 @@
     "input": "프로그램 P100 담당 직원",
     "expected_method": "program_member.query",
     "expected_params": {
-      "program_id": "P100"
+      "program_id": "이 프로그램"
     },
     "expected_reliable": false
   },
   {
-    "input": "ART-1 프로그램 담당자",
+    "input": "미술치료 프로그램 담당자",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3576,13 +3576,13 @@
     "input": "프로그램 PG9에 김상담 배정되어있어?",
     "expected_method": "program_member.query",
     "expected_params": {
-      "program_id": "PG9",
+      "program_id": "이 프로그램",
       "member_id": "김상담"
     },
     "expected_reliable": false
   },
   {
-    "input": "프로그램 PRG-7 박선생 담당인지",
+    "input": "그룹상담 프로그램 박선생 담당인지",
     "expected_method": "program_member.query",
     "expected_params": {
       "member_id": "박선생"
@@ -3598,7 +3598,7 @@
     "expected_reliable": true
   },
   {
-    "input": "P-50 담당자 명단",
+    "input": "개인상담 프로그램 담당자 명단",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3621,7 +3621,7 @@
     "expected_reliable": true
   },
   {
-    "input": "PRG-99 담당 멤버",
+    "input": "그룹상담 프로그램 담당 멤버",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
@@ -3635,7 +3635,7 @@
     "expected_reliable": true
   },
   {
-    "input": "프로그램 P-10 직원 M5 배정 여부",
+    "input": "개인상담 프로그램 김민수 선생님 배정 여부",
     "expected_method": "program_member.query",
     "expected_params": {},
     "expected_reliable": false
