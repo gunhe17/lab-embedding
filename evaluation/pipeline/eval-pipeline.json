@@ -79,11 +79,11 @@
     "expected_reliable": true
   },
   {
-    "input": "C-001 관련 활동 로그",
+    "input": "M9UAA6 관련 활동 로그",
     "expected_method": "activity_log.query",
     "expected_params": {
       "entity_type": "내담자",
-      "entity_id": "C-001"
+      "entity_id": "M9UAA6"
     },
     "expected_reliable": false
   },
@@ -171,34 +171,34 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 CASE-123 참여자 누구야",
+    "input": "케이스 AC0001 참여자 누구야",
     "expected_method": "assessment_participant.query",
     "expected_params": {
-      "case_id": "CASE-123"
+      "case_id": "AC0001"
     },
     "expected_reliable": false
   },
   {
-    "input": "CASE-2026-01 참여자 알려줘",
+    "input": "AC0002 참여자 알려줘",
     "expected_method": "assessment_participant.query",
     "expected_params": {
-      "case_id": "CASE-2026-01"
+      "case_id": "AC0002"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 ABC-1 참여자 출력",
+    "input": "케이스 AC0001 참여자 출력",
     "expected_method": "assessment_participant.query",
     "expected_params": {
-      "case_id": "ABC-1"
+      "case_id": "AC0001"
     },
     "expected_reliable": false
   },
   {
-    "input": "CASE-A 참여자",
+    "input": "AC0003 참여자",
     "expected_method": "assessment_participant.query",
     "expected_params": {
-      "case_id": "CASE-A"
+      "case_id": "AC0003"
     },
     "expected_reliable": true
   },
@@ -301,10 +301,10 @@
     "expected_reliable": true
   },
   {
-    "input": "C-001 내담자 자료 다 보여줘",
+    "input": "M9UAA6 내담자 자료 다 보여줘",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-001"
+      "client_id": "M9UAA6"
     },
     "expected_reliable": false
   },
@@ -317,19 +317,19 @@
     "expected_reliable": true
   },
   {
-    "input": "C-100 동의서 보여줘",
+    "input": "L1XNB9 동의서 보여줘",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-100",
+      "client_id": "L1XNB9",
       "resource_type": "consent"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-2 내담자 폼 인스턴스",
+    "input": "EBDDN6 내담자 폼 인스턴스",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-2",
+      "client_id": "EBDDN6",
       "resource_type": "form_instance"
     },
     "expected_reliable": false
@@ -344,28 +344,28 @@
     "expected_reliable": true
   },
   {
-    "input": "C-007 검사 자료",
+    "input": "R8TXQ3 검사 자료",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-007",
+      "client_id": "R8TXQ3",
       "resource_type": "assessment"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-50 기타 리소스",
+    "input": "T9AZC7 기타 리소스",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-50",
+      "client_id": "T9AZC7",
       "resource_type": "other"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-001 동의서만 뽑아줘",
+    "input": "M9UAA6 동의서만 뽑아줘",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-001",
+      "client_id": "M9UAA6",
       "resource_type": "consent"
     },
     "expected_reliable": false
@@ -380,18 +380,18 @@
     "expected_reliable": true
   },
   {
-    "input": "C-9 어떤 자료 있어?",
+    "input": "W2FJL5 어떤 자료 있어?",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-9"
+      "client_id": "W2FJL5"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-300 내담자 사전접수서",
+    "input": "H8VEK6 내담자 사전접수서",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-300",
+      "client_id": "H8VEK6",
       "resource_type": "pre_admission"
     },
     "expected_reliable": false
@@ -406,27 +406,27 @@
     "expected_reliable": true
   },
   {
-    "input": "C-15 연결된 문서 다",
+    "input": "N3PQR8 연결된 문서 다",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-15"
+      "client_id": "N3PQR8"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-22 동의서들 확인",
+    "input": "S6UWY1 동의서들 확인",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-22",
+      "client_id": "S6UWY1",
       "resource_type": "consent"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-88 폼 자료",
+    "input": "F5GHD2 폼 자료",
     "expected_method": "client_resource.query",
     "expected_params": {
-      "client_id": "C-88",
+      "client_id": "F5GHD2",
       "resource_type": "form_instance"
     },
     "expected_reliable": false
@@ -596,10 +596,10 @@
     "expected_reliable": true
   },
   {
-    "input": "DOC-001 문서 보여줘",
+    "input": "DOM9UAA6 문서 보여줘",
     "expected_method": "document.query",
     "expected_params": {
-      "document_id": "DOC-001"
+      "document_id": "DOM9UAA6"
     },
     "expected_reliable": false
   },
@@ -661,10 +661,10 @@
     "expected_reliable": true
   },
   {
-    "input": "DOC-99 문서 정보",
+    "input": "DOW2FJL59 문서 정보",
     "expected_method": "document.query",
     "expected_params": {
-      "document_id": "DOC-99"
+      "document_id": "DOW2FJL59"
     },
     "expected_reliable": false
   },
@@ -1373,18 +1373,18 @@
     "expected_reliable": true
   },
   {
-    "input": "CC-001 결과전송 내역",
+    "input": "C00001 결과전송 내역",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CC-001"
+      "case_id": "C00001"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 CC-100 결과 전송한거",
+    "input": "케이스 C00100 결과 전송한거",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CC-100"
+      "case_id": "C00100"
     },
     "expected_reliable": false
   },
@@ -1405,18 +1405,18 @@
     "expected_reliable": false
   },
   {
-    "input": "CC-50 케이스의 검사결과 보낸내역",
+    "input": "CT9AZC7 케이스의 검사결과 보낸내역",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CC-50"
+      "case_id": "CT9AZC7"
     },
     "expected_reliable": false
   },
   {
-    "input": "CASE-A 결과 송부 기록",
+    "input": "AC0003 결과 송부 기록",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CASE-A"
+      "case_id": "AC0003"
     },
     "expected_reliable": true
   },
@@ -1435,10 +1435,10 @@
     "expected_reliable": false
   },
   {
-    "input": "CC-2026-01 결과 전송 보여줘",
+    "input": "CEBDDN6026-01 결과 전송 보여줘",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CC-2026-01"
+      "case_id": "CEBDDN6026-01"
     },
     "expected_reliable": false
   },
@@ -1449,10 +1449,10 @@
     "expected_reliable": true
   },
   {
-    "input": "CC-12 검사 결과 발송이력",
+    "input": "CJ7KMV4 검사 결과 발송이력",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CC-12"
+      "case_id": "CJ7KMV4"
     },
     "expected_reliable": false
   },
@@ -1465,10 +1465,10 @@
     "expected_reliable": true
   },
   {
-    "input": "CC-77 결과 보낸 내역",
+    "input": "AC0077 결과 보낸 내역",
     "expected_method": "send_result.query",
     "expected_params": {
-      "case_id": "CC-77"
+      "case_id": "AC0077"
     },
     "expected_reliable": false
   },
@@ -1653,10 +1653,10 @@
     "expected_reliable": true
   },
   {
-    "input": "C-001 케이스의 검사 세션",
+    "input": "M9UAA6 케이스의 검사 세션",
     "expected_method": "assessment_session.query",
     "expected_params": {
-      "case_id": "C-001"
+      "case_id": "M9UAA6"
     },
     "expected_reliable": false
   },
@@ -1709,10 +1709,10 @@
     "expected_reliable": true
   },
   {
-    "input": "C-001 케이스의 예약된 검사",
+    "input": "M9UAA6 케이스의 예약된 검사",
     "expected_method": "assessment_session.query",
     "expected_params": {
-      "case_id": "C-001",
+      "case_id": "M9UAA6",
       "status": "scheduled"
     },
     "expected_reliable": false
@@ -1743,10 +1743,10 @@
     "expected_reliable": false
   },
   {
-    "input": "C-001 취소된 검사 보여줘",
+    "input": "M9UAA6 취소된 검사 보여줘",
     "expected_method": "assessment_session.query",
     "expected_params": {
-      "case_id": "C-001",
+      "case_id": "M9UAA6",
       "status": "cancelled"
     },
     "expected_reliable": false
@@ -1876,122 +1876,122 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 C-001 자세히 보여줘",
+    "input": "케이스 M9UAA6 자세히 보여줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-001"
+      "case_id": "M9UAA6"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-100 케이스 정보",
+    "input": "L1XNB9 케이스 정보",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-100"
+      "case_id": "L1XNB9"
     },
     "expected_reliable": false
   },
   {
-    "input": "CC-200 상담 케이스 상세",
+    "input": "CEBDDN600 상담 케이스 상세",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "CC-200"
+      "case_id": "CEBDDN600"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 CASE-555 좀 보여줘",
+    "input": "케이스 C00555 좀 보여줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "CASE-555"
+      "case_id": "C00555"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-12 상담 자세하게",
+    "input": "J7KMV4 상담 자세하게",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-12"
+      "case_id": "J7KMV4"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 ID CC-007 조회해줘",
+    "input": "케이스 ID CR8TXQ3 조회해줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "CC-007"
+      "case_id": "CR8TXQ3"
     },
     "expected_reliable": false
   },
   {
-    "input": "상담 C-2024-001 상세 정보",
+    "input": "상담 EBDDN6024-001 상세 정보",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-2024-001"
+      "case_id": "EBDDN6024-001"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-300 케이스 어떤 내용이지?",
+    "input": "H8VEK6 케이스 어떤 내용이지?",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-300"
+      "case_id": "H8VEK6"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 C-99 정보 알려줘",
+    "input": "케이스 W2FJL59 정보 알려줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-99"
+      "case_id": "W2FJL59"
     },
     "expected_reliable": false
   },
   {
-    "input": "CASE-1234 상담 좀 봐줘",
+    "input": "AC00014 상담 좀 봐줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "CASE-1234"
+      "case_id": "AC00014"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-77 케이스 디테일",
+    "input": "C00077 케이스 디테일",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-77"
+      "case_id": "C00077"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-001 좀 자세히",
+    "input": "M9UAA6 좀 자세히",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-001"
+      "case_id": "M9UAA6"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 CC-555 한 건 보여줘",
+    "input": "케이스 C00555 한 건 보여줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "CC-555"
+      "case_id": "C00555"
     },
     "expected_reliable": false
   },
   {
-    "input": "C-2025-100 케이스 풀로 보여줘",
+    "input": "EBDDN6025-100 케이스 풀로 보여줘",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-2025-100"
+      "case_id": "EBDDN6025-100"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스 아이디 C-9 조회",
+    "input": "케이스 아이디 W2FJL5 조회",
     "expected_method": "counseling.get",
     "expected_params": {
-      "case_id": "C-9"
+      "case_id": "W2FJL5"
     },
     "expected_reliable": false
   },
@@ -2052,10 +2052,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 코드 CC-001 검색",
+    "input": "케이스 코드 C00001 검색",
     "expected_method": "counseling_case.query",
     "expected_params": {
-      "case_code": "CC-001"
+      "case_code": "C00001"
     },
     "expected_reliable": false
   },
@@ -3121,18 +3121,18 @@
     "expected_reliable": true
   },
   {
-    "input": "AC-2026-001 케이스 정보",
+    "input": "AEBDDN6026-001 케이스 정보",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "case_code": "AC-2026-001"
+      "case_code": "AEBDDN6026-001"
     },
     "expected_reliable": false
   },
   {
-    "input": "케이스코드 TC-1023 찾아줘",
+    "input": "케이스코드 AC1023 찾아줘",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "case_code": "TC-1023"
+      "case_code": "AC1023"
     },
     "expected_reliable": false
   },
@@ -3517,10 +3517,10 @@
     "expected_reliable": true
   },
   {
-    "input": "내담자 코드 C-1001 조회",
+    "input": "내담자 코드 L1XNB91 조회",
     "expected_method": "client.query",
     "expected_params": {
-      "code": "C-1001"
+      "code": "L1XNB91"
     },
     "expected_reliable": false
   },
@@ -4769,10 +4769,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 CASE-001 수정해도 되나?",
+    "input": "케이스 AC0001 수정해도 되나?",
     "expected_method": "assessment_case.validate_update",
     "expected_params": {
-      "case_id": "CASE-001"
+      "case_id": "AC0001"
     },
     "expected_reliable": false
   },
@@ -4806,10 +4806,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 C-100에 검사 세트 SET-A 적용 가능?",
+    "input": "케이스 L1XNB9에 검사 세트 SET-A 적용 가능?",
     "expected_method": "assessment_case.validate_update",
     "expected_params": {
-      "case_id": "C-100",
+      "case_id": "L1XNB9",
       "set_id": "SET-A"
     },
     "expected_reliable": false
@@ -5038,10 +5038,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 C-100에서 진행중인 검사",
+    "input": "케이스 L1XNB9에서 진행중인 검사",
     "expected_method": "assessment_task.query",
     "expected_params": {
-      "case_id": "C-100",
+      "case_id": "L1XNB9",
       "status": "in_progress"
     },
     "expected_reliable": false
@@ -5205,10 +5205,10 @@
     "expected_reliable": true
   },
   {
-    "input": "C-300 자녀들 조회",
+    "input": "H8VEK6 자녀들 조회",
     "expected_method": "client_relation.query",
     "expected_params": {
-      "client_id": "C-300",
+      "client_id": "H8VEK6",
       "relation_type": "child"
     },
     "expected_reliable": false
@@ -5274,10 +5274,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 CC-1 참여자 목록",
+    "input": "케이스 C00001 참여자 목록",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "CC-1"
+      "case_id": "C00001"
     },
     "expected_reliable": false
   },
@@ -5359,10 +5359,10 @@
     "expected_reliable": true
   },
   {
-    "input": "CASE-9 참여중인 사람",
+    "input": "C00009 참여중인 사람",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "CASE-9",
+      "case_id": "C00009",
       "active_only": true
     },
     "expected_reliable": false
@@ -5385,10 +5385,10 @@
     "expected_reliable": false
   },
   {
-    "input": "C-555 케이스 멤버 전체 다 보여줘",
+    "input": "C00555 케이스 멤버 전체 다 보여줘",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "C-555",
+      "case_id": "C00555",
       "active_only": false
     },
     "expected_reliable": false
@@ -5439,10 +5439,10 @@
     "expected_reliable": false
   },
   {
-    "input": "케이스 C-100 의 회기들",
+    "input": "케이스 L1XNB9 의 회기들",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "counseling_case_id": "C-100"
+      "counseling_case_id": "L1XNB9"
     },
     "expected_reliable": false
   },
@@ -6326,10 +6326,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 C-1 바로링크 내역",
+    "input": "케이스 AC0001 바로링크 내역",
     "expected_method": "send_link.query",
     "expected_params": {
-      "case_id": "C-1"
+      "case_id": "AC0001"
     },
     "expected_reliable": false
   },
@@ -6394,10 +6394,10 @@
     "expected_reliable": true
   },
   {
-    "input": "C-300 케이스 바로링크",
+    "input": "H8VEK6 케이스 바로링크",
     "expected_method": "send_link.query",
     "expected_params": {
-      "case_id": "C-300"
+      "case_id": "H8VEK6"
     },
     "expected_reliable": false
   },
