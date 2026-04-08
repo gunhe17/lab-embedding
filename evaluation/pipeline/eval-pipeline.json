@@ -52,16 +52,13 @@
   {
     "input": "김영희가 올린 문서",
     "expected_method": "document.query",
-    "expected_params": {
-      "uploader_id": "김영희"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "박상담이 업로드한 PDF",
     "expected_method": "document.query",
     "expected_params": {
-      "uploader_id": "박상담",
       "file_type": "pdf"
     },
     "expected_reliable": true
@@ -107,9 +104,7 @@
   {
     "input": "이상담사 업로드 문서 다",
     "expected_method": "document.query",
-    "expected_params": {
-      "uploader_id": "이상담사"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -132,19 +127,17 @@
     "input": "김상담사 내일 빈 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "김상담사",
       "target_date": "2026-04-09"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "박영수 4월 5일 가능 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "박영수",
       "target_date": "2026-04-05"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "김상담사 2026-04-10 가용시간",
@@ -158,19 +151,17 @@
     "input": "이지은 상담사 오늘 비는 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "이지은",
       "target_date": "2026-04-08"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "최민수 모레 근무 가능 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "최민수",
       "target_date": "2026-04-10"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "정상담사 다음주 월요일 슬롯",
@@ -184,19 +175,17 @@
     "input": "김영희 내일 예약 가능한 시간대",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "김영희",
       "target_date": "2026-04-09"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "박상담사 4/15 빈시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "박상담사",
       "target_date": "2026-04-15"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "박지은 선생님 오늘 스케쥴 빈자리",
@@ -210,10 +199,9 @@
     "input": "이상담 금요일 가능 시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "이상담",
       "target_date": "2026-04-10"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "이영희 선생님 내일모레 슬롯 알려줘",
@@ -227,10 +215,9 @@
     "input": "정상담사 다음주 화요일 가능시간",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "정상담사",
       "target_date": "2026-04-14"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "김민수 선생님 2026-05-01 가능슬롯",
@@ -244,10 +231,9 @@
     "input": "한상담 오늘 비는 슬롯",
     "expected_method": "member_working_time.available_slots",
     "expected_params": {
-      "member_id": "한상담",
       "target_date": "2026-04-08"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "센터 휴무일 언제야?",
@@ -1719,9 +1705,7 @@
   {
     "input": "김상담사가 담당한 검사 케이스",
     "expected_method": "assessment_case.query",
-    "expected_params": {
-      "counselor_id": "김상담사"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -1795,8 +1779,7 @@
     "input": "박검사자가 맡은 대기 케이스",
     "expected_method": "assessment_case.query",
     "expected_params": {
-      "status": "pending",
-      "counselor_id": "박검사자"
+      "status": "pending"
     },
     "expected_reliable": true
   },
@@ -1820,7 +1803,7 @@
     "expected_reliable": false
   },
   {
-    "input": "검사 케이스 ID abc123 상세",
+    "input": "이 검사 케이스 상세",
     "expected_method": "assessment_case.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2169,21 +2152,17 @@
   {
     "input": "이하준 내담자 상담 노트",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "client_id": "이하준"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "김민수 노트 보여줘",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "client_id": "김민수"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
-    "input": "session_id ses-001 노트",
+    "input": "이 회기 노트",
     "expected_method": "counseling_note.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2191,32 +2170,25 @@
   {
     "input": "이번 회기 노트 좀",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "session_id": "이번 회기"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "박선생님이 작성한 노트",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "author_id": "박선생님"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "김상담사가 쓴 노트 보여줘",
     "expected_method": "counseling_note.query",
-    "expected_params": {
-      "author_id": "김상담사"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "이하준 자해 노트 찾아줘",
     "expected_method": "counseling_note.query",
     "expected_params": {
-      "client_id": "이하준",
       "keyword": "자해"
     },
     "expected_reliable": true
@@ -2225,13 +2197,12 @@
     "input": "박선생님이 쓴 우울 키워드 노트",
     "expected_method": "counseling_note.query",
     "expected_params": {
-      "author_id": "박선생님",
       "keyword": "우울"
     },
     "expected_reliable": true
   },
   {
-    "input": "노트 ID note-555 상세",
+    "input": "이 노트 상세",
     "expected_method": "counseling_note.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2248,7 +2219,6 @@
     "input": "민지 학교 적응 노트",
     "expected_method": "counseling_note.query",
     "expected_params": {
-      "client_id": "민지",
       "keyword": "학교 적응"
     },
     "expected_reliable": true
@@ -2300,16 +2270,13 @@
   {
     "input": "초기 면담지 템플릿 작성된거",
     "expected_method": "form_instance.query",
-    "expected_params": {
-      "template_id": "초기 면담지"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
     "input": "동의서 양식 제출된거 알려줘",
     "expected_method": "form_instance.query",
     "expected_params": {
-      "template_id": "동의서",
       "status": "submitted"
     },
     "expected_reliable": true
@@ -2318,19 +2285,18 @@
     "input": "초기상담지 작성중인거",
     "expected_method": "form_instance.query",
     "expected_params": {
-      "template_id": "초기상담지",
       "status": "draft"
     },
     "expected_reliable": true
   },
   {
-    "input": "template tmpl-1 양식 인스턴스",
+    "input": "동의서 양식 인스턴스",
     "expected_method": "form_instance.query",
     "expected_params": {},
     "expected_reliable": true
   },
   {
-    "input": "양식 instance_id ins-99",
+    "input": "이 양식 인스턴스",
     "expected_method": "form_instance.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2370,9 +2336,7 @@
   {
     "input": "사전 설문지 작성된거 보여줘",
     "expected_method": "form_instance.query",
-    "expected_params": {
-      "template_id": "사전 설문지"
-    },
+    "expected_params": {},
     "expected_reliable": true
   },
   {
@@ -2489,7 +2453,7 @@
     "expected_reliable": true
   },
   {
-    "input": "초대 ID inv-12 조회",
+    "input": "이 초대 조회",
     "expected_method": "member_invitation.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2726,7 +2690,7 @@
     "expected_reliable": true
   },
   {
-    "input": "프로그램 ID prog-3 정보",
+    "input": "이 프로그램 정보",
     "expected_method": "program.query",
     "expected_params": {},
     "expected_reliable": true
@@ -2768,10 +2732,8 @@
   {
     "input": "이 상담 케이스 참여자 보여줘",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "이 상담 케이스"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "케이스 C00001 참여자 목록",
@@ -2782,16 +2744,15 @@
     "expected_reliable": false
   },
   {
-    "input": "상담 케이스 K9 누구 참여하고 있어?",
+    "input": "이 상담 케이스 누구 참여하고 있어?",
     "expected_method": "counseling.list_participants",
     "expected_params": {},
     "expected_reliable": false
   },
   {
-    "input": "케이스 C100 활성 참여자만",
+    "input": "이 케이스 활성 참여자만",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "이 상담 케이스",
       "active_only": true
     },
     "expected_reliable": false
@@ -2800,10 +2761,9 @@
     "input": "이 케이스 빠진 사람 포함 전체 참여자",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "이 케이스",
       "active_only": false
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "이 케이스 모든 참여자 (탈퇴 포함)",
@@ -2814,11 +2774,9 @@
     "expected_reliable": false
   },
   {
-    "input": "상담 ABC1 누구누구 들어가있어",
+    "input": "이 상담 누구누구 들어가있어",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "이 상담 케이스"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -2831,13 +2789,12 @@
     "input": "이 상담 활성 멤버",
     "expected_method": "counseling.list_participants",
     "expected_params": {
-      "case_id": "이 상담",
       "active_only": true
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
-    "input": "케이스 X1 참여자 전체 (과거 포함)",
+    "input": "이 케이스 참여자 전체 (과거 포함)",
     "expected_method": "counseling.list_participants",
     "expected_params": {
       "active_only": false
@@ -2847,10 +2804,8 @@
   {
     "input": "이 케이스 멤버 누구야",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "이 케이스"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "C00009 참여중인 사람",
@@ -2864,10 +2819,8 @@
   {
     "input": "이거 누가 참여하고 있나",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "이거"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "이 케이스 참여자 활성만 보여주세요",
@@ -2889,21 +2842,17 @@
   {
     "input": "이 상담 케이스 상담사 내담자 누구임",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "이 상담 케이스"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "케이스 GG의 참여자",
     "expected_method": "counseling.list_participants",
-    "expected_params": {
-      "case_id": "이 상담 케이스"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
-    "input": "케이스 R3 활성 참여자",
+    "input": "이 케이스 활성 참여자",
     "expected_method": "counseling.list_participants",
     "expected_params": {
       "active_only": true
@@ -2988,7 +2937,7 @@
     "expected_reliable": false
   },
   {
-    "input": "케이스 K1 완료 회기",
+    "input": "이 케이스 완료 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "completed"
@@ -3014,11 +2963,10 @@
     "expected_reliable": true
   },
   {
-    "input": "케이스 CC1 예정 회기",
+    "input": "이 케이스 예정 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
-      "status": "scheduled",
-      "case_id": "이 상담 케이스"
+      "status": "scheduled"
     },
     "expected_reliable": false
   },
@@ -3058,7 +3006,7 @@
     "expected_reliable": false
   },
   {
-    "input": "케이스 G3 취소 회기",
+    "input": "이 케이스 취소 회기",
     "expected_method": "counseling_session.query",
     "expected_params": {
       "status": "cancelled"
@@ -3200,10 +3148,8 @@
   {
     "input": "김상담사 휴가 언제야?",
     "expected_method": "member_non_working_time.query",
-    "expected_params": {
-      "member_id": "김상담사"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "김상담사 비근무 시간",
@@ -3215,19 +3161,17 @@
     "input": "박선생 2026년 휴가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "박선생",
       "year": 2026
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "이상담 4월 휴가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "이상담",
       "month": 4
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "박선생의 2025년 12월 비근무",
@@ -3242,40 +3186,36 @@
     "input": "김선생 연차 내역",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "김선생",
       "reason": "ANNUAL_LEAVE"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "박상담사 병가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "박상담사",
       "reason": "SICK_LEAVE"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "이선생 오전 반차",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "이선생",
       "reason": "HALF_DAY_AM"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "정상담 오후 반차 내역",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "정상담",
       "reason": "HALF_DAY_PM"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
-    "input": "직원 ID M2 출장",
+    "input": "김민수 선생님 출장",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "BUSINESS_TRIP"
@@ -3286,22 +3226,20 @@
     "input": "윤선생 교육",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "윤선생",
       "reason": "TRAINING"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
     "input": "최상담 개인사정 휴무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "최상담",
       "reason": "PERSONAL"
     },
-    "expected_reliable": true
+    "expected_reliable": false
   },
   {
-    "input": "M5 기타 비근무",
+    "input": "박지은 선생님 기타 비근무",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
       "reason": "OTHER"
@@ -3312,7 +3250,6 @@
     "input": "김상담 2026년 연차",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "김상담",
       "year": 2026,
       "reason": "ANNUAL_LEAVE"
     },
@@ -3322,7 +3259,6 @@
     "input": "이선생 4월 병가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "이선생",
       "month": 4,
       "reason": "SICK_LEAVE"
     },
@@ -3332,7 +3268,6 @@
     "input": "박선생 2025년 5월 휴가",
     "expected_method": "member_non_working_time.query",
     "expected_params": {
-      "member_id": "박선생",
       "year": 2025,
       "month": 5
     },
@@ -3347,10 +3282,8 @@
   {
     "input": "정선생 비근무 사유",
     "expected_method": "member_non_working_time.query",
-    "expected_params": {
-      "member_id": "정선생"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "오늘 9시 영업하나?",
@@ -3553,17 +3486,13 @@
   {
     "input": "이 프로그램 담당자 누구",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "이 프로그램"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
-    "input": "프로그램 P100 담당 직원",
+    "input": "이 프로그램 담당 직원",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "이 프로그램"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
@@ -3575,27 +3504,20 @@
   {
     "input": "프로그램 PG9에 김상담 배정되어있어?",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "이 프로그램",
-      "member_id": "김상담"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "그룹상담 프로그램 박선생 담당인지",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "member_id": "박선생"
-    },
+    "expected_params": {},
     "expected_reliable": false
   },
   {
     "input": "이 프로그램 담당 상담사 알려줘",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "이 프로그램"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "개인상담 프로그램 담당자 명단",
@@ -3607,18 +3529,15 @@
     "input": "프로그램 GROUP1 담당이 이선생 맞아?",
     "expected_method": "program_member.query",
     "expected_params": {
-      "program_id": "GROUP1",
-      "member_id": "이선생"
+      "program_id": "GROUP1"
     },
     "expected_reliable": false
   },
   {
     "input": "이 프로그램 담당직원 누가있어",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "이 프로그램"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "그룹상담 프로그램 담당 멤버",
@@ -3629,10 +3548,8 @@
   {
     "input": "음악치료 프로그램 담당자",
     "expected_method": "program_member.query",
-    "expected_params": {
-      "program_id": "음악치료"
-    },
-    "expected_reliable": true
+    "expected_params": {},
+    "expected_reliable": false
   },
   {
     "input": "개인상담 프로그램 김민수 선생님 배정 여부",
